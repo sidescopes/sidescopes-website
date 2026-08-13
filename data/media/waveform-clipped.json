@@ -1,0 +1,45 @@
+{
+  "name": "waveform-clipped",
+  "alt": "The same frame brightened until the top of the trace lies flat against the top of the scale instead of coming to a peak.",
+  "caption": "The same frame, brightened. The top of the trace now lies flat along 100 rather than coming to a peak - that flatness is clipping, and the detail behind it is gone.",
+  "base": "shots/waveform-clipped.156b7c4bc9",
+  "stable": "shots/waveform-clipped.png",
+  "variants": [
+    620,
+    930,
+    1040
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1040,
+  "height": 740,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.waveform.luma"
+    ],
+    "reference_image": "neutral-detail.jpg",
+    "derive": [
+      "-evaluate",
+      "multiply",
+      "1.9"
+    ],
+    "window_points": [
+      520,
+      452
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1040,
+      740
+    ],
+    "app_version": "0.5.0",
+    "app_commit": "c0215c0",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

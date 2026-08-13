@@ -1,0 +1,55 @@
+{{- /* Markdown images, upgraded.
+
+       The documentation under content/docs/ is generated from the
+       application repository and has to render in TWO places: here, and in
+       GitHub's markdown preview when somebody reads docs/SCOPES.md on the
+       repository page. A Hugo shortcode would show up as literal text
+       there, so those files use ordinary markdown pointing at the media
+       bucket's STABLE address:
+
+           ![alt text](https://media.sidescopes.org/shots/histogram.png)
+
+       GitHub renders that directly. This hook recognises it, finds the shot
+       in data/media/, and replaces it with a full <picture> carrying AVIF
+       and WebP at several widths — so the site gets responsive images from
+       the same one line of markdown, with no second source to maintain.
+
+       Anything that is not a known shot falls through to a plain <img>. */ -}}
+
+{{- $destination := .Destination -}}
+{{- $name := "" -}}
+{{- if strings.Contains $destination "/shots/" -}}
+  {{- $file := index (last 1 (split $destination "/shots/")) 0 -}}
+  {{- $name = strings.TrimSuffix ".png" $file -}}
+{{- end -}}
+{{- $entry := "" -}}
+{{- if $name }}{{ $entry = index hugo.Data.media $name }}{{ end -}}
+
+{{- if $entry -}}
+  {{- $base := printf "%s/%s" (partial "media-base.html" .) $entry.base -}}
+  {{- $widths := apply $entry.variants "int" "." -}}
+  {{- $largest := index $widths (sub (len $widths) 1) -}}
+  {{- $alt := or .Text $entry.alt -}}
+<figure class="scope-panel scope-panel--bare scope-figure">
+  <picture>
+    {{- range $format := $entry.formats }}
+    {{- if ne $format "png" }}
+    {{- $set := slice }}
+    {{- range $w := $widths }}
+      {{- $set = $set | append (printf "%s-%d.%s %dw" $base $w $format $w) }}
+    {{- end }}
+    <source type="image/{{ $format }}" {{ printf "sizes=%q srcset=%q" "(min-width: 56rem) 40rem, 100vw" (delimit $set ", ") | safeHTMLAttr }}>
+    {{- end }}
+    {{- end }}
+    <img src="{{ printf "%s-%d.png" $base $largest }}" alt="{{ $alt }}"
+         width="{{ $largest }}" height="{{ int $entry.height }}"
+         loading="lazy" decoding="async">
+  </picture>
+  {{- with or .Title $entry.caption }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>
+{{- else -}}
+<img src="{{ $destination | safeURL }}" alt="{{ .Text }}"
+     {{- with .Title }} title="{{ . }}"{{ end }} loading="lazy" decoding="async">
+{{- end -}}

@@ -1,0 +1,50 @@
+{{- /* One page of the guide or documentation: sidebar, body, contents. */ -}}
+{{- $section := .FirstSection -}}
+{{- $pages := $section.RegularPages.ByWeight -}}
+<div class="wrap wrap--wide doc-layout">
+  {{ partial "doc-side.html" . }}
+
+  <article class="doc-body">
+    {{ partial "breadcrumb.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lede }}
+    <p class="lede">{{ . | markdownify }}</p>
+    {{- end }}
+
+    <div class="prose">
+      {{ .Content }}
+    </div>
+
+    {{- with .Params.sourceFile }}
+    <p class="doc-source">
+      This page is generated from
+      <a href="{{ site.Params.repoURL }}/blob/{{ site.Params.docsRef | default "main" }}/{{ . }}"><code>{{ . }}</code></a>
+      in the application repository, so it describes the released build
+      rather than whatever is on the development branch.
+    </p>
+    {{- end }}
+
+    {{- $prev := "" }}{{ $next := "" }}
+    {{- range $i, $p := $pages }}
+      {{- if eq $p $ }}
+        {{- if gt $i 0 }}{{ $prev = index $pages (sub $i 1) }}{{ end }}
+        {{- if lt (add $i 1) (len $pages) }}{{ $next = index $pages (add $i 1) }}{{ end }}
+      {{- end }}
+    {{- end }}
+    {{- if or $prev $next }}
+    <nav class="page-nav" aria-label="Section">
+      {{- with $prev }}<a class="prev" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+      {{- with $next }}<a class="next" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+    </nav>
+    {{- end }}
+  </article>
+
+  {{- if gt (len (findRE "<h[23]" .Content)) 2 }}
+  <nav class="doc-toc" aria-label="On this page">
+    <h2>On this page</h2>
+    {{ .TableOfContents }}
+  </nav>
+  {{- else }}
+  <div></div>
+  {{- end }}
+</div>

@@ -1,0 +1,237 @@
+/* Page frame: the container, the header, the footer, and section rhythm. */
+
+.wrap {
+  width: 100%;
+  max-width: var(--wrap);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.wrap--wide {
+  max-width: var(--wrap-wide);
+}
+
+.wrap--prose {
+  max-width: calc(var(--measure) + 2 * var(--gutter));
+}
+
+/* The six-hue rule: the mark's targets flattened into a line. It marks the
+   top of the page and the head of a major section, and is the only purely
+   decorative element on the site. */
+.spectrum {
+  height: 3px;
+  border: 0;
+  margin: 0;
+  background: linear-gradient(
+    to right,
+    var(--hue-red) 0 16.66%,
+    var(--hue-magenta) 16.66% 33.33%,
+    var(--hue-blue) 33.33% 50%,
+    var(--hue-cyan) 50% 66.66%,
+    var(--hue-green) 66.66% 83.33%,
+    var(--hue-yellow) 83.33% 100%
+  );
+}
+
+/* Header */
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: color-mix(in srgb, var(--bg) 88%, transparent);
+  backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 3.75rem;
+}
+
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--ink);
+  text-decoration: none;
+  font-family: var(--display);
+  font-weight: 800;
+  font-size: 1.0625rem;
+  letter-spacing: -0.035em;
+  flex: none;
+}
+
+.wordmark svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.site-nav {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: clamp(0.85rem, 2.4vw, 1.6rem);
+}
+
+.site-nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="true"] {
+  color: var(--ink);
+}
+
+.site-nav a[aria-current="true"] {
+  font-weight: 650;
+}
+
+/* `.site-nav a` is more specific than `.btn`, so the button's own colour
+   has to be restated here or the link colour wins and the label vanishes
+   into the fill. */
+.site-nav a.btn {
+  font-size: 0.875rem;
+  padding: 0.4rem 0.85rem;
+  color: var(--accent-ink);
+}
+
+.site-nav a.btn:hover {
+  color: var(--accent-ink);
+}
+
+@media (max-width: 34rem) {
+  .site-nav .nav-hide-sm {
+    display: none;
+  }
+}
+
+/* Footer */
+
+.site-footer {
+  margin-top: 5rem;
+  border-top: 1px solid var(--line);
+  background: var(--surface-2);
+  padding-block: 2.5rem 2rem;
+  font-size: 0.9375rem;
+}
+
+.footer-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1.75rem 2rem;
+}
+
+.footer-cols h2 {
+  font-family: var(--sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.7rem;
+}
+
+.footer-cols ul {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 0.4rem;
+}
+
+.footer-cols a {
+  color: var(--ink-2);
+  text-decoration: none;
+}
+
+.footer-cols a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.footer-base {
+  margin-top: 2.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+  color: var(--ink-3);
+  font-size: 0.875rem;
+}
+
+.footer-base .grow {
+  margin-left: auto;
+}
+
+/* Section rhythm */
+
+.section {
+  padding-block: clamp(3rem, 7vw, 5rem);
+  border-top: 1px solid var(--line);
+}
+
+.section:first-of-type {
+  border-top: 0;
+}
+
+.section-head {
+  max-width: var(--measure);
+  margin-bottom: 2.25rem;
+}
+
+.section-head p {
+  color: var(--ink-2);
+  margin-top: 0.85rem;
+}
+
+.kicker {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-bottom: 0.6rem;
+}
+
+/* Generic grids */
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.grid--2 {
+  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+}
+
+.grid--3 {
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+
+.split {
+  display: grid;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: center;
+}
+
+@media (min-width: 52rem) {
+  .split {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .split--wide-first {
+    grid-template-columns: 1.25fr 1fr;
+  }
+
+  .split--wide-last {
+    grid-template-columns: 1fr 1.25fr;
+  }
+}

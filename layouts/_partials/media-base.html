@@ -1,0 +1,11 @@
+{{- /* Where a screenshot is fetched from.
+
+       In production that is the media bucket on its own host, so neither
+       repository carries an image binary. Under `hugo server` it is the
+       mounted media-staging/ directory, so a shot can be looked at the
+       moment the pipeline writes it and before anything is uploaded. */ -}}
+{{- if hugo.IsServer -}}
+/_media
+{{- else -}}
+{{- site.Params.mediaBaseURL | strings.TrimSuffix "/" -}}
+{{- end -}}

@@ -1,0 +1,138 @@
+baseURL = 'https://sidescopes.org/'
+locale = 'en'
+title = 'SideScopes'
+timeZone = 'Europe/Warsaw'
+enableRobotsTXT = true
+enableEmoji = false
+
+# No taxonomy pages: sections carry the structure, and a thin tag page is
+# worse than no page at all.
+disableKinds = ['taxonomy', 'term']
+
+# RSS is switched on per section rather than globally — only /news/ has a
+# feed, and its front matter asks for it.
+[outputs]
+  home = ['html']
+  section = ['html']
+  page = ['html']
+
+[params]
+  description = 'Free, open-source colour scopes for any region of your screen — a live vectorscope, waveform and histogram beside the photo editor you already use.'
+  tagline = 'See the colour your eyes stopped noticing.'
+
+  # Where the binaries live. The site links here and never re-hosts a
+  # download: github.com carries the download-origin reputation that a new
+  # domain does not.
+  releasesURL = 'https://github.com/sidescopes/sidescopes/releases'
+  repoURL = 'https://github.com/sidescopes/sidescopes'
+  orgURL = 'https://github.com/sidescopes'
+  issuesURL = 'https://github.com/sidescopes/sidescopes/issues'
+
+  # Screenshots and other heavy media are served from R2, so neither this
+  # repo nor the app repo ever carries an image binary. See
+  # scripts/media-add.sh and layouts/_shortcodes/figure.html.
+  mediaBaseURL = 'https://media.sidescopes.org'
+
+  # The tag content/docs/ was generated from. scripts/sync-docs.sh writes it
+  # and CI checks the tree still matches, so the documentation on the site
+  # describes the released build rather than the development branch.
+  docsRef = 'v0.5.0'
+
+  # TEMPORARY, remove once scripts/media-add.sh has published the shots:
+  # a missing figure is a warning rather than a build failure. With this
+  # gone, publishing a page that references a screenshot nobody generated
+  # fails the production build instead of shipping a hole.
+  allowMissingFigures = true
+
+  # Whether the published builds are code-signed. FLIP THESE when signing
+  # lands: the download page's warning section is written from them, and
+  # leaving them false after notarization would tell readers to expect a
+  # dialog that no longer appears.
+  [params.signing]
+    macos = false
+    windows = false
+
+[[menus.main]]
+  name = 'Learn'
+  pageRef = '/learn'
+  weight = 10
+
+[[menus.main]]
+  name = 'Docs'
+  pageRef = '/docs'
+  weight = 20
+
+[[menus.main]]
+  name = 'News'
+  pageRef = '/news'
+  weight = 30
+
+[[menus.main]]
+  name = 'Source'
+  url = 'https://github.com/sidescopes/sidescopes'
+  weight = 40
+  [menus.main.params]
+    class = 'nav-hide-sm'
+
+# Hugo refuses to read the environment unless a variable is named here.
+# CF_PAGES_BRANCH marks preview builds noindex; CF_BEACON_TOKEN carries the
+# Web Analytics token, and is set on the production deployment only.
+[security]
+  [security.funcs]
+    getenv = ['^HUGO_', '^CI$', '^CF_PAGES_BRANCH$', '^CF_BEACON_TOKEN$']
+
+[markup]
+  [markup.goldmark.renderer]
+    # Inline SVG diagrams and the odd <figure> live in the content files.
+    unsafe = true
+  [markup.goldmark.parser]
+    [markup.goldmark.parser.attribute]
+      block = true
+  [markup.tableOfContents]
+    startLevel = 2
+    endLevel = 3
+  [markup.highlight]
+    noClasses = false
+    lineNos = false
+    tabWidth = 2
+
+[minify]
+  minifyOutput = true
+  [minify.tdewolff.html]
+    keepQuotes = true
+
+[sitemap]
+  changefreq = 'weekly'
+  priority = 0.5
+
+[services]
+  [services.rss]
+    limit = 50
+
+# The generated screenshots live outside the repository (media-staging/ is
+# ignored) and are served from R2 in production. Mounting them under
+# /_media lets `hugo server` show the very same files locally, so a page can
+# be reviewed before anything is uploaded — and the repository still carries
+# no image binaries.
+[module]
+  [[module.mounts]]
+    source = 'content'
+    target = 'content'
+  [[module.mounts]]
+    source = 'assets'
+    target = 'assets'
+  [[module.mounts]]
+    source = 'static'
+    target = 'static'
+  [[module.mounts]]
+    source = 'data'
+    target = 'data'
+  [[module.mounts]]
+    source = 'layouts'
+    target = 'layouts'
+  [[module.mounts]]
+    source = 'archetypes'
+    target = 'archetypes'
+  [[module.mounts]]
+    source = 'media-staging'
+    target = 'static/_media'

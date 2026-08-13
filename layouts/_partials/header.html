@@ -1,0 +1,17 @@
+<header class="site-header">
+  <div class="wrap wrap--wide">
+    <a class="wordmark" href="/">
+      {{ partial "mark.html" . }}
+      SideScopes
+    </a>
+    <nav class="site-nav" aria-label="Site">
+      {{- range site.Menus.main }}
+      <a href="{{ .URL }}"
+         {{- if $.IsMenuCurrent "main" . }} aria-current="true"
+         {{- else if $.HasMenuCurrent "main" . }} aria-current="true"{{ end }}
+         {{- with .Params.class }} class="{{ . }}"{{ end }}>{{ .Name }}</a>
+      {{- end }}
+      <a class="btn" href="/download/">Download</a>
+    </nav>
+  </div>
+</header>

@@ -1,0 +1,150 @@
+{{ define "main" }}
+{{- $rel := hugo.Data.release -}}
+{{- $version := "" }}{{ with $rel }}{{ $version = .version }}{{ end -}}
+
+<div class="wrap wrap--prose page-header">
+  {{ partial "breadcrumb.html" . }}
+  <h1>{{ .Title }}</h1>
+  <p class="lede">{{ .Params.lede | markdownify }}</p>
+</div>
+
+<div class="wrap wrap--wide" style="padding-top: 2rem;">
+  <div class="dl-grid">
+
+    <div class="dl-card" data-platform="mac">
+      <h3>
+        {{ partial "icon-apple.html" . }}
+        macOS
+      </h3>
+      <span class="dl-hint">Looks like your system</span>
+      <ul>
+        <li>macOS 12 or later</li>
+        <li>Apple silicon and Intel</li>
+        <li>Needs the Screen Recording permission</li>
+      </ul>
+      <a class="btn" href="{{ site.Params.releasesURL }}/latest">
+        Download for macOS{{ with $version }} · {{ . }}{{ end }}
+      </a>
+    </div>
+
+    <div class="dl-card" data-platform="windows">
+      <h3>
+        {{ partial "icon-windows.html" . }}
+        Windows
+      </h3>
+      <span class="dl-hint">Looks like your system</span>
+      <ul>
+        <li>Windows 10 or later, 64-bit</li>
+        <li>One executable in a zip</li>
+        <li>Nothing to install, no runtime needed</li>
+      </ul>
+      <a class="btn" href="{{ site.Params.releasesURL }}/latest">
+        Download for Windows{{ with $version }} · {{ . }}{{ end }}
+      </a>
+    </div>
+
+    <div class="dl-card" data-platform="linux">
+      <h3>
+        {{ partial "icon-linux.html" . }}
+        Linux
+      </h3>
+      <ul>
+        <li>Not released yet</li>
+        <li>The port runs on X11 and Wayland</li>
+        <li>Waiting on packaging, not features</li>
+      </ul>
+      <a class="btn btn--ghost" href="/news/">Follow progress</a>
+    </div>
+
+  </div>
+
+  <p class="btn-note" style="margin-top: 1.25rem;">
+    Every build is on the
+    <a href="{{ site.Params.releasesURL }}">releases page</a>, with its
+    changelog and checksums. Downloads are served by GitHub — this site
+    never hosts a binary, so there is one origin to trust rather than two.
+  </p>
+</div>
+
+<div class="wrap wrap--prose" style="padding-top: 2.5rem;">
+  <div class="prose">
+
+    {{ .Content }}
+
+    <h2 id="warnings">The warning you will see, and why</h2>
+
+    {{- if or (not site.Params.signing.macos) (not site.Params.signing.windows) }}
+    <p>
+      Being straight about this rather than letting you find out: the
+      current builds are <strong>not yet code-signed</strong>, so both
+      operating systems will warn you about them. That warning is about a
+      missing signature, not about anything found in the file — neither
+      system has inspected the code.
+    </p>
+    {{- end }}
+
+    {{- if not site.Params.signing.macos }}
+    <h3>macOS</h3>
+    <p>
+      Recent macOS refuses an unsigned application on the first attempt,
+      with a message about not being able to verify it is free of malware
+      and only a <em>Done</em> button. To run it anyway: open <strong>System
+      Settings → Privacy &amp; Security</strong>, scroll to the Security
+      section, and use <strong>Open Anyway</strong> beside the blocked
+      application. It is asked once.
+    </p>
+    <p>
+      This goes away with Apple Developer notarization, which is registered
+      and being worked through. Until then, the honest position is that you
+      are trusting a build you can inspect the source of rather than a
+      signature.
+    </p>
+    {{- end }}
+
+    {{- if not site.Params.signing.windows }}
+    <h3>Windows</h3>
+    <p>
+      SmartScreen shows <em>Windows protected your PC</em> for executables
+      it has not seen often enough to have formed an opinion about. Choose
+      <strong>More info</strong>, then <strong>Run anyway</strong>. Every
+      new release resets this, because the reputation is attached to the
+      exact file.
+    </p>
+    {{- end }}
+
+    <h2 id="verify">Verifying what you downloaded</h2>
+    <p>
+      Each release lists a SHA-256 for every file. Comparing it against the
+      file you have proves you got the bytes the build published, and that
+      nothing altered them on the way.
+    </p>
+
+    <p><strong>macOS or Linux</strong></p>
+    <pre><code>shasum -a 256 ~/Downloads/SideScopes-macos.zip</code></pre>
+
+    <p><strong>Windows, in PowerShell</strong></p>
+    <pre><code>Get-FileHash -Algorithm SHA256 $HOME\Downloads\SideScopes-windows.zip</code></pre>
+
+    <p>
+      The value it prints should match the one beside that file on the
+      <a href="{{ site.Params.releasesURL }}">releases page</a>. If it does
+      not, do not run it — and please
+      <a href="{{ site.Params.issuesURL }}">say so</a>.
+    </p>
+
+    <h2 id="source">Building it yourself</h2>
+    <p>
+      The surest check is not to take a binary at all. The repository builds
+      with CMake and a C++20 compiler on all three platforms, and
+      <a href="{{ site.Params.repoURL }}/blob/main/CONTRIBUTING.md">CONTRIBUTING.md</a>
+      has the toolchain setup and the checks that run on every commit.
+    </p>
+
+  </div>
+</div>
+
+{{- with resources.Get "js/platform.js" }}
+  {{- $js := . | minify | fingerprint "sha384" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+{{- end }}
+{{ end }}

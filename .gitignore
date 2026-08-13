@@ -1,0 +1,11 @@
+# Hugo build output and caches.
+/public/
+/resources/_gen/
+.hugo_build.lock
+
+# Media staging: originals and generated variants are uploaded to R2, never
+# committed. scripts/media-add.sh writes the manifest in data/media/, which
+# IS committed — it is a few lines of JSON per image.
+/media-staging/
+
+.DS_Store

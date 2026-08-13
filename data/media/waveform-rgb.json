@@ -1,0 +1,41 @@
+{
+  "name": "waveform-rgb",
+  "alt": "An RGB waveform with red, green and blue overlaid in their own colours, separating from one another across the tonal range.",
+  "caption": "Three channels overlaid. Where they separate the picture is not neutral at that level, and the size of the gap is how far from neutral it is.",
+  "base": "shots/waveform-rgb.ab51a1d195",
+  "stable": "shots/waveform-rgb.png",
+  "variants": [
+    620,
+    930,
+    1040
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1040,
+  "height": 740,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.waveform"
+    ],
+    "reference_image": "wide-tonal-range.jpg",
+    "derive": [],
+    "window_points": [
+      520,
+      452
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1040,
+      740
+    ],
+    "app_version": "0.5.0",
+    "app_commit": "c0215c0",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

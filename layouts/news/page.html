@@ -1,0 +1,44 @@
+{{ define "main" }}
+<div class="wrap wrap--prose page-header">
+  {{ partial "breadcrumb.html" . }}
+  <p class="post-meta">
+    <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2 January 2006" }}</time>
+    {{- if eq .Params.postKind "release" }}
+    <span class="badge badge--release">Release</span>
+    {{- end }}
+    {{- with .Params.version }}
+    <span class="badge">{{ . }}</span>
+    {{- end }}
+  </p>
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.lede }}
+  <p class="lede">{{ . | markdownify }}</p>
+  {{- end }}
+</div>
+
+<div class="wrap wrap--prose">
+  <article class="prose">
+    {{ .Content }}
+  </article>
+
+  {{- with .Params.version }}
+  <p class="btn-row" style="margin-top: 2.5rem;">
+    <a class="btn" href="/download/">Download {{ . }}</a>
+    <a class="btn btn--ghost" href="{{ site.Params.repoURL }}/blob/main/CHANGELOG.md">Full changelog</a>
+  </p>
+  {{- end }}
+
+  {{- $posts := (site.GetPage "/news").RegularPages }}
+  {{- $prev := "" }}{{ $next := "" }}
+  {{- range $i, $p := $posts }}
+    {{- if eq $p $ }}
+      {{- if gt $i 0 }}{{ $next = index $posts (sub $i 1) }}{{ end }}
+      {{- if lt (add $i 1) (len $posts) }}{{ $prev = index $posts (add $i 1) }}{{ end }}
+    {{- end }}
+  {{- end }}
+  <nav class="page-nav" aria-label="More news">
+    {{- with $prev }}<a class="prev" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+    {{- with $next }}<a class="next" href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>{{ end }}
+  </nav>
+</div>
+{{ end }}

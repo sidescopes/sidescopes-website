@@ -1,0 +1,177 @@
+/* Long-form body copy: the guides, the docs and the news posts. */
+
+.prose {
+  max-width: var(--measure);
+}
+
+.prose--wide {
+  max-width: 46rem;
+}
+
+.prose > * + * {
+  margin-top: 1.15rem;
+}
+
+.prose h2 {
+  margin-top: 2.75rem;
+  font-size: clamp(1.35rem, 1.2rem + 0.7vw, 1.7rem);
+  scroll-margin-top: 5rem;
+}
+
+.prose h3 {
+  margin-top: 2rem;
+  scroll-margin-top: 5rem;
+}
+
+.prose h4 {
+  margin-top: 1.6rem;
+  font-size: 1rem;
+}
+
+.prose h2 + p,
+.prose h3 + p,
+.prose h4 + p {
+  margin-top: 0.7rem;
+}
+
+/* A heading's own anchor, revealed on hover — a way to link a paragraph of
+   documentation without hunting for the fragment. */
+.prose .anchor {
+  color: var(--ink-3);
+  text-decoration: none;
+  opacity: 0;
+  padding-left: 0.35em;
+  font-weight: 400;
+}
+
+.prose :is(h2, h3):hover .anchor,
+.prose .anchor:focus-visible {
+  opacity: 1;
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.35rem;
+}
+
+.prose li + li {
+  margin-top: 0.45rem;
+}
+
+.prose li > ul,
+.prose li > ol {
+  margin-top: 0.45rem;
+}
+
+.prose strong {
+  font-weight: 650;
+}
+
+.prose blockquote {
+  border-left: 3px solid var(--line-strong);
+  padding-left: 1.1rem;
+  color: var(--ink-2);
+  font-style: italic;
+}
+
+.prose code {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+  white-space: nowrap;
+}
+
+.prose pre {
+  background: var(--scope-bg);
+  color: var(--scope-ink);
+  border: 1px solid var(--scope-line-faint);
+  border-radius: var(--radius);
+  padding: 1rem 1.1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.55;
+}
+
+.prose pre code {
+  background: none;
+  border: 0;
+  padding: 0;
+  white-space: pre;
+  font-size: inherit;
+  color: inherit;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.prose thead th {
+  text-align: left;
+  font-size: 0.75rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: 1px solid var(--line-strong);
+  padding: 0 0.75rem 0.5rem 0;
+}
+
+.prose tbody td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  vertical-align: top;
+  color: var(--ink-2);
+}
+
+.prose tbody td:first-child {
+  color: var(--ink);
+  font-weight: 550;
+}
+
+/* A table wide enough to need scrolling gets its own scroll container so
+   the page itself never scrolls sideways. */
+.table-scroll {
+  overflow-x: auto;
+  margin-block: 1.5rem;
+}
+
+.prose figure,
+.prose .scope-panel {
+  margin-block: 2rem;
+}
+
+.prose .scope-panel > * + * {
+  margin-top: 0;
+}
+
+.prose .lead {
+  font-size: 1.125rem;
+  color: var(--ink-2);
+}
+
+.prose hr {
+  margin-block: 2.5rem;
+}
+
+/* Definition-style key/value rows used in the shortcuts reference. */
+.prose dl {
+  display: grid;
+  gap: 0.5rem 1.25rem;
+}
+
+@media (min-width: 40rem) {
+  .prose dl {
+    grid-template-columns: max-content 1fr;
+  }
+}
+
+.prose dt {
+  font-weight: 650;
+}
+
+.prose dd {
+  margin: 0;
+  color: var(--ink-2);
+}

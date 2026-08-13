@@ -1,0 +1,62 @@
+{{- /* Structured data. Built as maps and handed to jsonify, so a quote in
+       a title cannot break the document. */ -}}
+{{- $author := dict "@type" "Person" "name" "Jakub Stefanski" -}}
+{{- $publisher := dict
+  "@type" "Organization"
+  "name" "SideScopes"
+  "url" site.BaseURL
+  "logo" (absURL "mark-256.png") -}}
+
+{{- if .IsHome -}}
+  {{- $rel := hugo.Data.release -}}
+  {{- $app := dict
+    "@context" "https://schema.org"
+    "@type" "SoftwareApplication"
+    "name" "SideScopes"
+    "description" site.Params.description
+    "url" site.BaseURL
+    "applicationCategory" "MultimediaApplication"
+    "applicationSubCategory" "Photo and video colour analysis"
+    "operatingSystem" "macOS 12+, Windows 10+"
+    "downloadUrl" site.Params.releasesURL
+    "isAccessibleForFree" true
+    "license" "https://www.gnu.org/licenses/gpl-3.0.html"
+    "author" $author
+    "publisher" $publisher
+    "offers" (dict "@type" "Offer" "price" "0" "priceCurrency" "USD") -}}
+  {{- with $rel }}{{ with .version }}{{ $app = merge $app (dict "softwareVersion" .) }}{{ end }}{{ end -}}
+  {{- $site := dict
+    "@context" "https://schema.org"
+    "@type" "WebSite"
+    "name" site.Title
+    "url" site.BaseURL
+    "publisher" $publisher -}}
+<script type="application/ld+json">{{ (slice $app $site) | jsonify }}</script>
+{{- else if .IsPage -}}
+  {{- $type := "Article" -}}
+  {{- if or (eq .Section "docs") (eq .Section "learn") }}{{ $type = "TechArticle" }}{{ end -}}
+  {{- $article := dict
+    "@context" "https://schema.org"
+    "@type" $type
+    "headline" .Title
+    "description" (or .Description .Summary | plainify | truncate 200)
+    "url" .Permalink
+    "mainEntityOfPage" .Permalink
+    "author" $author
+    "publisher" $publisher
+    "inLanguage" site.Language.Locale -}}
+  {{- if not .Date.IsZero }}{{ $article = merge $article (dict "datePublished" (.Date.Format "2006-01-02")) }}{{ end -}}
+  {{- if not .Lastmod.IsZero }}{{ $article = merge $article (dict "dateModified" (.Lastmod.Format "2006-01-02")) }}{{ end -}}
+
+  {{- /* Breadcrumbs, built from the page's own ancestors. */ -}}
+  {{- $items := slice -}}
+  {{- $pos := 1 -}}
+  {{- range .Ancestors.Reverse -}}
+    {{- $name := cond .IsHome "SideScopes" .LinkTitle -}}
+    {{- $items = $items | append (dict "@type" "ListItem" "position" $pos "name" $name "item" .Permalink) -}}
+    {{- $pos = add $pos 1 -}}
+  {{- end -}}
+  {{- $items = $items | append (dict "@type" "ListItem" "position" $pos "name" .LinkTitle "item" .Permalink) -}}
+  {{- $crumbs := dict "@context" "https://schema.org" "@type" "BreadcrumbList" "itemListElement" $items -}}
+<script type="application/ld+json">{{ (slice $article $crumbs) | jsonify }}</script>
+{{- end -}}

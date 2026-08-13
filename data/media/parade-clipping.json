@@ -1,0 +1,51 @@
+{
+  "name": "parade-clipping",
+  "alt": "An RGB parade: red, green and blue drawn side by side, with red reaching higher up the scale than the other two.",
+  "caption": "Red, green and blue side by side. Red reaches the top of the scale first, which is what a warm frame does and what the parade exists to show.",
+  "base": "shots/parade-clipping.21e340603c",
+  "stable": "shots/parade-clipping.png",
+  "variants": [
+    620,
+    930,
+    1120
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1120,
+  "height": 740,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.parade"
+    ],
+    "reference_image": "wide-tonal-range.jpg",
+    "derive": [
+      "-evaluate",
+      "multiply",
+      "1.55",
+      "-channel",
+      "R",
+      "-evaluate",
+      "multiply",
+      "1.25",
+      "+channel"
+    ],
+    "window_points": [
+      560,
+      452
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1120,
+      740
+    ],
+    "app_version": "0.5.0",
+    "app_commit": "c0215c0",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

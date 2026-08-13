@@ -1,0 +1,15 @@
+{{ define "main" }}
+<div class="wrap wrap--prose page-header">
+  {{ partial "breadcrumb.html" . }}
+  <h1>{{ .Title }}</h1>
+  {{- with .Params.lede }}
+  <p class="lede">{{ . | markdownify }}</p>
+  {{- end }}
+</div>
+
+<div class="wrap wrap--prose">
+  <div class="prose">
+    {{ .Content }}
+  </div>
+</div>
+{{ end }}

@@ -1,0 +1,46 @@
+# Cloudflare Pages response headers.
+#
+# Written as PER-PATH blocks rather than one global rule, so that a future
+# section can widen its own policy without loosening the whole site. The
+# browser demo is the case in mind: WebAssembly needs 'wasm-unsafe-eval' in
+# script-src, and a threaded build would additionally need cross-origin
+# isolation, which changes what the document may embed. Neither is granted
+# here, because neither is needed yet — see notes/wasm-demo-research.md in
+# the workbench.
+
+/*
+  # No framing, no MIME sniffing, no referrer leakage to other origins.
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+
+  # Two years, subdomains included, and preload-eligible. The apex serves
+  # nothing but this site.
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+
+  # Nothing here uses any of these, so none of them is granted.
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()
+
+  # script-src is 'self' only: the analytics snippet is served from this
+  # origin and loads the Cloudflare beacon itself, which is why that host
+  # appears here but no inline script hash does.
+  # img-src carries the media host, where every screenshot is served from.
+  Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' https://media.sidescopes.org data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests
+
+# Fingerprinted assets: the name changes when the bytes do, so they never
+# need revalidating.
+/css/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/fonts/*
+  Cache-Control: public, max-age=31536000, immutable
+  Access-Control-Allow-Origin: *
+
+# The feed changes whenever a post does; a short life keeps readers current
+# without asking the origin on every poll.
+/news/index.xml
+  Cache-Control: public, max-age=1800

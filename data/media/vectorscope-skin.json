@@ -1,0 +1,40 @@
+{
+  "name": "vectorscope-skin",
+  "alt": "A vectorscope measuring a portrait: the trace forms an elongated cloud lying along the skin-tone line towards orange.",
+  "caption": "A portrait. The cloud lies along the skin-tone line rather than sitting round the centre, and its length is the range of tones across the face.",
+  "base": "shots/vectorscope-skin.9a1fc5e61e",
+  "stable": "shots/vectorscope-skin.png",
+  "variants": [
+    620,
+    840
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 840,
+  "height": 886,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.vectorscope"
+    ],
+    "reference_image": "face-portrait.jpg",
+    "derive": [],
+    "window_points": [
+      420,
+      552
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      140,
+      840,
+      886
+    ],
+    "app_version": "0.5.0",
+    "app_commit": "c0215c0",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

@@ -1,0 +1,27 @@
+{{- /* The index of the guide or documentation section. */ -}}
+<div class="wrap wrap--wide doc-layout">
+  {{ partial "doc-side.html" . }}
+
+  <article class="doc-body">
+    {{ partial "breadcrumb.html" . }}
+    <h1>{{ .Title }}</h1>
+    {{- with .Params.lede }}
+    <p class="lede">{{ . | markdownify }}</p>
+    {{- end }}
+
+    {{- with .Content }}
+    <div class="prose">{{ . }}</div>
+    {{- end }}
+
+    <div class="grid grid--2" style="margin-top: 2.25rem;">
+      {{- range .RegularPages.ByWeight }}
+      <a class="card card--link" href="{{ .RelPermalink }}">
+        <h3>{{ .LinkTitle }}</h3>
+        <p>{{ with .Description }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}</p>
+      </a>
+      {{- end }}
+    </div>
+  </article>
+
+  <div></div>
+</div>

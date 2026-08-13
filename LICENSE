@@ -1,0 +1,25 @@
+Copyright (c) 2026 Jakub Stefanski. All rights reserved.
+
+This repository holds the source of the sidescopes.org website: its
+templates, stylesheet, diagrams and prose. It is public so that the site
+can be read and corrected, not so that it can be redeployed elsewhere.
+No licence is granted to reuse the design or the text.
+
+Two things in this repository are governed elsewhere:
+
+  * The SideScopes application is free software under the GNU General
+    Public License, version 3 or later. Its source is at
+    https://github.com/sidescopes/sidescopes.
+
+  * The SideScopes name and mark are not covered by any licence here and
+    may not be used to identify a modified version of the application or
+    an unaffiliated site.
+
+Documentation under content/docs/ is generated from the application
+repository and carries that project's licence.
+
+Archivo, the typeface in static/fonts/, is licensed under the SIL Open
+Font License 1.1; its licence text sits beside it.
+
+Corrections and additions are welcome as pull requests, and are accepted
+on the understanding that they are contributed under these same terms.

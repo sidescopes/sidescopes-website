@@ -1,0 +1,41 @@
+{
+  "name": "waveform-luma",
+  "alt": "A luma waveform of a snow-covered forest: a dense trace reaching from near black at the bottom to about ninety at the top, with vertical structure where the trunks are.",
+  "caption": "A snow-covered forest. The trace reaches from near black to about 90, and the vertical striping is the trunks: each column of the picture is a column of the trace.",
+  "base": "shots/waveform-luma.ac0047f18f",
+  "stable": "shots/waveform-luma.png",
+  "variants": [
+    620,
+    930,
+    1040
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1040,
+  "height": 740,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.waveform.luma"
+    ],
+    "reference_image": "neutral-detail.jpg",
+    "derive": [],
+    "window_points": [
+      520,
+      452
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1040,
+      740
+    ],
+    "app_version": "0.5.0",
+    "app_commit": "c0215c0",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

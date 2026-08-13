@@ -1,0 +1,64 @@
+name: ci
+
+on:
+  push:
+    branches: [main, staging, release]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # The documentation under content/docs/ is generated from the
+      # application repository at the tag hugo.toml pins. Checking it out
+      # here lets the drift check re-run the sync and compare.
+      - name: Check out the application repository
+        uses: actions/checkout@v4
+        with:
+          repository: sidescopes/sidescopes
+          path: .sidescopes-code
+          fetch-depth: 0
+
+      - name: Documentation is current
+        env:
+          SIDESCOPES_CODE_REPO: ${{ github.workspace }}/.sidescopes-code
+        run: scripts/sync-docs.sh --check
+
+      - uses: peaceiris/actions-hugo@75d2e84710de30f6ff7268e08f310b60ef14033f # v3.0.0
+        with:
+          hugo-version: "0.164.0"
+          extended: true
+
+      - name: Build
+        run: hugo --gc --minify --printPathWarnings
+
+      # A page that references a screenshot nobody generated would ship a
+      # hole. Outside development that is an error, so prove the switch that
+      # downgrades it is not left on.
+      - name: No missing figures
+        run: |
+          if grep -q '^  allowMissingFigures = true' hugo.toml; then
+            echo "::error::allowMissingFigures is still set in hugo.toml."
+            echo "Remove it once the screenshots are published; while it is"
+            echo "set, a page missing its figure builds green with a gap."
+            exit 1
+          fi
+
+      - name: Link check
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --include-fragments
+            --exclude '^https://media\.sidescopes\.org'
+            --exclude '^https://github\.com/sidescopes/sidescopes/releases'
+            public
+          fail: true

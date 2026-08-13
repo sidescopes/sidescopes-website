@@ -1,0 +1,41 @@
+{
+  "name": "histogram",
+  "alt": "A histogram with red, green and blue drawn as three separate bands, one above another.",
+  "caption": "The Per Channel style: each channel complete, with nothing hiding behind anything else.",
+  "base": "shots/histogram.aef15c7503",
+  "stable": "shots/histogram.png",
+  "variants": [
+    620,
+    930,
+    1040
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1040,
+  "height": 700,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.histogram"
+    ],
+    "reference_image": "neutral-detail.jpg",
+    "derive": [],
+    "window_points": [
+      520,
+      432
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1040,
+      700
+    ],
+    "app_version": "0.5.0",
+    "app_commit": "c0215c0",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

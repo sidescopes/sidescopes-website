@@ -1,0 +1,12 @@
+{{- /* Nothing is emitted at all unless the production build carried a
+       token. A local `hugo server`, a preview deployment and the CI build
+       all render this to nothing, so there is no script to reason about
+       and no third-party host in the page. */ -}}
+{{- $token := getenv "CF_BEACON_TOKEN" -}}
+{{- if $token -}}
+  {{- $host := replaceRE "^https?://" "" site.BaseURL | strings.TrimSuffix "/" -}}
+  {{- with resources.Get "js/analytics.js" }}
+    {{- $js := . | resources.ExecuteAsTemplate "js/analytics.js" (dict "token" $token "host" $host) | minify | fingerprint "sha384" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{- end }}
+{{- end -}}

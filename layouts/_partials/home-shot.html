@@ -1,0 +1,34 @@
+{{- /* The hero screenshot. Real scope panes captured from the running
+       application by the workbench pipeline — never a drawing of one, so
+       what a visitor sees here is what they will see on their own screen.
+
+       Until the pipeline has run there is no manifest and nothing is
+       emitted, which leaves the hero as a single column rather than a
+       broken frame. */ -}}
+{{- $entry := index hugo.Data.media "hero-scopes" -}}
+{{- if $entry -}}
+  {{- $base := printf "%s/%s" (partial "media-base.html" .) $entry.base -}}
+  {{- /* Data-file numbers arrive as float64, so they are cast before they
+         reach a width or a %d. */ -}}
+  {{- $widths := apply $entry.variants "int" "." -}}
+  {{- $largest := index $widths (sub (len $widths) 1) -}}
+<figure class="scope-panel scope-figure">
+  <picture>
+    {{- range $format := $entry.formats }}
+    {{- if ne $format "png" }}
+    {{- $set := slice }}
+    {{- range $w := $widths }}
+      {{- $set = $set | append (printf "%s-%d.%s %dw" $base $w $format $w) }}
+    {{- end }}
+    <source type="image/{{ $format }}" {{ printf "sizes=%q srcset=%q" "(min-width: 60rem) 22rem, 100vw" (delimit $set ", ") | safeHTMLAttr }}>
+    {{- end }}
+    {{- end }}
+    <img src="{{ printf "%s-%d.png" $base $largest }}" alt="{{ $entry.alt }}"
+         width="{{ $largest }}" height="{{ int $entry.height }}"
+         fetchpriority="high" decoding="async">
+  </picture>
+  {{- with $entry.caption }}
+  <figcaption>{{ . | markdownify }}</figcaption>
+  {{- end }}
+</figure>
+{{- end -}}
