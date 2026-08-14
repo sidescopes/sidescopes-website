@@ -2,8 +2,13 @@ name: release-data
 
 # Keeps data/release.json in step with the latest published release, so the
 # version on the download page and in the structured data is never a number
-# somebody remembered to update. A change here pushes to main, which is what
-# triggers the next deployment.
+# somebody remembered to update.
+#
+# It pushes to MAIN, and main is not what deploys: production builds from
+# `release`, which is fast-forwarded deliberately. So a new release updates
+# the number here immediately and reaches the live site at the next publish.
+# That is the intended trade - the alternative is a scheduled job pushing
+# whatever else happens to be on main to production at 06:17.
 
 on:
   schedule:

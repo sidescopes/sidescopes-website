@@ -1,0 +1,15 @@
+{
+  "name": "SideScopes",
+  "short_name": "SideScopes",
+  "description": "Real-time vectorscope and waveform of a region of your screen, beside your photo editor.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#141312",
+  "theme_color": "#141312",
+  "icons": [
+    { "src": "/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/favicon-48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/mark-256.png", "sizes": "256x256", "type": "image/png" }
+  ]
+}
