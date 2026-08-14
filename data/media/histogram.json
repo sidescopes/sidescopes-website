@@ -2,7 +2,7 @@
   "name": "histogram",
   "alt": "A histogram with red, green and blue drawn as three separate bands, one above another.",
   "caption": "The Per Channel style: each channel complete, with nothing hiding behind anything else.",
-  "base": "shots/histogram.aef15c7503",
+  "base": "shots/histogram.2444ea50d6",
   "stable": "shots/histogram.png",
   "variants": [
     620,
@@ -33,8 +33,8 @@
       1040,
       700
     ],
-    "app_version": "0.5.0",
-    "app_commit": "c0215c0",
+    "app_version": "0.6.0",
+    "app_commit": "37463e8",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

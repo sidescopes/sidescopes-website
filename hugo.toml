@@ -38,12 +38,6 @@ disableKinds = ['taxonomy', 'term']
   # describes the released build rather than the development branch.
   docsRef = 'v0.5.0'
 
-  # TEMPORARY, remove once scripts/media-add.sh has published the shots:
-  # a missing figure is a warning rather than a build failure. With this
-  # gone, publishing a page that references a screenshot nobody generated
-  # fails the production build instead of shipping a hole.
-  allowMissingFigures = true
-
   # Whether the published builds are code-signed. FLIP THESE when signing
   # lands: the download page's warning section is written from them, and
   # leaving them false after notarization would tell readers to expect a

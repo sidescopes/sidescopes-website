@@ -2,7 +2,7 @@
   "name": "hero-scopes",
   "alt": "The SideScopes window showing a vectorscope above an RGB waveform, both measuring the same region of the screen.",
   "caption": "A vectorscope over an RGB waveform, measuring one region.",
-  "base": "shots/hero-scopes.5262b566d2",
+  "base": "shots/hero-scopes.b4014b3fce",
   "stable": "shots/hero-scopes.png",
   "variants": [
     620,
@@ -20,7 +20,7 @@
       "org.sidescopes.vectorscope",
       "org.sidescopes.waveform"
     ],
-    "reference_image": "saturated-colour.jpg",
+    "reference_image": "skin-and-colour.jpg",
     "derive": [],
     "window_points": [
       430,
@@ -33,8 +33,8 @@
       860,
       1220
     ],
-    "app_version": "0.5.0",
-    "app_commit": "c0215c0",
+    "app_version": "0.6.0",
+    "app_commit": "37463e8",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

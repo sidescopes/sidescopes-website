@@ -2,7 +2,7 @@
   "name": "vectorscope-cast",
   "alt": "The same frame with a cool cast applied: the whole cloud has moved off the centre towards blue, rather than one part of it growing.",
   "caption": "",
-  "base": "shots/vectorscope-cast.3fef7a9e7c",
+  "base": "shots/vectorscope-cast.06a6a0abdc",
   "stable": "shots/vectorscope-cast.png",
   "variants": [
     620,
@@ -49,8 +49,8 @@
       840,
       886
     ],
-    "app_version": "0.5.0",
-    "app_commit": "c0215c0",
+    "app_version": "0.6.0",
+    "app_commit": "37463e8",
     "app_tree_clean": true,
     "os": "26.5.2"
   }
