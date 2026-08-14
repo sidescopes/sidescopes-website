@@ -28,6 +28,24 @@
   # img-src carries the media host, where every screenshot is served from.
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' https://media.sidescopes.org data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests
 
+# The browser demo, and only the demo.
+#
+# WebAssembly needs 'wasm-unsafe-eval' in script-src, and the module and its
+# .wasm are served from the media host. Both are granted HERE rather than
+# site-wide, which is the whole reason these blocks are written per path:
+# no other page can execute WebAssembly or load a script from that host.
+#
+# Still single-threaded, so no cross-origin isolation and no COEP - see
+# notes/wasm-demo-research.md in the workbench for why threads stay off.
+/demo/*
+  X-Frame-Options: DENY
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Cross-Origin-Opener-Policy: same-origin
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://media.sidescopes.org https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' https://media.sidescopes.org data: blob:; font-src 'self'; connect-src 'self' https://media.sidescopes.org https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests
+
 # Fingerprinted assets: the name changes when the bytes do, so they never
 # need revalidating.
 /css/*

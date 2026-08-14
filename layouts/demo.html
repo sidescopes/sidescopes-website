@@ -1,0 +1,38 @@
+{{ define "main" }}
+{{- $demo := hugo.Data.demo -}}
+<div class="wrap wrap--prose page-header">
+  {{ partial "breadcrumb.html" . }}
+  <h1>{{ .Title }}</h1>
+  <p class="lede">{{ .Params.lede | markdownify }}</p>
+</div>
+
+<div class="wrap wrap--wide" style="padding-top: 1.5rem;">
+{{- if $demo }}
+  <div id="demo-mount" data-src="{{ site.Params.mediaBaseURL }}/{{ $demo.prefix }}/">
+    <noscript>
+      <p class="note">The demo needs JavaScript and WebAssembly. Everything it
+      does runs on your own machine; nothing is sent anywhere.</p>
+    </noscript>
+  </div>
+  <p class="btn-note" style="margin-top: 1rem;">
+    About {{ math.Round (div (float $demo.wasmBytes) 1024) }}&nbsp;KB of
+    WebAssembly, fetched when you press start and not before.
+  </p>
+{{- else }}
+  <p class="note note--caution">
+    <span class="note-title">Not published yet</span>
+    The demo is built but has not been uploaded. Run
+    <code>scripts/demo-upload.sh</code> in the workbench and commit
+    <code>data/demo.json</code>.
+  </p>
+{{- end }}
+</div>
+
+<div class="wrap wrap--prose" style="padding-top: 2rem;">
+  <div class="prose">{{ .Content }}</div>
+  <p class="btn-row" style="margin-top: 2rem;">
+    <a class="btn" href="/download/">Download the application</a>
+    <a class="btn btn--ghost" href="/learn/">Learn to read the scopes</a>
+  </p>
+</div>
+{{ end }}
