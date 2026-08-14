@@ -30,10 +30,14 @@
 
 # The browser demo, and only the demo.
 #
-# WebAssembly needs 'wasm-unsafe-eval' in script-src, and the module and its
-# .wasm are served from the media host. Both are granted HERE rather than
-# site-wide, which is the whole reason these blocks are written per path:
-# no other page can execute WebAssembly or load a script from that host.
+# The demo runs in a FRAME served from the media host, so this page grants
+# frame-src there and nothing else does. The WebAssembly then executes in
+# that frame under the media host's own headers rather than these - which is
+# the cost of framing the tested page instead of rebuilding its surface here,
+# and is acceptable because the bucket serves only what this project uploads
+# to it. 'wasm-unsafe-eval' and the media host stay in script-src because a
+# future in-page demo would need them and their absence would read as a
+# decision rather than an oversight.
 #
 # Still single-threaded, so no cross-origin isolation and no COEP - see
 # notes/wasm-demo-research.md in the workbench for why threads stay off.
@@ -44,7 +48,7 @@
   Cross-Origin-Opener-Policy: same-origin
   Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
   Permissions-Policy: accelerometer=(), autoplay=(), camera=(), display-capture=(), encrypted-media=(), fullscreen=(self), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), midi=(), payment=(), usb=()
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://media.sidescopes.org https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' https://media.sidescopes.org data: blob:; font-src 'self'; connect-src 'self' https://media.sidescopes.org https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'wasm-unsafe-eval' https://media.sidescopes.org https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' https://media.sidescopes.org data: blob:; font-src 'self'; connect-src 'self' https://media.sidescopes.org https://cloudflareinsights.com; frame-src https://media.sidescopes.org; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests
 
 # Fingerprinted assets: the name changes when the bytes do, so they never
 # need revalidating.

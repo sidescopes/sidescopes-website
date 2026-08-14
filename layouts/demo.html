@@ -18,6 +18,10 @@
     About {{ math.Round (div (float $demo.wasmBytes) 1024) }}&nbsp;KB of
     WebAssembly, fetched when you press start and not before.
   </p>
+  {{- with resources.Get "js/demo.js" }}
+  {{- $js := . | minify | fingerprint "sha384" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{- end }}
 {{- else }}
   <p class="note note--caution">
     <span class="note-title">Not published yet</span>
