@@ -42,6 +42,17 @@
 # Still single-threaded, so no cross-origin isolation and no COEP - see
 # notes/wasm-demo-research.md in the workbench for why threads stay off.
 /demo/*
+  # RULES ADD, THEY DO NOT REPLACE. A request matching several patterns
+  # inherits all of their headers, and a header set twice is JOINED WITH A
+  # COMMA - so without this line the page received the /* policy AND the one
+  # below, and a browser enforces the INTERSECTION of every policy it is
+  # given. The stricter one won every directive that matters here: the frame
+  # was refused against `default-src 'self'` and the WebAssembly would have
+  # been too. Shipped that way and caught on the live site, because a second
+  # policy is invisible to anything that reads only the last header.
+  ! Content-Security-Policy
+  ! X-Frame-Options
+  ! Strict-Transport-Security
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin

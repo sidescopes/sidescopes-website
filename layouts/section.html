@@ -8,7 +8,7 @@
 </div>
 <div class="wrap wrap--prose">
   {{- with .Content }}<div class="prose">{{ . }}</div>{{ end }}
-  <div class="grid grid--2" style="margin-top: 2rem;">
+  <div class="grid grid--2 gap-t-lg">
     {{- range .RegularPages }}
     <a class="card card--link" href="{{ .RelPermalink }}">
       <h3>{{ .LinkTitle }}</h3>

@@ -13,7 +13,7 @@
     <div class="prose">{{ . }}</div>
     {{- end }}
 
-    <div class="grid grid--2" style="margin-top: 2.25rem;">
+    <div class="grid grid--2 gap-t-lg">
       {{- range .RegularPages.ByWeight }}
       <a class="card card--link" href="{{ .RelPermalink }}">
         <h3>{{ .LinkTitle }}</h3>

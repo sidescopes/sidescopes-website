@@ -235,3 +235,26 @@
     grid-template-columns: 1fr 1.25fr;
   }
 }
+
+/* Spacing utilities.
+ *
+ * These exist because a `style="margin-top: 1rem"` attribute is INLINE STYLE
+ * and the site's Content-Security-Policy sets `style-src 'self'` with no
+ * 'unsafe-inline' - so every one of them was silently dropped in production
+ * while working perfectly in a local build served without the header. The
+ * spacing was simply absent on the live site.
+ *
+ * The alternative was adding 'unsafe-inline' to style-src, which would have
+ * weakened the policy across every page to save writing these fourteen lines.
+ */
+.gap-t-sm { margin-top: 1rem }
+.gap-t-md { margin-top: 1.5rem }
+.gap-t-lg { margin-top: 2rem }
+.gap-t-xl { margin-top: 2.5rem }
+.gap-b-lg { margin-bottom: 2.5rem }
+.pad-t-md { padding-top: 1.5rem }
+.pad-t-lg { padding-top: 2rem }
+.pad-t-xl { padding-top: 2.5rem }
+.pad-b-lg { padding-bottom: 2rem }
+.center-x { margin-inline: auto }
+.align-start { align-items: start }

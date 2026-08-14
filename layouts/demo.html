@@ -6,7 +6,7 @@
   <p class="lede">{{ .Params.lede | markdownify }}</p>
 </div>
 
-<div class="wrap wrap--wide" style="padding-top: 1.5rem;">
+<div class="wrap wrap--wide pad-t-md">
 {{- if $demo }}
   <div id="demo-mount" data-src="{{ site.Params.mediaBaseURL }}/{{ $demo.prefix }}/">
     <noscript>
@@ -14,7 +14,7 @@
       does runs on your own machine; nothing is sent anywhere.</p>
     </noscript>
   </div>
-  <p class="btn-note" style="margin-top: 1rem;">
+  <p class="btn-note gap-t-sm">
     About {{ math.Round (div (float $demo.wasmBytes) 1024) }}&nbsp;KB of
     WebAssembly, fetched when you press start and not before.
   </p>
@@ -32,9 +32,9 @@
 {{- end }}
 </div>
 
-<div class="wrap wrap--prose" style="padding-top: 2rem;">
+<div class="wrap wrap--prose pad-t-lg">
   <div class="prose">{{ .Content }}</div>
-  <p class="btn-row" style="margin-top: 2rem;">
+  <p class="btn-row gap-t-lg">
     <a class="btn" href="/download/">Download the application</a>
     <a class="btn btn--ghost" href="/learn/">Learn to read the scopes</a>
   </p>

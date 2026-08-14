@@ -6,9 +6,9 @@
   {{- end }}
 </div>
 
-<div class="wrap wrap--prose" style="padding-bottom: 2rem;">
+<div class="wrap wrap--prose pad-b-lg">
   {{- with .Content }}
-  <div class="prose" style="margin-bottom: 2.5rem;">{{ . }}</div>
+  <div class="prose gap-b-lg">{{ . }}</div>
   {{- end }}
 
   {{- $posts := .RegularPages }}
@@ -31,7 +31,7 @@
   <p class="prose">Nothing published yet.</p>
   {{- end }}
 
-  <p class="btn-note" style="margin-top: 2.5rem;">
+  <p class="btn-note gap-t-xl">
     Follow along by <a href="/news/index.xml">RSS</a>, or watch the
     <a href="{{ site.Params.repoURL }}">repository on GitHub</a>.
   </p>
