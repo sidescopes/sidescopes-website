@@ -53,11 +53,28 @@ jobs:
             exit 1
           fi
 
+      # Two flags carry this, and without them the step cannot pass at all.
+      #
+      # --root-dir is what makes a root-relative link checkable: without it
+      # lychee reads public/ as loose files with no site around them, and every
+      # /learn/, /docs/ and /favicon.ico in the build is unresolvable. It was
+      # failing on 1039 of those - the whole site, rather than anything broken
+      # - which is also why the two genuinely dead links in the footer sat
+      # there unnoticed. A check that cries wolf about everything reports
+      # nothing.
+      #
+      # --index-files is what lets a DIRECTORY link carry a fragment. Every
+      # internal link here ends in a slash, as Hugo writes them, so without it
+      # /download/#verify resolves to a directory and no anchor can be found
+      # inside it - and fragment checking, which is the reason for
+      # --include-fragments, silently applies to nothing but stylesheets.
       - name: Link check
         uses: lycheeverse/lychee-action@v2
         with:
           args: >-
             --no-progress --include-fragments
+            --root-dir "$GITHUB_WORKSPACE/public"
+            --index-files index.html
             --exclude '^https://media\.sidescopes\.org'
             --exclude '^https://github\.com/sidescopes/sidescopes/releases'
             public
