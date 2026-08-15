@@ -1,6 +1,6 @@
 {
   "_comment": "Written by scripts/demo-upload.sh in the workbench. The prefix is the digest of the .wasm it was built from, so a new build is a new immutable address.",
-  "prefix": "demo/b5c11c67b3",
-  "wasmBytes": 989486,
-  "built": "2026-08-14"
+  "prefix": "demo/66f283e19d",
+  "wasmBytes": 997027,
+  "built": "2026-08-15"
 }
