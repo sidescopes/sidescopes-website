@@ -1,0 +1,61 @@
+{
+  "name": "region-face",
+  "alt": "A face in a sample photograph enclosed by SideScopes' striped editable region boundary.",
+  "caption": "Uses a detected face as a geometric anchor and follows it within the window.",
+  "label": "Face selection",
+  "base": "shots/region-face.d3383ac0ef",
+  "stable": "shots/region-face.png",
+  "variants": [
+    620,
+    930,
+    1240
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1240,
+  "height": 909,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.vectorscope",
+      "org.sidescopes.waveform"
+    ],
+    "reference_image": "historic-face.jpg",
+    "derive": [
+      "-crop",
+      "700x650+70+25",
+      "+repage",
+      "-resize",
+      "1100x900",
+      "-background",
+      "#181512",
+      "-gravity",
+      "center",
+      "-extent",
+      "1800x1000"
+    ],
+    "window_points": [
+      720,
+      528
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      0,
+      1440,
+      1056
+    ],
+    "presentation": "region",
+    "region_mode": "face",
+    "content_title": "Portrait, 1860",
+    "show_cursor_markers": false,
+    "app_version": "0.6.0",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_tree_clean": true,
+    "os": "26.5.2",
+    "system_appearance": "dark"
+  }
+}

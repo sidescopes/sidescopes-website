@@ -48,22 +48,4 @@ scopes:
       Samples live and pinned colors, reporting RGB values and CIEDE2000
       differences under an sRGB assumption.
 
-regions:
-  - title: Draw a region
-    body: >-
-      Drag over any visible part of the screen. The region remains fixed on
-      that display until you move, resize, or clear it.
-  - title: Select a window
-    body: >-
-      Attach a region to a window so it follows the window and becomes active
-      when that window is focused.
-  - title: Select a face
-    body: >-
-      On supported systems, select a detected face and let the region follow
-      it within the window.
 ---
-
-SideScopes reads rendered screen pixels rather than opening the source file.
-That makes it independent of the application producing the image, whether it
-is a grading system, photo editor, browser, image viewer, or another visual
-tool.

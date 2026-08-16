@@ -1,7 +1,7 @@
 (function () {
   'use strict';
 
-  document.querySelectorAll('[data-scope-showcase]').forEach(function (showcase) {
+  document.querySelectorAll('[data-carousel]').forEach(function (showcase) {
     var slides = Array.from(showcase.querySelectorAll('[data-showcase-slide]'));
     var controls = showcase.querySelector('[data-showcase-controls]');
     if (slides.length < 2 || !controls) {
@@ -12,6 +12,7 @@
     var counter = showcase.querySelector('[data-showcase-counter]');
     var label = showcase.querySelector('[data-showcase-label]');
     var caption = showcase.querySelector('[data-showcase-caption]');
+    var item = showcase.dataset.carouselItem || 'Item';
     var index = 0;
 
     function show(next) {
@@ -21,7 +22,7 @@
       position.textContent = String(index + 1);
       counter.setAttribute(
         'aria-label',
-        'Configuration ' + String(index + 1) + ' of ' + String(slides.length)
+        item + ' ' + String(index + 1) + ' of ' + String(slides.length)
       );
       label.textContent = slides[index].dataset.label;
       caption.textContent = slides[index].dataset.caption;

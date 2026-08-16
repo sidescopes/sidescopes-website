@@ -234,6 +234,111 @@
   outline-offset: 2px;
 }
 
+/* Region demonstration: the copy explains the measurement model while the
+   real desktop capture proves each selection mode. The screenshot carries its
+   own native frame and editing band, so the carousel adds no second card
+   border around it. All three pipeline captures share one 15:11 frame. */
+
+.region-feature {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+
+.region-feature__copy {
+  max-width: 36rem;
+}
+
+.region-feature__copy > p {
+  margin-top: 0.9rem;
+  color: var(--ink-2);
+}
+
+.region-showcase {
+  min-width: 0;
+}
+
+.region-showcase__header {
+  min-height: 5rem;
+  margin-bottom: 0.9rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: start;
+  gap: 1rem;
+}
+
+.region-showcase__copy {
+  min-width: 0;
+}
+
+.region-showcase__title {
+  display: flex;
+  align-items: baseline;
+  gap: 0.65rem;
+  color: var(--scope-ink);
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.region-showcase__title strong {
+  font-weight: 650;
+}
+
+.region-showcase__counter {
+  flex: none;
+  color: var(--ink-3);
+  font-size: 0.75rem;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+}
+
+.region-showcase__caption {
+  max-width: 36rem;
+  margin-top: 0.25rem;
+  color: var(--scope-ink-2);
+  font-size: 0.875rem;
+  line-height: 1.45;
+}
+
+.region-showcase__stage {
+  display: grid;
+  aspect-ratio: 15 / 11;
+  min-width: 0;
+}
+
+.region-showcase__slide {
+  grid-area: 1 / 1;
+  align-self: start;
+  margin: 0;
+}
+
+.region-showcase__slide[hidden] {
+  display: none;
+}
+
+.region-showcase__slide picture,
+.region-showcase__slide img {
+  display: block;
+  width: 100%;
+}
+
+.region-showcase__slide img {
+  height: auto;
+  filter: drop-shadow(0 14px 24px rgb(0 0 0 / 28%));
+}
+
+@media (min-width: 64rem) {
+  .region-feature {
+    grid-template-columns: minmax(18rem, 0.72fr) minmax(32rem, 1.28fr);
+  }
+}
+
+@media (max-width: 40rem) {
+  .region-showcase__header {
+    min-height: 6.5rem;
+  }
+}
+
 /* Cards */
 
 .card {

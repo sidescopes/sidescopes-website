@@ -1,0 +1,49 @@
+{
+  "name": "region-attached",
+  "alt": "A SideScopes region attached inside a sample window, with the striped editing band labeled Snow detail.",
+  "caption": "Follows the selected window and uses its current title in the border label.",
+  "label": "Window-attached region",
+  "base": "shots/region-attached.22e9e44f62",
+  "stable": "shots/region-attached.png",
+  "variants": [
+    620,
+    930,
+    1240
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1240,
+  "height": 909,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.vectorscope",
+      "org.sidescopes.waveform"
+    ],
+    "reference_image": "neutral-detail.jpg",
+    "derive": [],
+    "window_points": [
+      720,
+      528
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      0,
+      1440,
+      1056
+    ],
+    "presentation": "region",
+    "region_mode": "attached",
+    "content_title": "Snow detail",
+    "show_cursor_markers": false,
+    "app_version": "0.6.0",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_tree_clean": true,
+    "os": "26.5.2",
+    "system_appearance": "dark"
+  }
+}

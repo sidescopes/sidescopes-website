@@ -26,28 +26,26 @@
 </section>
 
 <section class="section">
-  <div class="wrap wrap--wide">
-    <div class="section-head">
-      <span class="kicker">Application-independent</span>
+  <div class="wrap wrap--wide region-feature">
+    <div class="region-feature__copy">
+      <span class="kicker">Region selection</span>
       <h2>Measure the output you can see</h2>
-      <div class="prose">{{ .Content }}</div>
       <p>
-        Choose a region manually, attach one to a window, or select a detected
-        face. Every visible scope reads the same region, while markers identify
-        the color under the pointer across the instruments.
+        SideScopes analyzes a rectangular area of the composited desktop, so it
+        can work beside grading, editing, viewing, and browser applications
+        without opening their files. The striped editing band shows exactly
+        which pixels feed every visible instrument.
+      </p>
+      <p>
+        Draw a global region fixed to a display, attach one to a window, or
+        select a detected face. The region remains editable on the desktop, and
+        every active scope measures it at the same time.
+      </p>
+      <p class="btn-row gap-t-md">
+        <a class="btn btn--ghost" href="/docs/regions/">Region selection reference</a>
       </p>
     </div>
-    <div class="grid grid--3">
-      {{- range .Params.regions }}
-      <div class="card">
-        <h3>{{ .title }}</h3>
-        <p>{{ .body | markdownify }}</p>
-      </div>
-      {{- end }}
-    </div>
-    <p class="btn-row gap-t-md">
-      <a class="btn btn--ghost" href="/docs/regions/">Region tools</a>
-    </p>
+    {{ partial "home-regions.html" . }}
   </div>
 </section>
 

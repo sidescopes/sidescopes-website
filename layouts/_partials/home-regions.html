@@ -1,0 +1,67 @@
+{{- /* Three real desktop captures of the region tools. Each shot uses the
+       same controlled sample-window geometry, so changing region type never
+       moves the surrounding layout or changes the scale of the window chrome.
+       With JavaScript unavailable the global-region frame remains visible. */ -}}
+{{- $names := slice "region-global" "region-attached" "region-face" -}}
+{{- $entries := slice -}}
+{{- range $names -}}
+  {{- with index hugo.Data.media . -}}
+    {{- $entries = $entries | append . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- if $entries }}
+{{- $first := index $entries 0 -}}
+<section class="region-showcase" data-carousel data-carousel-item="Region view"
+         aria-label="SideScopes region selection modes">
+  <header class="region-showcase__header">
+    <div class="region-showcase__copy" aria-live="polite" aria-atomic="true">
+      <p class="region-showcase__title">
+        <span class="region-showcase__counter" data-showcase-counter
+              aria-label="Region view 1 of {{ len $entries }}">
+          <span data-showcase-position>1</span>
+          <span aria-hidden="true">/</span>
+          <span aria-hidden="true">{{ len $entries }}</span>
+        </span>
+        <strong data-showcase-label>{{ $first.label }}</strong>
+      </p>
+      <p class="region-showcase__caption" data-showcase-caption>{{ $first.caption }}</p>
+    </div>
+    {{- if gt (len $entries) 1 }}
+    <div class="scope-showcase__controls" data-showcase-controls hidden>
+      <button type="button" data-showcase-previous aria-label="Previous region view">
+        <span aria-hidden="true">←</span>
+      </button>
+      <button type="button" data-showcase-next aria-label="Next region view">
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+    {{- end }}
+  </header>
+  <div class="region-showcase__stage">
+    {{- range $index, $entry := $entries }}
+      {{- $base := printf "%s/%s" (partial "media-base.html" $) $entry.base -}}
+      {{- $widths := apply $entry.variants "int" "." -}}
+      {{- $largest := index $widths (sub (len $widths) 1) -}}
+      {{- $sizes := "(min-width: 70rem) 43rem, (min-width: 48rem) 58vw, calc(100vw - 2rem)" -}}
+    <figure class="region-showcase__slide" data-showcase-slide data-label="{{ $entry.label }}"
+            data-caption="{{ $entry.caption }}"{{ if ne $index 0 }} hidden{{ end }}>
+      <picture>
+        {{- range $format := $entry.formats }}
+        {{- if ne $format "png" }}
+          {{- $set := slice -}}
+          {{- range $w := $widths -}}
+            {{- $set = $set | append (printf "%s-%d.%s %dw" $base $w $format $w) -}}
+          {{- end }}
+        <source type="image/{{ $format }}" {{ printf "sizes=%q srcset=%q" $sizes (delimit $set ", ") | safeHTMLAttr }}>
+        {{- end }}
+        {{- end }}
+        <img src="{{ printf "%s-%d.png" $base $largest }}" alt="{{ $entry.alt }}"
+             width="{{ $largest }}" height="{{ int $entry.height }}"
+             {{ if ne $index 0 }}loading="lazy"{{ end }} decoding="async">
+      </picture>
+    </figure>
+    {{- end }}
+  </div>
+</section>
+{{- end }}
