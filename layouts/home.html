@@ -27,7 +27,7 @@
 
 <section class="section">
   <div class="wrap wrap--wide region-feature">
-    <div class="region-feature__copy">
+    <div class="region-feature__copy section-copy">
       <span class="kicker">Region selection</span>
       <h2>Measure the output you can see</h2>
       <p>
@@ -74,7 +74,7 @@
 
 <section class="section">
   <div class="wrap wrap--wide split split--wide-first">
-    <div>
+    <div class="section-copy">
       <span class="kicker">SideScopes Lab</span>
       <h2>Change an image and watch the scopes respond</h2>
       <div class="prose">
@@ -106,7 +106,7 @@
 
 <section class="section">
   <div class="wrap wrap--wide split split--wide-first">
-    <div>
+    <div class="section-copy">
       <span class="kicker">Measurement boundary</span>
       <h2>Display-referred, SDR measurements</h2>
       <div class="prose">
@@ -127,17 +127,45 @@
       </p>
     </div>
     <div class="card">
-      <h3>Open source and local</h3>
+      <h3>10-bit capture on macOS</h3>
       <p>
-        SideScopes has no account, telemetry, updater, or network access. Its
-        source and build history are public, and release downloads are served
-        by GitHub.
+        On macOS, SideScopes requests 10-bit RGB frames and reads any delivered
+        10-bit samples directly. This can retain finer rendered gradients when
+        the source application and compositor provide them; it cannot create
+        precision absent from the rendered image.
       </p>
       <p>
-        The project is under active development before version 1.0. macOS and
-        Windows builds are available; Linux is not currently released.
+        Ten-bit capture does not make SideScopes an HDR scope. HDR and EDR
+        content is measured through the SDR rendition available to screen
+        capture, where values above SDR white may appear clipped. Windows
+        capture is currently 8-bit.
       </p>
-      <p><a class="card-more" href="{{ site.Params.repoURL }}">View the source →</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap wrap--wide split align-start">
+    <div>
+      <span class="kicker">Project</span>
+      <h2>Open source and local</h2>
+    </div>
+    <div class="prose">
+      <p>
+        SideScopes is free software under the GNU GPL v3 or later. Its source
+        and build history are public, and release downloads are served by
+        GitHub.
+      </p>
+      <p>
+        The desktop application requires no account and has no telemetry,
+        updater, or network access. The project is under active development
+        before version 1.0; macOS and Windows builds are available, while Linux
+        is not currently released.
+      </p>
+      <p class="btn-row gap-t-md">
+        <a class="btn btn--ghost" href="{{ site.Params.repoURL }}">View the source</a>
+        <a class="btn btn--ghost" href="/privacy/">Privacy details</a>
+      </p>
     </div>
   </div>
 </section>

@@ -39,6 +39,26 @@ source bit depth, RAW latitude, timeline working space, node graph, document
 profile, mastering metadata, or whether a value was limited at an earlier
 stage. It also does not measure the final display's emitted light.
 
+## Capture precision and dynamic range
+
+On macOS, SideScopes requests packed 10-bit RGB frames from ScreenCaptureKit.
+When the system supplies that format, the scope engines read its 0–1023 channel
+codes directly rather than first reducing them to eight bits. This can retain
+finer screen-rendered steps in smooth gradients when the source application
+and desktop compositor provide them. It cannot restore precision that is
+absent from the rendered image, and textured or noisy content may show little
+practical difference.
+
+The requested format is not assumed: SideScopes checks every delivered frame
+and also accepts the eight-bit fallback. Windows capture currently uses
+eight-bit BGRA frames.
+
+Bit depth and dynamic range are separate properties. Ten-bit capture does not
+give SideScopes access to source-media values or HDR headroom. HDR and EDR
+content is measured through the SDR rendition available to screen capture;
+highlights above SDR white may therefore appear clipped even when the source
+still contains detail. SideScopes is not an HDR signal-analysis tool.
+
 ## Color assumptions
 
 The desktop capture is requested or labeled as sRGB where the operating-system

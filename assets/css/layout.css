@@ -230,7 +230,14 @@ main,
 
 .section-head p {
   color: var(--ink-2);
-  margin-top: 0.85rem;
+  margin-top: 1rem;
+}
+
+/* Major landing-page copy uses the same heading-to-body interval whether the
+   body is a direct paragraph or a nested prose block. Cards and long-form
+   reading pages keep their tighter, context-specific rhythm. */
+.section-copy > h2 + :is(p, .prose) {
+  margin-top: 1rem;
 }
 
 .kicker {
