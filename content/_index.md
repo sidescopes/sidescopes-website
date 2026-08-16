@@ -12,41 +12,41 @@ lede: >-
 
 scopes:
   - name: Vectorscope
-    key: V
-    class: vectorscope
+    guide: /learn/vectorscope/
+    shot: vectorscope-neutral
     body: >-
-      Plots chroma independently of level. Angle indicates hue; distance from
-      the center indicates chroma in a fixed Rec.709-style projection.
+      Maps hue by angle and chroma by distance from the center, independently
+      of level and image position.
   - name: Waveform
-    key: W
-    class: waveform
+    guide: /learn/waveform/
+    shot: waveform-rgb
     body: >-
-      Overlays red, green, and blue levels while preserving horizontal image
-      position. Channel separation can be examined by tonal range.
+      Overlays red, green, and blue levels while retaining horizontal image
+      position.
   - name: Luma Waveform
-    key: L
-    class: luma
+    guide: /learn/luma-waveform/
+    shot: waveform-luma
     body: >-
-      Plots a Rec.709-style Y′ estimate across the region. Use it to inspect
-      rendered tonal placement and spatial variation.
+      Plots one encoded Y′ trace across the region, making rendered level
+      placement easy to locate.
   - name: RGB Parade
-    key: R
-    class: parade
+    guide: /learn/rgb-parade/
+    shot: parade-clipping
     body: >-
-      Places the three channel waveforms side by side, making channel-specific
-      structure and endpoint accumulation easier to distinguish.
+      Separates red, green, and blue into adjacent waveforms for direct channel
+      comparison.
   - name: Histogram
-    key: H
-    class: histogram
+    guide: /learn/histogram/
+    shot: histogram
     body: >-
-      Counts pixels at each captured level, either per channel or overlaid.
-      The horizontal axis is level; spatial position is discarded.
+      Counts captured channel values without retaining where they occur in the
+      image.
   - name: Color Picker
-    key: C
-    class: picker
+    guide: /learn/color-picker/
+    shot: color-picker
     body: >-
-      Compares a live sample with a pinned reference using RGB values and an
-      sRGB-assumed CIEDE2000 color-difference estimate.
+      Samples live and pinned colors, reporting RGB values and CIEDE2000
+      differences under an sRGB assumption.
 
 regions:
   - title: Draw a region

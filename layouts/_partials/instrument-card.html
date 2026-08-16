@@ -1,0 +1,37 @@
+{{- $page := .page -}}
+{{- $instrument := .instrument -}}
+{{- $entry := index hugo.Data.media $instrument.shot -}}
+{{- if not $entry -}}
+  {{- errorf "instrument %q: no media manifest for %q" $instrument.name $instrument.shot -}}
+{{- end -}}
+{{- $base := printf "%s/%s" (partial "media-base.html" $page) $entry.base -}}
+{{- $widths := apply $entry.variants "int" "." -}}
+{{- $largest := index $widths (sub (len $widths) 1) -}}
+{{- $sizes := "(min-width: 70rem) 24rem, (min-width: 42rem) 46vw, 92vw" -}}
+{{- $titleID := printf "instrument-%s" $instrument.shot -}}
+<a class="instrument-card" href="{{ $instrument.guide }}" aria-labelledby="{{ $titleID }}">
+  <div class="instrument-card__media" aria-hidden="true">
+    <picture>
+      {{- range $format := $entry.formats }}
+      {{- if ne $format "png" }}
+        {{- $set := slice -}}
+        {{- range $width := $widths -}}
+          {{- $set = $set | append (printf "%s-%d.%s %dw" $base $width $format $width) -}}
+        {{- end }}
+      <source type="image/{{ $format }}" {{ printf "sizes=%q srcset=%q" $sizes (delimit $set ", ") | safeHTMLAttr }}>
+      {{- end }}
+      {{- end }}
+      <img src="{{ printf "%s-%d.png" $base $largest }}" alt=""
+           width="{{ $largest }}" height="{{ int $entry.height }}"
+           loading="lazy" decoding="async">
+    </picture>
+  </div>
+  <div class="instrument-card__body">
+    <h3 id="{{ $titleID }}">
+      <span>{{ $instrument.name }}</span>
+      <span class="instrument-card__arrow" aria-hidden="true">→</span>
+    </h3>
+    <p>{{ $instrument.body | markdownify }}</p>
+    <span class="instrument-card__more" aria-hidden="true">Read the guide</span>
+  </div>
+</a>

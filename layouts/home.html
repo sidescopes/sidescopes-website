@@ -51,29 +51,25 @@
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="instruments">
   <div class="wrap wrap--wide">
     <div class="section-head">
       <span class="kicker">Instruments</span>
-      <h2>Five scopes, plus Color Picker</h2>
+      <h2>Choose the view that answers the question</h2>
       <p>
-        Show one instrument or arrange several panes together. Shortcuts,
-        draggable scope order, pane layouts, and nine presets make different
-        working arrangements quick to recall.
+        Each instrument maps the same selected pixels differently. Use one on
+        its own or combine several in the same window. Each guide explains the
+        axes, interpretation, and limitations.
       </p>
     </div>
-    <div class="grid grid--3">
+    <div class="instrument-grid">
       {{- range .Params.scopes }}
-      <div class="card">
-        <h3>{{ .name }}</h3>
-        <p><span class="tag tag--{{ .class }}">{{ .key }}</span></p>
-        <p>{{ .body | markdownify }}</p>
-      </div>
+        {{- partial "instrument-card.html" (dict "page" $ "instrument" .) }}
       {{- end }}
     </div>
     <p class="btn-row gap-t-md">
-      <a class="btn btn--ghost" href="/learn/">Learn how to read the scopes</a>
-      <a class="btn btn--ghost" href="/docs/scopes/">Scope reference</a>
+      <a class="btn btn--ghost" href="/learn/">Browse the learning guides</a>
+      <a class="btn btn--ghost" href="/docs/scopes/">Application reference</a>
     </p>
   </div>
 </section>
