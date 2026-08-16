@@ -1,21 +1,21 @@
 {
   "name": "hero-color-picker",
-  "alt": "The complete SideScopes window on macOS showing the color picker with two pinned references and color-difference measurements.",
+  "alt": "The complete SideScopes window on macOS showing Color Picker with two pinned references and color-difference measurements.",
   "caption": "Live and pinned samples with CIEDE2000 comparison.",
-  "label": "Color picker",
-  "base": "shots/hero-color-picker.db59f00c42",
+  "label": "Color Picker",
+  "base": "shots/hero-color-picker.03a8fd2c9c",
   "stable": "shots/hero-color-picker.png",
   "variants": [
     620,
     930,
-    1000
+    1040
   ],
   "formats": [
     "avif",
     "webp",
     "png"
   ],
-  "width": 1000,
+  "width": 1040,
   "height": 944,
   "generated": {
     "scopes": [
@@ -24,20 +24,20 @@
     "reference_image": "skin-and-colour.jpg",
     "derive": [],
     "window_points": [
-      500,
+      520,
       472
     ],
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      1000,
+      1040,
       944
     ],
     "presentation": "window",
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "546e04e",
+    "app_describe": "v0.6.0-17-g546e04e",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

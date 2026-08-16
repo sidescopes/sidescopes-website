@@ -3,19 +3,19 @@
   "alt": "The complete SideScopes window on macOS showing a per-channel histogram.",
   "caption": "Channel distributions independent of image position.",
   "label": "Histogram",
-  "base": "shots/hero-histogram.b8d86135c8",
+  "base": "shots/hero-histogram.f2baafba22",
   "stable": "shots/hero-histogram.png",
   "variants": [
     620,
     930,
-    1160
+    1040
   ],
   "formats": [
     "avif",
     "webp",
     "png"
   ],
-  "width": 1160,
+  "width": 1040,
   "height": 944,
   "generated": {
     "scopes": [
@@ -24,20 +24,20 @@
     "reference_image": "neutral-detail.jpg",
     "derive": [],
     "window_points": [
-      580,
+      520,
       472
     ],
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      1160,
+      1040,
       944
     ],
     "presentation": "window",
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "546e04e",
+    "app_describe": "v0.6.0-17-g546e04e",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

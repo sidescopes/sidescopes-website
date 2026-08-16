@@ -1,21 +1,22 @@
 {
   "name": "hero-scopes",
-  "alt": "The SideScopes window showing a vectorscope above an RGB waveform, both measuring the same region of the screen.",
-  "caption": "Hue and chroma beside spatial channel levels.",
-  "label": "Vectorscope + RGB waveform",
-  "base": "shots/hero-scopes.1089ba3afa",
+  "alt": "The SideScopes window showing a vectorscope above the Waveform scope, both measuring the same region of the screen.",
+  "caption": "Hue and chroma beside overlaid channel levels.",
+  "label": "Vectorscope + Waveform",
+  "base": "shots/hero-scopes.487b232562",
   "stable": "shots/hero-scopes.png",
   "variants": [
     620,
-    860
+    930,
+    1040
   ],
   "formats": [
     "avif",
     "webp",
     "png"
   ],
-  "width": 860,
-  "height": 1384,
+  "width": 1040,
+  "height": 1144,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope",
@@ -24,20 +25,20 @@
     "reference_image": "skin-and-colour.jpg",
     "derive": [],
     "window_points": [
-      430,
-      692
+      520,
+      572
     ],
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      860,
-      1384
+      1040,
+      1144
     ],
     "presentation": "window",
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "546e04e",
+    "app_describe": "v0.6.0-17-g546e04e",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

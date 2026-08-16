@@ -1,21 +1,21 @@
 {
   "name": "hero-parade",
-  "alt": "The complete SideScopes window on macOS showing an RGB parade.",
+  "alt": "The complete SideScopes window on macOS showing RGB Parade.",
   "caption": "Red, green, and blue channel waveforms shown separately.",
-  "label": "RGB parade",
-  "base": "shots/hero-parade.80364462c7",
+  "label": "RGB Parade",
+  "base": "shots/hero-parade.5fc99147ae",
   "stable": "shots/hero-parade.png",
   "variants": [
     620,
     930,
-    1240
+    1040
   ],
   "formats": [
     "avif",
     "webp",
     "png"
   ],
-  "width": 1240,
+  "width": 1040,
   "height": 984,
   "generated": {
     "scopes": [
@@ -24,20 +24,20 @@
     "reference_image": "wide-tonal-range.jpg",
     "derive": [],
     "window_points": [
-      620,
+      520,
       492
     ],
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      1240,
+      1040,
       984
     ],
     "presentation": "window",
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "546e04e",
+    "app_describe": "v0.6.0-17-g546e04e",
     "app_tree_clean": true,
     "os": "26.5.2"
   }
