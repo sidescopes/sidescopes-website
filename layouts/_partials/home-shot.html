@@ -29,7 +29,32 @@
 {{- end -}}
 
 {{- if $entries }}
+{{- $first := index $entries 0 -}}
 <section class="scope-showcase" data-scope-showcase aria-label="SideScopes window configurations">
+  <header class="scope-showcase__header">
+    <div class="scope-showcase__copy" aria-live="polite" aria-atomic="true">
+      <p class="scope-showcase__title">
+        <span class="scope-showcase__counter" data-showcase-counter
+              aria-label="Configuration 1 of {{ len $entries }}">
+          <span data-showcase-position>1</span>
+          <span aria-hidden="true">/</span>
+          <span aria-hidden="true">{{ len $entries }}</span>
+        </span>
+        <strong data-showcase-label>{{ $first.label }}</strong>
+      </p>
+      <p class="scope-showcase__caption" data-showcase-caption>{{ $first.caption }}</p>
+    </div>
+    {{- if gt (len $entries) 1 }}
+    <div class="scope-showcase__controls" data-showcase-controls hidden>
+      <button type="button" data-showcase-previous aria-label="Previous configuration">
+        <span aria-hidden="true">←</span>
+      </button>
+      <button type="button" data-showcase-next aria-label="Next configuration">
+        <span aria-hidden="true">→</span>
+      </button>
+    </div>
+    {{- end }}
+  </header>
   <div class="scope-showcase__stage">
     {{- range $index, $entry := $entries }}
       {{- $base := printf "%s/%s" (partial "media-base.html" $) $entry.base -}}
@@ -39,7 +64,8 @@
       {{- $widthRem := div (mul 34.0 (float $entry.width)) (float $widest) -}}
       {{- $widthVw := div (mul 92.0 (float $entry.width)) (float $widest) -}}
       {{- $sizes := printf "(min-width: 60rem) %.4frem, %.4fvw" $widthRem $widthVw -}}
-    <figure class="scope-showcase__slide" data-showcase-slide data-label="{{ $entry.label }}"{{ if ne $index 0 }} hidden{{ end }}>
+    <figure class="scope-showcase__slide" data-showcase-slide data-label="{{ $entry.label }}"
+            data-caption="{{ $entry.caption }}"{{ if ne $index 0 }} hidden{{ end }}>
       <picture style="--showcase-width: {{ printf "%.4f" $widthPercent }}%; --showcase-max-width: {{ printf "%.4f" $widthRem }}rem">
         {{- range $format := $entry.formats }}
         {{- if ne $format "png" }}
@@ -54,22 +80,8 @@
              width="{{ $largest }}" height="{{ int $entry.height }}"
              {{ if eq $index 0 }}fetchpriority="high"{{ else }}loading="lazy"{{ end }} decoding="async">
       </picture>
-      <figcaption>
-        <strong>{{ $entry.label }}</strong>
-        {{- with $entry.caption }}<span>{{ . }}</span>{{ end }}
-      </figcaption>
     </figure>
     {{- end }}
   </div>
-  {{- if gt (len $entries) 1 }}
-  <div class="scope-showcase__controls" data-showcase-controls hidden>
-    <button type="button" data-showcase-previous aria-label="Previous configuration">←</button>
-    <p aria-live="polite">
-      <span data-showcase-position>1</span>/<span>{{ len $entries }}</span>
-      <span class="scope-showcase__current" data-showcase-label>{{ (index $entries 0).label }}</span>
-    </p>
-    <button type="button" data-showcase-next aria-label="Next configuration">→</button>
-  </div>
-  {{- end }}
 </section>
 {{- end }}

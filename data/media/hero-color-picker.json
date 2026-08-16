@@ -1,7 +1,7 @@
 {
   "name": "hero-color-picker",
   "alt": "The complete SideScopes window on macOS showing the color picker with two pinned references and color-difference measurements.",
-  "caption": "Color picker: live and pinned samples with CIEDE2000 comparison.",
+  "caption": "Live and pinned samples with CIEDE2000 comparison.",
   "label": "Color picker",
   "base": "shots/hero-color-picker.db59f00c42",
   "stable": "shots/hero-color-picker.png",

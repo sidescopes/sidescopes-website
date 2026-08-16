@@ -1,7 +1,7 @@
 {
   "name": "hero-vectorscope",
   "alt": "The complete SideScopes window on macOS showing a vectorscope.",
-  "caption": "Vectorscope: hue and chroma distribution.",
+  "caption": "Hue and chroma distribution.",
   "label": "Vectorscope",
   "base": "shots/hero-vectorscope.ede9bd0b44",
   "stable": "shots/hero-vectorscope.png",

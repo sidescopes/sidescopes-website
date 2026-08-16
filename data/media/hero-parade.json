@@ -1,7 +1,7 @@
 {
   "name": "hero-parade",
   "alt": "The complete SideScopes window on macOS showing an RGB parade.",
-  "caption": "RGB parade: the three channel waveforms separated.",
+  "caption": "Red, green, and blue channel waveforms shown separately.",
   "label": "RGB parade",
   "base": "shots/hero-parade.80364462c7",
   "stable": "shots/hero-parade.png",

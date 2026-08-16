@@ -1,7 +1,7 @@
 {
   "name": "hero-histogram",
   "alt": "The complete SideScopes window on macOS showing a per-channel histogram.",
-  "caption": "Histogram: channel distributions independent of image position.",
+  "caption": "Channel distributions independent of image position.",
   "label": "Histogram",
   "base": "shots/hero-histogram.b8d86135c8",
   "stable": "shots/hero-histogram.png",

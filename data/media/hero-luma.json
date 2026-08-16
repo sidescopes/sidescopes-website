@@ -1,7 +1,7 @@
 {
   "name": "hero-luma",
   "alt": "The complete SideScopes window on macOS showing a luma waveform.",
-  "caption": "Luma waveform: rendered level across the selected region.",
+  "caption": "Rendered level across the selected region.",
   "label": "Luma waveform",
   "base": "shots/hero-luma.40aea0959e",
   "stable": "shots/hero-luma.png",

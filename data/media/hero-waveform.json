@@ -1,7 +1,7 @@
 {
   "name": "hero-waveform",
   "alt": "The complete SideScopes window on macOS showing an RGB waveform.",
-  "caption": "RGB waveform: channel levels with horizontal image position.",
+  "caption": "Channel levels mapped to horizontal image position.",
   "label": "RGB waveform",
   "base": "shots/hero-waveform.d0e704961b",
   "stable": "shots/hero-waveform.png",
