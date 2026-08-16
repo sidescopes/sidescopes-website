@@ -1,6 +1,7 @@
 {{- /* One page of the guide or documentation: sidebar, body, contents. */ -}}
 {{- $section := .FirstSection -}}
 {{- $pages := $section.RegularPages.ByWeight -}}
+{{ partial "reading-theme.html" . }}
 <div class="wrap wrap--wide doc-layout">
   {{ partial "doc-side.html" . }}
 

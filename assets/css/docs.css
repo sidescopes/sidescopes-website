@@ -1,10 +1,138 @@
-/* The documentation and guide sections: a sidebar of pages, the body, and
-   a table of contents that appears only where there is room for it. */
+/* The documentation and guide sections: a dedicated reading surface, a
+   sidebar of pages, the body, and a table of contents that appears only
+   where there is room for it. The surrounding project site remains dark. */
+
+.reading-surface {
+  color-scheme: dark;
+  --bg: #181716;
+  --surface: #201e1d;
+  --surface-2: #272523;
+  --line: #302e2c;
+  --line-strong: #47433f;
+  --ink: #f3f0ee;
+  --ink-2: #bbb4b0;
+  --ink-3: #928a85;
+  --accent: #91a5ff;
+  --accent-hover: #abbaef;
+  --accent-ink: #14161f;
+  --accent-wash: #222641;
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 35%);
+  --shadow: 0 2px 4px rgb(0 0 0 / 28%), 0 12px 28px rgb(0 0 0 / 32%);
+
+  background: var(--bg);
+  color: var(--ink);
+  padding-bottom: clamp(3rem, 7vw, 5rem);
+}
+
+html[data-reading-theme="light"] .reading-surface {
+  color-scheme: light;
+  --bg: #fbfbfa;
+  --surface: #ffffff;
+  --surface-2: #f3f3f1;
+  --line: #e5e5e1;
+  --line-strong: #ccccc6;
+  --ink: #201f1e;
+  --ink-2: #4e4b48;
+  --ink-3: #716d69;
+  --accent: #2f4fe8;
+  --accent-hover: #2540c9;
+  --accent-ink: #ffffff;
+  --accent-wash: #eaeeff;
+  --shadow-sm: 0 1px 2px rgb(32 31 30 / 6%), 0 2px 8px rgb(32 31 30 / 4%);
+  --shadow: 0 2px 4px rgb(32 31 30 / 6%), 0 12px 28px rgb(32 31 30 / 8%);
+}
+
+/* CSS retains the system default if script execution is disabled. */
+@media (prefers-color-scheme: light) {
+  html:not([data-reading-theme]) .reading-surface {
+    color-scheme: light;
+    --bg: #fbfbfa;
+    --surface: #ffffff;
+    --surface-2: #f3f3f1;
+    --line: #e5e5e1;
+    --line-strong: #ccccc6;
+    --ink: #201f1e;
+    --ink-2: #4e4b48;
+    --ink-3: #716d69;
+    --accent: #2f4fe8;
+    --accent-hover: #2540c9;
+    --accent-ink: #ffffff;
+    --accent-wash: #eaeeff;
+    --shadow-sm: 0 1px 2px rgb(32 31 30 / 6%), 0 2px 8px rgb(32 31 30 / 4%);
+    --shadow: 0 2px 4px rgb(32 31 30 / 6%), 0 12px 28px rgb(32 31 30 / 8%);
+  }
+}
+
+.has-reading-surface .site-footer {
+  margin-top: 0;
+}
+
+/* The selector sits inside the reading workspace rather than the global
+   header because it changes only Learn and Docs. */
+.reading-toolbar {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 1.25rem;
+}
+
+.reading-theme {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  line-height: 1.35;
+}
+
+.reading-theme__label {
+  padding-inline: 0.55rem 0.45rem;
+  color: var(--ink-3);
+  font-weight: 600;
+}
+
+.reading-theme button {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  padding: 0.32rem 0.55rem;
+  cursor: pointer;
+}
+
+.reading-theme button:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+.reading-theme button[aria-pressed="true"] {
+  color: var(--ink);
+  background: var(--surface-2);
+  box-shadow: inset 0 0 0 1px var(--line);
+  font-weight: 650;
+}
+
+@media (max-width: 28rem) {
+  .reading-theme__label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
 
 .doc-layout {
   display: grid;
   gap: clamp(1.75rem, 4vw, 3rem);
-  padding-block: 2.25rem 1rem;
+  padding-block: 1.5rem 1rem;
   align-items: start;
 }
 

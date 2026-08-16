@@ -36,6 +36,11 @@ saved preferences.
 The site has no account, advertising, or cross-site tracking. Its pages do not
 set an application cookie.
 
+If you select a light or dark reading theme in Learn or Docs, the website
+stores that preference in browser `localStorage` on `sidescopes.org`. Choosing
+**System** removes the stored value. The preference contains no identifying
+information and is not sent to SideScopes.
+
 On `sidescopes.org`, Cloudflare Web Analytics can load after a page view. The
 analytics beacon uses no cookies or `localStorage` and does not fingerprint
 individual visitors. It reports aggregate page and performance measurements;

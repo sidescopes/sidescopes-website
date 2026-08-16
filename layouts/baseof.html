@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+{{- $isReading := or (eq .Section "learn") (eq .Section "docs") -}}
 <html lang="{{ site.Language.Locale }}">
 <head>
   {{ partial "head.html" . }}
 </head>
-<body>
+<body{{ if $isReading }} class="has-reading-surface"{{ end }}>
   <a class="skip" href="#main">Skip to content</a>
   <hr class="spectrum">
   {{ partial "header.html" . }}
-  <main id="main">
+  <main id="main"{{ if $isReading }} class="reading-surface"{{ end }}>
     {{ block "main" . }}{{ end }}
   </main>
   {{ partial "footer.html" . }}

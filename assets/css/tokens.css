@@ -1,15 +1,15 @@
 /* Design tokens.
-   The palette is the brand bundle's: Paper and Ink for the page, and the
-   six vectorscope target hues wherever color carries meaning. Those six
-   are the same values the application draws its graticule targets with, so
-   a diagram here and a trace in the app agree.
+   The palette is the brand bundle's: a dark application-like ground and the
+   six vectorscope target hues wherever color carries meaning. Those six are
+   the same values the application draws its graticule targets with, so a
+   diagram here and a trace in the app agree.
 
-   Light is the default ground — these pages are read, at length — and the
-   dark palette follows the reader's system setting. Scope panels are dark
-   in both, because a trace is drawn in light on a dark field. */
+   The project site and Lab always use the dark ground. Learn and Docs define
+   their own reading palette in docs.css, where the reader can follow the
+   system setting or select a light or dark surface independently. */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
   /* The six targets, at their scope stations. */
   --hue-red: #f2452f;
@@ -20,32 +20,32 @@
   --hue-yellow: #f0b400;
   --hue-skin: #e6b78e;
 
-  /* Page. */
-  --bg: #f8f4f4;
-  --surface: #fffdfd;
-  --surface-2: #f1ecea;
-  --line: #e2dbd8;
-  --line-strong: #cdc4c0;
+  /* Project pages and the site frame. */
+  --bg: #141312;
+  --surface: #1c1a19;
+  --surface-2: #232120;
+  --line: #2e2b29;
+  --line-strong: #423e3b;
 
-  --ink: #201e1d;
-  --ink-2: #4a4644;
-  --ink-3: #6f6a67;
+  --ink: #f2eeec;
+  --ink-2: #b0a9a5;
+  --ink-3: #8a827e;
 
-  --accent: #2f4fe8;
-  --accent-hover: #2540c9;
-  --accent-ink: #ffffff;
-  --accent-wash: #eaeeff;
+  --accent: #8ea2ff;
+  --accent-hover: #a8b8ff;
+  --accent-ink: #14161f;
+  --accent-wash: #1d2038;
 
   /* The dark field a trace is drawn on — the same in both themes. */
-  --scope-bg: #171615;
-  --scope-bg-2: #1f1d1c;
+  --scope-bg: #100f0e;
+  --scope-bg-2: #191817;
   --scope-line: #3a3634;
   --scope-line-faint: #2b2826;
   --scope-ink: #e8e3e0;
   --scope-ink-2: #9d9591;
 
-  --ok: #17843c;
-  --warn: #a35c00;
+  --ok: #4cc073;
+  --warn: #e0a33d;
 
   --sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   --display: "Archivo", var(--sans);
@@ -59,34 +59,6 @@
   --radius: 10px;
   --radius-lg: 14px;
 
-  --shadow-sm: 0 1px 2px rgb(32 30 29 / 6%), 0 2px 8px rgb(32 30 29 / 4%);
-  --shadow: 0 2px 4px rgb(32 30 29 / 6%), 0 12px 28px rgb(32 30 29 / 8%);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #141312;
-    --surface: #1c1a19;
-    --surface-2: #232120;
-    --line: #2e2b29;
-    --line-strong: #423e3b;
-
-    --ink: #f2eeec;
-    --ink-2: #b0a9a5;
-    --ink-3: #8a827e;
-
-    --accent: #8ea2ff;
-    --accent-hover: #a8b8ff;
-    --accent-ink: #14161f;
-    --accent-wash: #1d2038;
-
-    --scope-bg: #100f0e;
-    --scope-bg-2: #191817;
-
-    --ok: #4cc073;
-    --warn: #e0a33d;
-
-    --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
-    --shadow: 0 2px 4px rgb(0 0 0 / 30%), 0 12px 28px rgb(0 0 0 / 35%);
-  }
+  --shadow-sm: 0 1px 2px rgb(0 0 0 / 40%);
+  --shadow: 0 2px 4px rgb(0 0 0 / 30%), 0 12px 28px rgb(0 0 0 / 35%);
 }
