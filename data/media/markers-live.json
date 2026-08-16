@@ -1,0 +1,49 @@
+{
+  "name": "markers-live",
+  "alt": "Vectorscope and Waveform showing the same live pointer sample as a point marker and three channel-level markers.",
+  "caption": "One sampled color, mapped to chroma position in Vectorscope and to channel levels in Waveform.",
+  "label": "",
+  "base": "shots/markers-live.456c832e0e",
+  "stable": "shots/markers-live.png",
+  "variants": [
+    620,
+    930,
+    1040
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1040,
+  "height": 981,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.vectorscope",
+      "org.sidescopes.waveform"
+    ],
+    "reference_image": "skin-and-colour.jpg",
+    "derive": [],
+    "window_points": [
+      520,
+      572
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1040,
+      981
+    ],
+    "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": true,
+    "app_version": "0.6.0",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_tree_clean": true,
+    "os": "26.5.2",
+    "system_appearance": "dark"
+  }
+}
