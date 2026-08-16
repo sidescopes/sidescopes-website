@@ -2,7 +2,8 @@
   "name": "stack-working",
   "alt": "Three scopes stacked in one window: a vectorscope, a luma waveform, and an RGB parade, all measuring the same region.",
   "caption": "Any combination of the scopes can share the window.",
-  "base": "shots/stack-working.8b4b5cbd3f",
+  "label": "",
+  "base": "shots/stack-working.a1f79db741",
   "stable": "shots/stack-working.png",
   "variants": [
     620,
@@ -34,8 +35,10 @@
       860,
       1458
     ],
+    "presentation": "panes",
     "app_version": "0.6.0",
-    "app_commit": "37463e8",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

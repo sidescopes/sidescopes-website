@@ -2,7 +2,8 @@
   "name": "histogram",
   "alt": "A histogram with red, green, and blue drawn as three separate bands, one above another.",
   "caption": "The Per Channel style places each complete channel distribution in its own band.",
-  "base": "shots/histogram.2444ea50d6",
+  "label": "",
+  "base": "shots/histogram.5e3f0c998e",
   "stable": "shots/histogram.png",
   "variants": [
     620,
@@ -33,8 +34,10 @@
       1040,
       700
     ],
+    "presentation": "panes",
     "app_version": "0.6.0",
-    "app_commit": "37463e8",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

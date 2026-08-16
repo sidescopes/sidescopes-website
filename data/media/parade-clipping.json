@@ -2,7 +2,8 @@
   "name": "parade-clipping",
   "alt": "An RGB parade: red, green, and blue drawn side by side, with red reaching the upper endpoint before the other two.",
   "caption": "Red, green, and blue side by side. The captured red channel reaches the upper endpoint while the other channels remain below it.",
-  "base": "shots/parade-clipping.0e78fe1fee",
+  "label": "",
+  "base": "shots/parade-clipping.0abc517bd7",
   "stable": "shots/parade-clipping.png",
   "variants": [
     620,
@@ -43,8 +44,10 @@
       1120,
       740
     ],
+    "presentation": "panes",
     "app_version": "0.6.0",
-    "app_commit": "37463e8",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

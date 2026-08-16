@@ -2,7 +2,8 @@
   "name": "vectorscope-neutral",
   "alt": "A vectorscope trace forming a compact cloud near the center of the graticule, with short extensions toward hues in the image.",
   "caption": "",
-  "base": "shots/vectorscope-neutral.fae982aa11",
+  "label": "",
+  "base": "shots/vectorscope-neutral.367f91b8ff",
   "stable": "shots/vectorscope-neutral.png",
   "variants": [
     620,
@@ -37,8 +38,10 @@
       840,
       886
     ],
+    "presentation": "panes",
     "app_version": "0.6.0",
-    "app_commit": "37463e8",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

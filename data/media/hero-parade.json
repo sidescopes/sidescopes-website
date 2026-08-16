@@ -36,8 +36,8 @@
     ],
     "presentation": "window",
     "app_version": "0.6.0",
-    "app_commit": "9d2f9dc",
-    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

@@ -2,6 +2,7 @@
 
 .prose {
   max-width: var(--measure);
+  min-width: 0;
 }
 
 .prose--wide {
@@ -101,7 +102,12 @@
   overflow-wrap: anywhere;
 }
 
+.prose a {
+  overflow-wrap: anywhere;
+}
+
 .prose pre {
+  max-width: 100%;
   background: var(--scope-bg);
   color: var(--scope-ink);
   border: 1px solid var(--scope-line-faint);
@@ -122,9 +128,65 @@
 }
 
 .prose table {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
   border-collapse: collapse;
   font-size: 0.9375rem;
+}
+
+/* On the application repository, both platform sections remain readable as
+   ordinary document content. The website progressively adds this selector. */
+.platform-shortcuts > section + section {
+  margin-top: 2rem;
+}
+
+.platform-shortcuts--enhanced > section {
+  margin-top: 1rem;
+}
+
+.platform-shortcuts--enhanced > section > h3 {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.platform-tabs {
+  display: inline-flex;
+  gap: 0.2rem;
+  margin-top: 1rem;
+  padding: 0.2rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.platform-tabs button {
+  appearance: none;
+  border: 0;
+  border-radius: 5px;
+  padding: 0.38rem 0.75rem;
+  background: transparent;
+  color: var(--ink-2);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.platform-tabs button:hover {
+  color: var(--ink);
+  background: var(--surface-2);
+}
+
+.platform-tabs button[aria-selected="true"] {
+  color: var(--accent);
+  background: var(--accent-wash);
 }
 
 .prose thead th {

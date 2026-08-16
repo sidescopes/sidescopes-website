@@ -49,3 +49,11 @@
   <div></div>
   {{- end }}
 </div>
+{{- with .File }}
+  {{- if eq .ContentBaseName "shortcuts" }}
+    {{- with resources.Get "js/platform-shortcuts.js" }}
+      {{- $js := . | minify | fingerprint "sha384" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+    {{- end }}
+  {{- end }}
+{{- end }}

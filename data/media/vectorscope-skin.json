@@ -2,7 +2,8 @@
   "name": "vectorscope-skin",
   "alt": "A vectorscope measuring a portrait: the trace extends through the orange hue region near the skin-tone indicator.",
   "caption": "A portrait sample extending near the skin-tone indicator. The line is a directional reference, not a required position for every complexion or rendering.",
-  "base": "shots/vectorscope-skin.81e204ffcc",
+  "label": "",
+  "base": "shots/vectorscope-skin.a30c4a074f",
   "stable": "shots/vectorscope-skin.png",
   "variants": [
     620,
@@ -32,8 +33,10 @@
       840,
       886
     ],
+    "presentation": "panes",
     "app_version": "0.6.0",
-    "app_commit": "37463e8",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }

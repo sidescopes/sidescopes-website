@@ -3,7 +3,7 @@
   "alt": "The SideScopes window showing a vectorscope above an RGB waveform, both measuring the same region of the screen.",
   "caption": "Hue and chroma beside spatial channel levels.",
   "label": "Vectorscope + RGB waveform",
-  "base": "shots/hero-scopes.14673f5c89",
+  "base": "shots/hero-scopes.1089ba3afa",
   "stable": "shots/hero-scopes.png",
   "variants": [
     620,
@@ -36,8 +36,8 @@
     ],
     "presentation": "window",
     "app_version": "0.6.0",
-    "app_commit": "9d2f9dc",
-    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_commit": "aa27b67",
+    "app_describe": "v0.6.0-13-gaa27b67",
     "app_tree_clean": true,
     "os": "26.5.2"
   }
