@@ -3,7 +3,7 @@
   "alt": "RGB Parade with red, green, and blue drawn side by side, with red reaching the upper endpoint before the other two.",
   "caption": "Red, green, and blue side by side. The captured red channel reaches the upper endpoint while the other channels remain below it.",
   "label": "",
-  "base": "shots/parade-clipping.0abc517bd7",
+  "base": "shots/parade-clipping.a7df5dad7b",
   "stable": "shots/parade-clipping.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1120,
-  "height": 740,
+  "height": 741,
   "generated": {
     "scopes": [
       "org.sidescopes.parade"
@@ -42,13 +42,17 @@
       0,
       113,
       1120,
-      740
+      741
     ],
     "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

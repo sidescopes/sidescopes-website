@@ -3,7 +3,7 @@
   "alt": "Waveform with red, green, and blue overlaid in their own colors, separating across parts of the tonal range.",
   "caption": "Three captured channels overlaid. Separation describes their code-value relationship; interpreting it as a bias requires a justified neutral reference.",
   "label": "",
-  "base": "shots/waveform-rgb.e8e95d3d98",
+  "base": "shots/waveform-rgb.2b253f5fab",
   "stable": "shots/waveform-rgb.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1040,
-  "height": 740,
+  "height": 741,
   "generated": {
     "scopes": [
       "org.sidescopes.waveform"
@@ -32,13 +32,17 @@
       0,
       113,
       1040,
-      740
+      741
     ],
     "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

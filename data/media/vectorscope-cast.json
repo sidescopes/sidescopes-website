@@ -3,7 +3,7 @@
   "alt": "The same frame with a cool cast applied: the whole cloud has moved away from the center toward blue.",
   "caption": "",
   "label": "",
-  "base": "shots/vectorscope-cast.06e3d91cc4",
+  "base": "shots/vectorscope-cast.e6e54df737",
   "stable": "shots/vectorscope-cast.png",
   "variants": [
     620,
@@ -15,7 +15,7 @@
     "png"
   ],
   "width": 840,
-  "height": 886,
+  "height": 887,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope"
@@ -48,13 +48,17 @@
       0,
       140,
       840,
-      886
+      887
     ],
     "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

@@ -3,7 +3,7 @@
   "alt": "The SideScopes window showing a vectorscope above the Waveform scope, both measuring the same region of the screen.",
   "caption": "Hue and chroma beside overlaid channel levels.",
   "label": "Vectorscope + Waveform",
-  "base": "shots/hero-scopes.487b232562",
+  "base": "shots/hero-scopes.3edf4b0c95",
   "stable": "shots/hero-scopes.png",
   "variants": [
     620,
@@ -36,10 +36,14 @@
       1144
     ],
     "presentation": "window",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "546e04e",
-    "app_describe": "v0.6.0-17-g546e04e",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

@@ -3,7 +3,7 @@
   "alt": "A vectorscope trace forming a compact cloud near the center of the graticule, with short extensions toward hues in the image.",
   "caption": "",
   "label": "",
-  "base": "shots/vectorscope-neutral.367f91b8ff",
+  "base": "shots/vectorscope-neutral.ccc3c86b94",
   "stable": "shots/vectorscope-neutral.png",
   "variants": [
     620,
@@ -15,7 +15,7 @@
     "png"
   ],
   "width": 840,
-  "height": 886,
+  "height": 887,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope"
@@ -36,13 +36,17 @@
       0,
       140,
       840,
-      886
+      887
     ],
     "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

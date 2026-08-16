@@ -3,7 +3,7 @@
   "alt": "The complete SideScopes window on macOS showing the Waveform scope.",
   "caption": "Overlaid RGB channel levels mapped to horizontal image position.",
   "label": "Waveform",
-  "base": "shots/hero-waveform.b1a0c2194e",
+  "base": "shots/hero-waveform.f3b15a5890",
   "stable": "shots/hero-waveform.png",
   "variants": [
     620,
@@ -35,10 +35,14 @@
       984
     ],
     "presentation": "window",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "546e04e",
-    "app_describe": "v0.6.0-17-g546e04e",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

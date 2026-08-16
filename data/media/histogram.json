@@ -3,7 +3,7 @@
   "alt": "A histogram with red, green, and blue drawn as three separate bands, one above another.",
   "caption": "The Per Channel style places each complete channel distribution in its own band.",
   "label": "",
-  "base": "shots/histogram.5e3f0c998e",
+  "base": "shots/histogram.a2fec480e5",
   "stable": "shots/histogram.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1040,
-  "height": 700,
+  "height": 701,
   "generated": {
     "scopes": [
       "org.sidescopes.histogram"
@@ -32,13 +32,17 @@
       0,
       113,
       1040,
-      700
+      701
     ],
     "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }

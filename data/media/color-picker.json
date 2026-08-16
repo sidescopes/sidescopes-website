@@ -3,7 +3,7 @@
   "alt": "Color Picker showing a live RGB sample, two pinned references, and color-difference measurements.",
   "caption": "The live sample remains visible while a selected pin provides the comparison reference.",
   "label": "",
-  "base": "shots/color-picker.1d72c46ba9",
+  "base": "shots/color-picker.fce675be8a",
   "stable": "shots/color-picker.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1040,
-  "height": 678,
+  "height": 679,
   "generated": {
     "scopes": [
       "org.sidescopes.colorpicker"
@@ -32,13 +32,17 @@
       0,
       113,
       1040,
-      678
+      679
     ],
     "presentation": "panes",
+    "region_mode": "",
+    "content_title": "SideScopes measurement content",
+    "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "aa27b67",
-    "app_describe": "v0.6.0-13-gaa27b67",
+    "app_commit": "76a82a6",
+    "app_describe": "v0.6.0-24-g76a82a6",
     "app_tree_clean": true,
-    "os": "26.5.2"
+    "os": "26.5.2",
+    "system_appearance": "dark"
   }
 }
