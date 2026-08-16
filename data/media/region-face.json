@@ -3,7 +3,7 @@
   "alt": "A face in a sample photograph enclosed by SideScopes' striped editable region boundary.",
   "caption": "Uses a detected face as a geometric anchor and follows it within the window.",
   "label": "Face selection",
-  "base": "shots/region-face.52b5a04a51",
+  "base": "shots/region-face.03d6285753",
   "stable": "shots/region-face.png",
   "variants": [
     620,
@@ -52,8 +52,8 @@
     "content_title": "Portrait, 1860",
     "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "7861af2",
-    "app_describe": "v0.6.0-25-g7861af2",
+    "app_commit": "06d311d",
+    "app_describe": "v0.6.0-26-g06d311d",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"

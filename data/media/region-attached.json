@@ -3,7 +3,7 @@
   "alt": "A SideScopes region attached inside a sample window, with the striped editing band labeled Snow detail.",
   "caption": "Follows the selected window and uses its current title in the border label.",
   "label": "Window-attached region",
-  "base": "shots/region-attached.d43dbd7ecb",
+  "base": "shots/region-attached.9d52a0123b",
   "stable": "shots/region-attached.png",
   "variants": [
     620,
@@ -40,8 +40,8 @@
     "content_title": "Snow detail",
     "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "7861af2",
-    "app_describe": "v0.6.0-25-g7861af2",
+    "app_commit": "06d311d",
+    "app_describe": "v0.6.0-26-g06d311d",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"
