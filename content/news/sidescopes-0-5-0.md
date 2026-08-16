@@ -4,7 +4,7 @@ date: 2026-07-30
 postKind: release
 version: "0.5.0"
 description: >-
-  A separate luma waveform, optional 10-bit macOS capture, quality and UI
+  A separate Luma Waveform, optional 10-bit macOS capture, quality and UI
   scaling controls, scope ordering, and application documentation.
 lede: >-
   This release separates encoded-luma and RGB-channel views, reduces idle
@@ -13,9 +13,9 @@ lede: >-
 
 ## Added
 
-- A dedicated luma waveform on L, allowing it to remain visible beside the RGB
-  waveform on W.
-- Plain and Colored styles for the luma waveform.
+- A dedicated Luma Waveform on L, allowing it to remain visible beside
+  Waveform on W.
+- Plain and Colored styles for Luma Waveform.
 - A reorderable scope selector.
 - Standard and High quality settings. High targets 20 captures per second
   instead of 15 and increases detail where smaller vectorscope and histogram
@@ -44,7 +44,7 @@ lede: >-
 - Several macOS focus and Windows border, desktop-window, and virtual-desktop
   behaviors were corrected.
 
-The luma waveform plots encoded Y′. It is useful for evaluating the rendered
+Luma Waveform plots encoded Y′. It is useful for evaluating the rendered
 level distribution, but it is not a direct exposure meter or physical
 luminance measurement. Ten-bit capture improves available code precision; it
 does not add HDR range or bypass the desktop color pipeline.

@@ -2,8 +2,9 @@
 title: Learn color scopes
 sidebarTitle: Overview
 description: >-
-  A precise guide to vectorscopes, waveforms, RGB parade, histograms, color
-  comparison, and the limits of display-referred screen measurement.
+  A precise guide to Vectorscope, Waveform, Luma Waveform, RGB Parade,
+  Histogram, Color Picker, and the limits of display-referred screen
+  measurement.
 lede: >-
   Read the instruments from first principles, then apply them without turning
   contextual evidence into universal rules.

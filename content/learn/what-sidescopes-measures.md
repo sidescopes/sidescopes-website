@@ -45,10 +45,10 @@ The desktop capture is requested or labeled as sRGB where the operating-system
 API permits. SideScopes then interprets the received RGB values as full-range,
 sRGB-like display data:
 
-- the vectorscope uses a fixed Rec.709-style R′G′B′-to-chroma matrix;
-- the luma waveform uses Rec.709-style encoded Y′ coefficients;
-- CIELAB and CIEDE2000 readouts assume sRGB primaries, the sRGB transfer
-  function, and a D65 white point.
+- Vectorscope uses a fixed Rec.709-style R′G′B′-to-chroma matrix;
+- Luma Waveform uses Rec.709-style encoded Y′ coefficients;
+- Color Picker's CIELAB and CIEDE2000 readouts assume sRGB primaries, the sRGB
+  transfer function, and a D65 white point.
 
 sRGB and Rec.709 share primary chromaticities and a D65 white point, but they
 are not complete synonyms: their encoding conventions and intended viewing

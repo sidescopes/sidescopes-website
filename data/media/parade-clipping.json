@@ -1,6 +1,6 @@
 {
   "name": "parade-clipping",
-  "alt": "An RGB parade: red, green, and blue drawn side by side, with red reaching the upper endpoint before the other two.",
+  "alt": "RGB Parade with red, green, and blue drawn side by side, with red reaching the upper endpoint before the other two.",
   "caption": "Red, green, and blue side by side. The captured red channel reaches the upper endpoint while the other channels remain below it.",
   "label": "",
   "base": "shots/parade-clipping.0abc517bd7",

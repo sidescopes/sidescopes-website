@@ -6,7 +6,7 @@ description: >-
   What an RGB histogram counts, which information it discards, and why peaks,
   gaps, and endpoint bins require context.
 lede: >-
-  A histogram counts captured channel values. It shows their distribution but
+  Histogram counts captured channel values. It shows their distribution but
   not where those values occur in the image.
 ---
 
@@ -53,8 +53,8 @@ recoverable data upstream.
 The histogram is compact and useful for comparing overall channel
 distributions, especially across similarly framed images. It is a poor tool
 for locating a problem: a small bright object and a broad bright band can
-contribute the same count. Use a [waveform](/learn/waveform/) when horizontal
-position is relevant and a [vectorscope](/learn/vectorscope/) when the question
+contribute the same count. Use [Waveform](/learn/waveform/) when horizontal
+position is relevant and [Vectorscope](/learn/vectorscope/) when the question
 is chroma rather than channel level.
 
 Reference: Adobe's official [Lumetri scopes guide](https://helpx.adobe.com/premiere/desktop/correct-color/add-color-effects/available-lumetri-scopes.html)

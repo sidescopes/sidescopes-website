@@ -2,8 +2,8 @@
 title: SideScopes
 description: >-
   Free, open-source color scopes for any region of your screen. Inspect the
-  rendered output of any application with a vectorscope, RGB waveform, luma
-  waveform, RGB parade, histogram, and color comparison tool.
+  rendered output of any application with Vectorscope, Waveform, Luma
+  Waveform, RGB Parade, Histogram, and Color Picker.
 tagline: Color scopes for any region of your screen.
 lede: >-
   SideScopes measures a selected area of the screen and updates live beside
@@ -17,19 +17,19 @@ scopes:
     body: >-
       Plots chroma independently of level. Angle indicates hue; distance from
       the center indicates chroma in a fixed Rec.709-style projection.
-  - name: RGB waveform
+  - name: Waveform
     key: W
     class: waveform
     body: >-
       Overlays red, green, and blue levels while preserving horizontal image
       position. Channel separation can be examined by tonal range.
-  - name: Luma waveform
+  - name: Luma Waveform
     key: L
     class: luma
     body: >-
       Plots a Rec.709-style Y′ estimate across the region. Use it to inspect
       rendered tonal placement and spatial variation.
-  - name: RGB parade
+  - name: RGB Parade
     key: R
     class: parade
     body: >-
@@ -41,7 +41,7 @@ scopes:
     body: >-
       Counts pixels at each captured level, either per channel or overlaid.
       The horizontal axis is level; spatial position is discarded.
-  - name: Color picker
+  - name: Color Picker
     key: C
     class: picker
     body: >-

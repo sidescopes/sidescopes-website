@@ -33,4 +33,4 @@ lede: >-
 
 The color-difference components describe a comparison; they do not correspond
 directly to individual editing controls, and no universal ΔE00 pass threshold
-is implied. See [Color picker and comparison](/learn/color-picker/).
+is implied. See [Color Picker and comparison](/learn/color-picker/).

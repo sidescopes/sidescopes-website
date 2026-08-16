@@ -16,10 +16,12 @@ lede: >-
 A scope maps pixel values into a visual coordinate system. Different scopes
 retain different information:
 
-- a **vectorscope** keeps chroma and discards level and image position;
-- a **waveform** keeps horizontal image position and plots level vertically;
-- an **RGB parade** repeats the waveform separately for each channel;
-- a **histogram** counts levels and discards spatial position.
+- **Vectorscope** keeps chroma and discards level and image position;
+- **Waveform** keeps horizontal image position and plots three channel levels
+  vertically;
+- **Luma Waveform** uses one weighted level trace instead;
+- **RGB Parade** places the three channel waveforms in separate panels;
+- **Histogram** counts levels and discards spatial position.
 
 This is why two scopes can describe the same region correctly while looking
 unrelated. They answer different questions about the same samples.
@@ -80,4 +82,4 @@ Scopes support visual judgment; they do not replace it. Their value is that
 they make pixel relationships visible and repeatable while perception adapts
 to content, surround, and viewing time.
 
-Next: [the vectorscope](/learn/vectorscope/).
+Next: [Vectorscope](/learn/vectorscope/).

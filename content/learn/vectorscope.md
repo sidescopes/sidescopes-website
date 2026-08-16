@@ -84,4 +84,4 @@ For the implementation boundary, see
   describes professional vectorscope interpretation and treats the skin-tone
   indicator as a guide rather than a strict determinant.
 
-Next: [the RGB waveform](/learn/waveform/).
+Next: [Waveform](/learn/waveform/).

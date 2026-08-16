@@ -1,12 +1,12 @@
 ---
-title: Luma waveform
+title: Luma Waveform
 weight: 40
 group: Instruments
 description: >-
   A single positional trace of encoded luma, with the distinction between
   Y′, perceptual brightness, scene luminance, and exposure kept explicit.
 lede: >-
-  The luma waveform preserves horizontal image position and plots a weighted
+  Luma Waveform preserves horizontal image position and plots a weighted
   sum of the captured R′G′B′ values.
 ---
 
@@ -61,8 +61,8 @@ captured RGB contributions to tint the trace, providing spatial color context
 without turning it into three separate channel plots. The vertical coordinate
 remains the same luma calculation in both styles.
 
-For channel relationships, use the [RGB waveform](/learn/waveform/) or
-[RGB parade](/learn/rgb-parade/).
+For channel relationships, use [Waveform](/learn/waveform/) or
+[RGB Parade](/learn/rgb-parade/).
 
 Reference: [ITU-R BT.709](https://www.itu.int/rec/R-REC-BT.709/) defines the
 Rec.709 system and its encoded luma coefficients.

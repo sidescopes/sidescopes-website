@@ -6,7 +6,8 @@ description: >-
   Adjust color and tone while the scopes update in your browser.
 lede: >-
   An interactive environment for observing how image content and adjustments
-  map to a vectorscope, waveforms, RGB parade, histogram, and color readout.
+  map to Vectorscope, Waveform, Luma Waveform, RGB Parade, Histogram, and
+  Color Picker.
 ---
 
 ## Explore an image

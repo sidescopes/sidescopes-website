@@ -1,13 +1,13 @@
 ---
-title: RGB waveform
-sidebarTitle: RGB waveform
+title: Waveform
+sidebarTitle: Waveform
 weight: 30
 group: Instruments
 description: >-
   How an RGB overlay waveform maps horizontal image position and channel
   levels, including correct interpretation of channel separation and limits.
 lede: >-
-  The RGB waveform overlays the red, green, and blue channel levels while
+  Waveform overlays the red, green, and blue channel levels while
   preserving horizontal position in the selected region.
 ---
 
@@ -64,15 +64,15 @@ application’s own signal path when that distinction matters.
 
 ## Useful comparisons
 
-The RGB waveform is well suited to comparing:
+Waveform is well suited to comparing:
 
 - channel balance within a verified neutral;
 - shadow, midtone, and highlight biases separately;
 - the horizontal location of a bright or dark feature;
 - before-and-after rendered output through the same display path.
 
-For a single tonal trace, use the [luma waveform](/learn/luma-waveform/). To
-separate overlapping channels, use the [RGB parade](/learn/rgb-parade/).
+For a single tonal trace, use [Luma Waveform](/learn/luma-waveform/). To
+separate overlapping channels, use [RGB Parade](/learn/rgb-parade/).
 
 Reference: Adobe’s official [Lumetri scopes guide](https://helpx.adobe.com/premiere/desktop/correct-color/add-color-effects/available-lumetri-scopes.html)
 and Apple’s [Final Cut Pro scopes guide](https://support.apple.com/guide/final-cut-pro/view-video-scopes-ver761cad58/mac)

@@ -1,6 +1,6 @@
 {
   "name": "color-picker",
-  "alt": "The SideScopes color picker showing a live RGB sample, two pinned references, and color-difference measurements.",
+  "alt": "Color Picker showing a live RGB sample, two pinned references, and color-difference measurements.",
   "caption": "The live sample remains visible while a selected pin provides the comparison reference.",
   "label": "",
   "base": "shots/color-picker.1d72c46ba9",

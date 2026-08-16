@@ -28,16 +28,16 @@ useful contextual clues, but the assumption should remain explicit.
 
 1. Select a representative area inside the reference, avoiding glare, deep
    shadow, edges, and mixed illumination.
-2. Inspect the RGB waveform or parade. Equal captured RGB levels indicate a
+2. Inspect Waveform or RGB Parade. Equal captured RGB levels indicate a
    neutral rendered sample under SideScopes' sRGB assumption.
-3. Check the vectorscope. A compact reference displaced from center shows the
+3. Check Vectorscope. A compact reference displaced from center shows the
    direction of its chroma bias in the scope projection.
 4. Adjust in the source application, then remeasure the same area through the
    same display path.
 5. Evaluate the image visually. A technically neutral reference does not
    guarantee that the intended rendering of the scene is correct.
 
-An area sample in the [color picker](/learn/color-picker/) can make before-and-
+An area sample in [Color Picker](/learn/color-picker/) can make before-and-
 after comparison more repeatable. For shot matching, a pinned sample is useful
 only if the regions genuinely correspond and the capture/display conditions
 have not changed.
@@ -47,7 +47,7 @@ have not changed.
 A single global balance cannot neutralize different illuminants independently.
 If shadow, midtone, and highlight channel relationships disagree, consider
 whether the cause is mixed lighting, channel-dependent processing, lens or
-sensor behavior, a display transform, or a deliberate grade. The RGB waveform
+sensor behavior, a display transform, or a deliberate grade. Waveform
 can show where a bias lies in the tonal range; restricting the region can show
 where it lies in the image.
 

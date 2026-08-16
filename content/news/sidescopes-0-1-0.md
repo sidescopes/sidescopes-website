@@ -4,7 +4,7 @@ date: 2026-07-13
 postKind: release
 version: "0.1.0"
 description: >-
-  The initial release: live vectorscope and RGB waveform analysis for a
+  The initial release: live Vectorscope and Waveform analysis for a
   selected screen region.
 lede: >-
   The first public build established SideScopes as an application-independent,
@@ -14,7 +14,7 @@ lede: >-
 ## Added
 
 - Screenshot-style selection of a rectangular screen region.
-- Live vectorscope and RGB waveform panes for the captured pixels.
+- Live Vectorscope and Waveform panes for the captured pixels.
 - A color readout that follows the pointer.
 - Toolbar and keyboard access to region and scope controls.
 

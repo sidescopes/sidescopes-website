@@ -1,18 +1,18 @@
 ---
-title: RGB parade
+title: RGB Parade
 weight: 50
 group: Instruments
 description: >-
   How separate red, green, and blue waveforms expose channel relationships
   without losing horizontal image position.
 lede: >-
-  The RGB parade places three channel waveforms side by side: red, green,
+  RGB Parade places three channel waveforms side by side: red, green,
   then blue. Each panel maps the full width of the selected region.
 ---
 
 ## Reading the panels
 
-Each panel has the same axes as an RGB waveform: horizontal position in the
+Each panel has the same axes as Waveform: horizontal position in the
 selected region and channel level from 0 to 100. The panels do **not** divide
 the image into thirds. A feature halfway across the region appears halfway
 across each of the red, green, and blue panels.
@@ -43,9 +43,9 @@ shadow. It does not establish whether the source channel is clipped upstream:
 SideScopes sees the composited display output, after the source application's
 transforms.
 
-Use the parade when separate panels improve comparison. Use the
-[RGB waveform](/learn/waveform/) when the overlap itself is useful, or the
-[luma waveform](/learn/luma-waveform/) for a single weighted level trace.
+Use RGB Parade when separate panels improve comparison. Use
+[Waveform](/learn/waveform/) when the overlap itself is useful, or
+[Luma Waveform](/learn/luma-waveform/) for a single weighted level trace.
 
 Adobe's official [Lumetri scopes guide](https://helpx.adobe.com/premiere/desktop/correct-color/add-color-effects/available-lumetri-scopes.html)
 and Apple's [Final Cut Pro scopes guide](https://support.apple.com/guide/final-cut-pro/view-video-scopes-ver761cad58/mac)

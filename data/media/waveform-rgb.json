@@ -1,6 +1,6 @@
 {
   "name": "waveform-rgb",
-  "alt": "An RGB waveform with red, green, and blue overlaid in their own colors, separating across parts of the tonal range.",
+  "alt": "Waveform with red, green, and blue overlaid in their own colors, separating across parts of the tonal range.",
   "caption": "Three captured channels overlaid. Separation describes their code-value relationship; interpreting it as a bias requires a justified neutral reference.",
   "label": "",
   "base": "shots/waveform-rgb.e8e95d3d98",

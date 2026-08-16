@@ -43,8 +43,8 @@ encoding, not an independent measure of complexion or a prescribed saturation.
    retaining the intended surface.
 3. Compare the trace with a trusted reference, adjacent shots, or the approved
    look—not with the indicator alone.
-4. Check the waveform or parade for channel and level behavior that the
-   vectorscope omits.
+4. Check Waveform or RGB Parade for channel and level behavior that
+   Vectorscope omits.
 5. Judge the face in context on the intended viewing display.
 
 The same method applies to continuity: keep region choice, display path, and

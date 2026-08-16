@@ -1,13 +1,13 @@
 ---
-title: Color picker and comparison
-sidebarTitle: Color picker
+title: Color Picker and comparison
+sidebarTitle: Color Picker
 weight: 70
 group: Instruments
 description: >-
   Sampling, area averages, sRGB and CIELAB readouts, and the correct use of
   CIEDE2000 color difference.
 lede: >-
-  The color picker reports captured pixel values and compares a live sample
+  Color Picker reports captured pixel values and compares a live sample
   with a pinned reference. It is most reliable when both samples share the
   same defined display path.
 ---
