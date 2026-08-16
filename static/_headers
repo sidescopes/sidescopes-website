@@ -43,14 +43,17 @@
 # notes/wasm-lab-research.md in the workbench for why threads stay off.
 /lab/*
   # RULES ADD, THEY DO NOT REPLACE. A request matching several patterns
-  # inherits all of their headers, and a header set twice is JOINED WITH A
-  # COMMA - so without this line the page received the /* policy AND the one
-  # below, and a browser enforces the INTERSECTION of every policy it is
-  # given. The stricter one won every directive that matters here: the frame
-  # was refused against `default-src 'self'` and the WebAssembly would have
-  # been too. Shipped that way and caught on the live site, because a second
-  # policy is invisible to anything that reads only the last header.
+  # inherits all of their headers, and a header set twice is emitted twice.
+  # These removals replace every shared rule cleanly. The CSP replacement is
+  # essential: browsers enforce the intersection of multiple policies, so the
+  # global `default-src 'self'` would refuse the frame even if the second
+  # policy allowed it. Duplicate single-value security headers are removed as
+  # well rather than relying on clients to combine identical copies.
   ! Content-Security-Policy
+  ! Cross-Origin-Opener-Policy
+  ! Permissions-Policy
+  ! Referrer-Policy
+  ! X-Content-Type-Options
   ! X-Frame-Options
   ! Strict-Transport-Security
   X-Frame-Options: DENY
