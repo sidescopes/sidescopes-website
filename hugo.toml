@@ -49,24 +49,24 @@ disableKinds = ['taxonomy', 'term']
 [[menus.main]]
   name = 'Lab'
   pageRef = '/lab'
-  weight = 10
+  weight = 40
   [menus.main.params]
     class = 'nav-lab'
 
 [[menus.main]]
   name = 'Learn'
   pageRef = '/learn'
-  weight = 20
+  weight = 10
 
 [[menus.main]]
   name = 'Docs'
   pageRef = '/docs'
-  weight = 30
+  weight = 20
 
 [[menus.main]]
   name = 'Source'
   url = 'https://github.com/sidescopes/sidescopes'
-  weight = 40
+  weight = 30
   [menus.main.params]
     class = 'nav-hide-sm'
 

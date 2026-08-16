@@ -3,8 +3,9 @@
        these shots; reference figures elsewhere still crop to the panes.
 
        With JavaScript unavailable the first view remains complete. The small
-       controller only swaps `hidden` attributes: no carousel dependency, no
-       autoplay and no layout movement. */ -}}
+       controller only swaps `hidden` attributes: no carousel dependency or
+       autoplay. Every capture uses the same source-pixel scale, while taller
+       window layouts extend the stage instead of being cropped. */ -}}
 {{- $names := slice
   "hero-vectorscope"
   "hero-waveform"
@@ -20,6 +21,12 @@
     {{- $entries = $entries | append . -}}
   {{- end -}}
 {{- end -}}
+{{- $widest := 1 -}}
+{{- range $entries -}}
+  {{- if gt (int .width) $widest -}}
+    {{- $widest = int .width -}}
+  {{- end -}}
+{{- end -}}
 
 {{- if $entries }}
 <section class="scope-showcase" data-scope-showcase aria-label="SideScopes window configurations">
@@ -28,15 +35,19 @@
       {{- $base := printf "%s/%s" (partial "media-base.html" $) $entry.base -}}
       {{- $widths := apply $entry.variants "int" "." -}}
       {{- $largest := index $widths (sub (len $widths) 1) -}}
+      {{- $widthPercent := div (mul 100.0 (float $entry.width)) (float $widest) -}}
+      {{- $widthRem := div (mul 34.0 (float $entry.width)) (float $widest) -}}
+      {{- $widthVw := div (mul 92.0 (float $entry.width)) (float $widest) -}}
+      {{- $sizes := printf "(min-width: 60rem) %.4frem, %.4fvw" $widthRem $widthVw -}}
     <figure class="scope-showcase__slide" data-showcase-slide data-label="{{ $entry.label }}"{{ if ne $index 0 }} hidden{{ end }}>
-      <picture>
+      <picture style="--showcase-width: {{ printf "%.4f" $widthPercent }}%; --showcase-max-width: {{ printf "%.4f" $widthRem }}rem">
         {{- range $format := $entry.formats }}
         {{- if ne $format "png" }}
           {{- $set := slice -}}
           {{- range $w := $widths -}}
             {{- $set = $set | append (printf "%s-%d.%s %dw" $base $w $format $w) -}}
           {{- end }}
-        <source type="image/{{ $format }}" {{ printf "sizes=%q srcset=%q" "(min-width: 60rem) 30rem, 92vw" (delimit $set ", ") | safeHTMLAttr }}>
+        <source type="image/{{ $format }}" {{ printf "sizes=%q srcset=%q" $sizes (delimit $set ", ") | safeHTMLAttr }}>
         {{- end }}
         {{- end }}
         <img src="{{ printf "%s-%d.png" $base $largest }}" alt="{{ $entry.alt }}"
