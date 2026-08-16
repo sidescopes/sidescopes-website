@@ -54,11 +54,19 @@ jobs:
               sha256URL: checksum.url,
             };
           }
+          const publishedParts = Object.fromEntries(
+            new Intl.DateTimeFormat('en', {
+              timeZone: 'Europe/Warsaw',
+              year: 'numeric',
+              month: '2-digit',
+              day: '2-digit',
+            }).formatToParts(new Date(r.publishedAt)).map(({ type, value }) => [type, value]),
+          );
           const out = {
             _comment: 'Written by .github/workflows/release-data.yml. Do not edit by hand.',
             version: tag.replace(/^v/, ''),
             tag,
-            published: (r.publishedAt || '').slice(0, 10),
+            published: `${publishedParts.year}-${publishedParts.month}-${publishedParts.day}`,
             url: r.url,
             assets: {
               macos: platformAsset('macos'),
