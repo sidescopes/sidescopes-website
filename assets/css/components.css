@@ -237,7 +237,7 @@
 /* Region demonstration: the copy explains the measurement model while the
    real desktop capture proves each selection mode. The screenshot carries its
    own native frame and editing band, so the carousel adds no second card
-   border around it. All three pipeline captures share one 15:11 frame. */
+   border around it. All three pipeline captures share one 47:35 frame. */
 
 .region-feature {
   display: grid;
@@ -302,7 +302,7 @@
 
 .region-showcase__stage {
   display: grid;
-  aspect-ratio: 15 / 11;
+  aspect-ratio: 47 / 35;
   min-width: 0;
 }
 

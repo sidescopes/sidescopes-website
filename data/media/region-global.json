@@ -3,7 +3,7 @@
   "alt": "A fixed SideScopes region over a sample image, outlined by the striped editing band and labeled with the display name.",
   "caption": "Fixed to one display. Its label identifies the display, and windows can move beneath it.",
   "label": "Global region",
-  "base": "shots/region-global.94af7f4641",
+  "base": "shots/region-global.a37e9b43d8",
   "stable": "shots/region-global.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1240,
-  "height": 909,
+  "height": 923,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope",
@@ -25,23 +25,23 @@
     "reference_image": "wide-tonal-range.jpg",
     "derive": [],
     "window_points": [
-      720,
-      528
+      752,
+      560
     ],
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      1440,
-      1056
+      1504,
+      1120
     ],
     "presentation": "region",
     "region_mode": "global",
     "content_title": "Wide tonal range",
     "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "76a82a6",
-    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_commit": "7861af2",
+    "app_describe": "v0.6.0-25-g7861af2",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"

@@ -3,7 +3,7 @@
   "alt": "A face in a sample photograph enclosed by SideScopes' striped editable region boundary.",
   "caption": "Uses a detected face as a geometric anchor and follows it within the window.",
   "label": "Face selection",
-  "base": "shots/region-face.d3383ac0ef",
+  "base": "shots/region-face.52b5a04a51",
   "stable": "shots/region-face.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1240,
-  "height": 909,
+  "height": 923,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope",
@@ -37,23 +37,23 @@
       "1800x1000"
     ],
     "window_points": [
-      720,
-      528
+      752,
+      560
     ],
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      1440,
-      1056
+      1504,
+      1120
     ],
     "presentation": "region",
     "region_mode": "face",
     "content_title": "Portrait, 1860",
     "show_cursor_markers": false,
     "app_version": "0.6.0",
-    "app_commit": "76a82a6",
-    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_commit": "7861af2",
+    "app_describe": "v0.6.0-25-g7861af2",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"
