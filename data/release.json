@@ -1,21 +1,21 @@
 {
   "_comment": "Written by .github/workflows/release-data.yml. Do not edit by hand.",
-  "version": "0.6.0",
-  "tag": "v0.6.0",
-  "published": "2026-08-14",
-  "url": "https://github.com/sidescopes/sidescopes/releases/tag/v0.6.0",
+  "version": "0.7.0",
+  "tag": "v0.7.0",
+  "published": "2026-08-16",
+  "url": "https://github.com/sidescopes/sidescopes/releases/tag/v0.7.0",
   "assets": {
     "macos": {
-      "name": "SideScopes-v0.6.0-macos.zip",
-      "url": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-macos.zip",
-      "sha256": "879b5d946bcd86ac5f314f792a4b6b1880ae229e55fd89e701de6fdf8f28de9d",
-      "sha256URL": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-macos.zip.sha256"
+      "name": "SideScopes-v0.7.0-macos.zip",
+      "url": "https://github.com/sidescopes/sidescopes/releases/download/v0.7.0/SideScopes-v0.7.0-macos.zip",
+      "sha256": "19b35299ebe955b295b71c522bdc6739e416bfd080bf2abb261a94ea26988cd0",
+      "sha256URL": "https://github.com/sidescopes/sidescopes/releases/download/v0.7.0/SideScopes-v0.7.0-macos.zip.sha256"
     },
     "windows": {
-      "name": "SideScopes-v0.6.0-windows.zip",
-      "url": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-windows.zip",
-      "sha256": "5a83e2c6380f6314cf0005f87a328372077be0eab23ad865135c1f895926b983",
-      "sha256URL": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-windows.zip.sha256"
+      "name": "SideScopes-v0.7.0-windows.zip",
+      "url": "https://github.com/sidescopes/sidescopes/releases/download/v0.7.0/SideScopes-v0.7.0-windows.zip",
+      "sha256": "67f1d69105d334690c3a2cea492fc355deb4dd2eed7b1bc1fe5941817a2bb69c",
+      "sha256URL": "https://github.com/sidescopes/sidescopes/releases/download/v0.7.0/SideScopes-v0.7.0-windows.zip.sha256"
     }
   }
 }
