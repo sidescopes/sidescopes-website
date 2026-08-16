@@ -74,6 +74,31 @@
   .hero-grid:has(> .scope-showcase) {
     grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
   }
+
+  /* Reserve the tallest window's height at the same scale used by every
+     capture. The invisible grid item keeps the hero and the following page
+     sections fixed while the visible window changes configuration. */
+  .scope-showcase__header {
+    height: 4.25rem;
+  }
+
+  .scope-showcase__stage {
+    display: grid;
+  }
+
+  .scope-showcase__stage::before {
+    content: "";
+    grid-area: 1 / 1;
+    width: min(100%, 34rem);
+    aspect-ratio: var(--showcase-stage-ratio);
+    margin-inline: auto;
+    visibility: hidden;
+  }
+
+  .scope-showcase__slide {
+    grid-area: 1 / 1;
+    align-self: start;
+  }
 }
 
 .hero .lede {
@@ -94,6 +119,11 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem 1rem;
+}
+
+.hero-meta strong {
+  color: var(--ink-2);
+  font-weight: 650;
 }
 
 .scope-showcase {

@@ -22,9 +22,13 @@
   {{- end -}}
 {{- end -}}
 {{- $widest := 1 -}}
+{{- $tallest := 1 -}}
 {{- range $entries -}}
   {{- if gt (int .width) $widest -}}
     {{- $widest = int .width -}}
+  {{- end -}}
+  {{- if gt (int .height) $tallest -}}
+    {{- $tallest = int .height -}}
   {{- end -}}
 {{- end -}}
 
@@ -55,7 +59,8 @@
     </div>
     {{- end }}
   </header>
-  <div class="scope-showcase__stage">
+  <div class="scope-showcase__stage"
+       style="--showcase-stage-ratio: {{ $widest }} / {{ $tallest }}">
     {{- range $index, $entry := $entries }}
       {{- $base := printf "%s/%s" (partial "media-base.html" $) $entry.base -}}
       {{- $widths := apply $entry.variants "int" "." -}}
