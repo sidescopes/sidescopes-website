@@ -2,10 +2,10 @@
 #
 # Written as PER-PATH blocks rather than one global rule, so that a future
 # section can widen its own policy without loosening the whole site. The
-# browser demo is the case in mind: WebAssembly needs 'wasm-unsafe-eval' in
+# browser lab is the case in mind: WebAssembly needs 'wasm-unsafe-eval' in
 # script-src, and a threaded build would additionally need cross-origin
 # isolation, which changes what the document may embed. Neither is granted
-# here, because neither is needed yet — see notes/wasm-demo-research.md in
+# here, because neither is needed yet — see notes/wasm-lab-research.md in
 # the workbench.
 
 /*
@@ -28,20 +28,20 @@
   # img-src carries the media host, where every screenshot is served from.
   Content-Security-Policy: default-src 'self'; script-src 'self' https://static.cloudflareinsights.com; style-src 'self'; img-src 'self' https://media.sidescopes.org data:; font-src 'self'; connect-src 'self' https://cloudflareinsights.com; form-action 'none'; frame-ancestors 'none'; base-uri 'none'; object-src 'none'; upgrade-insecure-requests
 
-# The browser demo, and only the demo.
+# The browser lab, and only the lab.
 #
-# The demo runs in a FRAME served from the media host, so this page grants
+# The lab runs in a FRAME served from the media host, so this page grants
 # frame-src there and nothing else does. The WebAssembly then executes in
 # that frame under the media host's own headers rather than these - which is
 # the cost of framing the tested page instead of rebuilding its surface here,
 # and is acceptable because the bucket serves only what this project uploads
 # to it. 'wasm-unsafe-eval' and the media host stay in script-src because a
-# future in-page demo would need them and their absence would read as a
+# future in-page lab would need them and their absence would read as a
 # decision rather than an oversight.
 #
 # Still single-threaded, so no cross-origin isolation and no COEP - see
-# notes/wasm-demo-research.md in the workbench for why threads stay off.
-/demo/*
+# notes/wasm-lab-research.md in the workbench for why threads stay off.
+/lab/*
   # RULES ADD, THEY DO NOT REPLACE. A request matching several patterns
   # inherits all of their headers, and a header set twice is JOINED WITH A
   # COMMA - so without this line the page received the /* policy AND the one

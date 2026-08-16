@@ -4,41 +4,28 @@ date: 2026-07-17
 postKind: release
 version: "0.2.0"
 description: >-
-  Every scope becomes a module behind one C interface, and analysis starts
-  using more than one core.
+  A common scope-module interface, parallel analysis, improved window
+  selection, and more consistent color sampling.
 lede: >-
-  A structural release. Little of it is visible, and it is the reason the
-  later ones were possible.
+  This release reorganized the scope engine so later instruments and controls
+  could be added without hard-coding each one into the application.
 ---
 
-## Every scope is a module
+## Added
 
-The scopes — the built-in ones included — now sit behind a single C
-interface, and the application knows them only through it. A scope declares
-its own identity, its shortcut letter, the parameters it wants and the shape
-of pane it prefers, and the interface, the menus and the preferences are all
-driven by those declarations rather than by a list of scope names written
-into the application.
+- A common C interface for built-in and dynamically loaded scope modules.
+- Module declarations for identity, shortcut, parameters, and preferred pane
+  shape.
+- Parallel vectorscope and waveform analysis with deterministic results across
+  thread counts.
+- RGB code, percentage, and hexadecimal color readouts.
 
-The practical effect is that adding a scope stopped being surgery on the
-application. Everything after this release that added or removed one — the
-luma waveform becoming a scope of its own, a scope being deleted outright —
-was possible because of this.
+## Fixed
 
-## Analysis across cores
+- Window suggestions now respect visible stacking rather than offering windows
+  fully covered by others.
+- Pinned colors use the same sample as the live readout.
+- An invalid scope-module file no longer stalls dynamic configuration.
 
-The vectorscope and the waveform now compute in parallel across the machine's
-cores instead of on one.
-
-The important property is that the result is **bit-exact regardless of how
-many cores do the work**. That is not a happy accident; it is checked against
-fixed reference images on every push, on three machines with different core
-counts, which is what makes the guarantee worth stating.
-
-## Also
-
-- Colour values on the picker swatches as code, percent and hex.
-- Window picking respects stacking, so a window buried under the ones above
-  it is no longer offered as though it were visible.
-- Pinning a colour matches what the live readout shows.
-- A corrupt scope-module file no longer hangs the dynamic configuration.
+The module boundary introduced here remains internal infrastructure; it does
+not change the display-referred measurement boundary of the scopes.

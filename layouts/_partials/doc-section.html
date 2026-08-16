@@ -13,14 +13,38 @@
     <div class="prose">{{ . }}</div>
     {{- end }}
 
+    {{- $pages := .RegularPages.ByWeight }}
+    {{- $groups := slice }}
+    {{- range $pages }}
+      {{- $group := .Params.group | default "" }}
+      {{- if and $group (not (in $groups $group)) }}{{ $groups = $groups | append $group }}{{ end }}
+    {{- end }}
+
+    {{- if $groups }}
+      {{- range $groups }}
+      {{- $group := . }}
+      <h2 class="section-label">{{ $group }}</h2>
+      <div class="grid grid--2">
+        {{- range $pages }}
+          {{- if eq (.Params.group | default "") $group }}
+        <a class="card card--link" href="{{ .RelPermalink }}">
+          <h3>{{ .LinkTitle }}</h3>
+          <p>{{ with .Description }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}</p>
+        </a>
+          {{- end }}
+        {{- end }}
+      </div>
+      {{- end }}
+    {{- else }}
     <div class="grid grid--2 gap-t-lg">
-      {{- range .RegularPages.ByWeight }}
+      {{- range $pages }}
       <a class="card card--link" href="{{ .RelPermalink }}">
         <h3>{{ .LinkTitle }}</h3>
         <p>{{ with .Description }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}</p>
       </a>
       {{- end }}
     </div>
+    {{- end }}
   </article>
 
   <div></div>

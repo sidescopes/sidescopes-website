@@ -1,50 +1,68 @@
 ---
 title: Privacy
 description: >-
-  What this website counts, what the application sends (nothing), and how
-  to be counted by neither.
+  Network, storage, and analytics behavior for the SideScopes desktop
+  application, SideScopes Lab, this website, and GitHub downloads.
 lede: >-
-  Short version: the application has no network access at all, and this
-  site counts page views without cookies and without following anyone.
+  The desktop application is offline. Images opened in the Lab stay in the
+  browser. The website uses privacy-preserving aggregate analytics only on the
+  production domain.
 ---
 
-## The application
+## Desktop application
 
-SideScopes has **no network access**. It does not phone home, check for
-updates, report errors, or send usage statistics. There is no account and
-no identifier. The pixels it measures never leave your machine, because
-there is no code in it that could send them anywhere.
+SideScopes has no network access, account, telemetry, error-reporting service,
+or automatic updater. Captured pixels remain on the computer.
 
-The only file it writes is its own preferences file.
+The application writes a local preferences file. It writes a diagnostic log
+only when recording is requested from the Diagnostics menu or enabled through
+its development environment variables. Diagnostic logs can contain window
+titles and application names and should be reviewed before sharing.
 
-## This website
+## SideScopes Lab
 
-There are **no cookies** and **no advertising or cross-site trackers**.
-Nothing is stored on your device by this site.
+The Lab's code and sample images are downloaded from `media.sidescopes.org`
+when you choose **Open the Lab**. An image you select from your computer is
+decoded and analyzed inside the browser. The file and its pixels are not
+uploaded by SideScopes.
 
-Page views are counted with Cloudflare Web Analytics, which is measured
-from a small script and stores nothing on your device. It records the page
-address, the referring page, and coarse facts about the browser and country
-that the request already carried. It does not build a profile, does not
-follow you to other sites, and there is no identifier tying two visits
-together.
+The Lab uses browser `localStorage` on `media.sidescopes.org` to retain its
+interface preferences and whether the guided tour has been completed. It does
+not store the image you loaded. Clearing site data for that origin removes the
+saved preferences.
 
-The script is not loaded at all if any of these is true:
+## Website and analytics
 
-- your browser sends **Do Not Track**;
-- your browser sends **Global Privacy Control**;
-- you are reading a preview or a local copy of the site rather than
-  sidescopes.org.
+The site has no account, advertising, or cross-site tracking. Its pages do not
+set an application cookie.
 
-Blocking it changes nothing about how the site works.
+On `sidescopes.org`, Cloudflare Web Analytics can load after a page view. The
+analytics beacon uses no cookies or `localStorage` and does not fingerprint
+individual visitors. It reports aggregate page and performance measurements;
+Cloudflare states that Web Analytics does not collect or use visitors' personal
+data. See Cloudflare's documentation for
+[data collection](https://developers.cloudflare.com/web-analytics/data-metrics/data-origin-and-collection/)
+and [Core Web Vitals](https://developers.cloudflare.com/web-analytics/data-metrics/core-web-vitals/).
 
-## Downloads
+The analytics script is omitted when any of the following applies:
 
-Downloads are served by GitHub, not from here. Fetching a release is a
-request to GitHub and is subject to
-[their privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+- the browser sends **Do Not Track**;
+- the browser sends **Global Privacy Control**;
+- the site is a preview, local development copy, or mirror rather than
+  `sidescopes.org`.
 
-## Getting in touch
+Blocking the script does not affect the website or Lab. As with any website,
+normal requests still pass through the hosting and content-delivery providers,
+which process network metadata needed to deliver and protect the service.
 
-Questions and corrections belong in
-[the issue tracker](https://github.com/sidescopes/sidescopes/issues).
+## Downloads and external links
+
+Release downloads and source code are hosted by GitHub. Opening a GitHub link
+or downloading a release is subject to
+[GitHub's privacy statement](https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement).
+Links to technical references are operated by their respective publishers.
+
+## Questions
+
+Questions or corrections can be filed in the
+[public issue tracker](https://github.com/sidescopes/sidescopes/issues).

@@ -1,5 +1,5 @@
 baseURL = 'https://sidescopes.org/'
-locale = 'en'
+locale = 'en-US'
 title = 'SideScopes'
 timeZone = 'Europe/Warsaw'
 enableRobotsTXT = true
@@ -17,8 +17,8 @@ disableKinds = ['taxonomy', 'term']
   page = ['html']
 
 [params]
-  description = 'Free, open-source colour scopes for any region of your screen — a live vectorscope, waveform and histogram beside the photo editor you already use.'
-  tagline = 'See the colour your eyes stopped noticing.'
+  description = 'Free, open-source color scopes for any region of your screen: vectorscope, RGB and luma waveforms, RGB parade, histogram, and color comparison.'
+  tagline = 'Color scopes for any region of your screen.'
 
   # Where the binaries live. The site links here and never re-hosts a
   # download: github.com carries the download-origin reputation that a new
@@ -33,10 +33,10 @@ disableKinds = ['taxonomy', 'term']
   # scripts/media-add.sh and layouts/_shortcodes/figure.html.
   mediaBaseURL = 'https://media.sidescopes.org'
 
-  # The tag content/docs/ was generated from. scripts/sync-docs.sh writes it
-  # and CI checks the tree still matches, so the documentation on the site
-  # describes the released build rather than the development branch.
-  docsRef = 'v0.5.0'
+  # The ref content/docs/ was generated from. The Lab follows current main,
+  # and the reference follows it so corrections do not wait for a release.
+  # The generated pages state this distinction explicitly.
+  docsRef = 'main'
 
   # Whether the published builds are code-signed. FLIP THESE when signing
   # lands: the download page's warning section is written from them, and
@@ -47,23 +47,18 @@ disableKinds = ['taxonomy', 'term']
     windows = false
 
 [[menus.main]]
+  name = 'Interactive Lab'
+  pageRef = '/lab'
+  weight = 10
+
+[[menus.main]]
   name = 'Learn'
   pageRef = '/learn'
-  weight = 10
+  weight = 20
 
 [[menus.main]]
   name = 'Docs'
   pageRef = '/docs'
-  weight = 20
-
-[[menus.main]]
-  name = 'Demo'
-  pageRef = '/demo'
-  weight = 25
-
-[[menus.main]]
-  name = 'News'
-  pageRef = '/news'
   weight = 30
 
 [[menus.main]]

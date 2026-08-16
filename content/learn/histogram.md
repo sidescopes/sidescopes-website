@@ -1,86 +1,61 @@
 ---
-title: The histogram
+title: Histogram
 weight: 60
+group: Instruments
 description: >-
-  The one scope photographers already know. What it is good for, what it
-  cannot do, and why it is still worth having beside the others.
+  What an RGB histogram counts, which information it discards, and why peaks,
+  gaps, and endpoint bins require context.
 lede: >-
-  Every photo editor has a histogram, so this page is less about learning
-  to read one than about knowing where it stops.
+  A histogram counts captured channel values. It shows their distribution but
+  not where those values occur in the image.
 ---
 
-## The plot
+## Axes and scale
 
-A histogram counts pixels. The horizontal axis is level, black at the left
-and white at the right; the height at each point is how many pixels of the
-region sit at that level.
+SideScopes counts each red, green, and blue code value into 256 bins. The
+horizontal axis runs from minimum channel value on the left to maximum on the
+right. Height represents the relative number of samples in a bin.
 
-That is the whole instrument. It has no geometry — no sense of where in the
-frame anything is — which is both why it is compact and why it cannot
-answer the questions the waveform can.
+The displayed height uses a square-root response so a large population does
+not flatten every smaller one. This makes sparse parts of the distribution
+visible, but means bar height is not linearly proportional to sample count.
 
-{{< figure name="histogram" caption="Three channels drawn at full height. Where they do not line up, the image is not neutral at that level — here the blue curve sits to the left of the others, which is a warm image." >}}
+{{< figure name="histogram" caption="The histogram shows the distribution of captured red, green, and blue values. Unlike a waveform, it discards image position." >}}
 
-## Two ways to draw it
+## Per Channel and Combined
 
-**Per channel** stacks red, green and blue in bands, one above another,
-each shape complete and nothing occluding anything else. This is the honest
-version: you can see the true shape of each channel, including where one of
-them is piling up against an end.
+**Per Channel** gives red, green, and blue separate vertical bands, preserving
+the complete shape of each distribution. **Combined** overlays all three at
+the full plot height, making overlap and divergence easier to see. The
+underlying counts are the same; only the presentation changes.
 
-**Combined** overlays all three at full height, which is how most photo
-editors draw it. Here the *overlap itself* is the information. A neutral
-grey subject shows the three curves lying exactly on top of one another; a
-warm image shows blue displaced to the left of red. It is more compact and
-the disagreement between channels is easier to spot, at the cost of the
-shapes hiding each other where they cross.
+Overlapping channel distributions can be consistent with neutral content, but
+they do not prove neutrality. Different colored subjects can produce similar
+global distributions, just as a neutral image can contain locally separated
+channels. Use a positional scope or a restricted region when location matters.
 
-Neither is more correct. Per channel is better for reading one channel's
-shape; combined is better for reading whether the channels agree.
+## Peaks, gaps, and endpoints
 
-## What to read it for
+A peak means many sampled channel values fall in or near that bin. It may come
+from a large flat area, a tonal compression, or simply the subject. A gap means
+the sampled output contains few or no values in that interval. Gaps can result
+from quantization or strong processing, but they do not by themselves prove
+posterization will be visible.
 
-**Clipping at either end.** A spike hard against the left or right edge is
-pixels that ran out of range. This is the reading the histogram does best
-and fastest, and it is why every editor shows one.
+Likewise, a high endpoint count shows that many captured values are exactly at
+minimum or maximum. It can be consistent with crushing or clipping in the
+rendered output, but it can also describe legitimate flat black, white, or
+fully saturated pixels. The histogram cannot identify the limiting stage or
+recoverable data upstream.
 
-**The overall distribution.** Whether the picture is mostly dark, mostly
-light, or spread across the range. Useful for a quick sense of a frame you
-have not looked at yet.
+## When to use it
 
-**Gaps and combs.** A histogram with regular vertical gaps in it has been
-stretched hard — usually a heavily pushed exposure or contrast curve on an
-8-bit file. The gaps are levels that no pixel landed on, and they are a
-warning that the file is being asked to do more than it holds.
+The histogram is compact and useful for comparing overall channel
+distributions, especially across similarly framed images. It is a poor tool
+for locating a problem: a small bright object and a broad bright band can
+contribute the same count. Use a [waveform](/learn/waveform/) when horizontal
+position is relevant and a [vectorscope](/learn/vectorscope/) when the question
+is chroma rather than channel level.
 
-## Where it stops
-
-Three questions it cannot reach, all of which the other scopes can:
-
-**Where in the frame.** A blown sky and a blown reflection in one corner
-produce the same histogram. The waveform separates them instantly.
-
-**Whether that is colour or a cast.** A photograph of a red barn and a
-photograph with a red cast both have a lot of red. The vectorscope tells
-them apart; the histogram cannot.
-
-**How saturated.** The histogram knows nothing about saturation at all,
-only about how much of each channel is present at each level.
-
-This is not a criticism of the instrument — it is a count of pixels and it
-counts them well. It is an argument for not stopping there, which is
-[the argument the rest of these pages make](/learn/why-scopes/).
-
-## Bar heights
-
-Bar heights follow a square-root curve rather than being drawn in
-proportion to the raw count, which is what photo editors do and for a good
-reason: a photograph usually has one enormous peak — a sky, a backdrop, a
-wall — and drawing it linearly flattens everything else into the baseline.
-The square root brings the small counts up far enough to be read without
-misrepresenting which peak is larger.
-
-It does mean the vertical axis is not a quantity you should read numbers
-off. It is a shape.
-
-Next: [the colour picker](/learn/colour-picker/).
+Reference: Adobe's official [Lumetri scopes guide](https://helpx.adobe.com/premiere/desktop/correct-color/add-color-effects/available-lumetri-scopes.html)
+describes histogram axes and the distinction from positional waveforms.

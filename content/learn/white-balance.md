@@ -1,92 +1,62 @@
 ---
-title: Neutral, without guessing
+title: Evaluating color balance
+sidebarTitle: Color balance
 weight: 80
+group: Applied readings
 description: >-
-  White balance is the one edit your eyes are actively working against you
-  on. Here is how to settle it with a number instead.
+  A reference-based workflow for evaluating channel balance without assuming
+  that every image, highlight, or average should be neutral.
 lede: >-
-  The eyedropper asks you to find something grey. The vectorscope tells you
-  whether you found it.
+  Scopes can quantify balance in a known reference. They cannot decide which
+  parts of an image were intended to be neutral.
 ---
 
-## Why this one is hard by eye
+## Start with a justified reference
 
-Every other tonal judgement has a fixed reference somewhere. Exposure has
-black and white. Contrast has the range of the medium. White balance has
-nothing but your own adaptation, and your adaptation is the thing that
-moves.
+White balance is meaningful relative to an illuminant, adaptation state, or
+creative intent. Before interpreting channel separation as a cast, identify a
+region that has a sound reason to be neutral: for example, a verified neutral
+target captured under the relevant light, or a corresponding reference agreed
+for a matching task.
 
-Worse, the two ends of the correction interact. Warming an image and
-raising its tint both push towards a similar-looking place, and it is
-genuinely difficult to tell "slightly too warm" from "slightly too magenta"
-by looking. On a vectorscope they are two different directions, sixty
-degrees apart, and confusing them is not possible.
+Objects that merely look gray or white are not reliable standards. Paper can
+contain optical brighteners; painted walls and fabric have color; clouds,
+teeth, and the sclera of an eye are not defined neutrals. They can still be
+useful contextual clues, but the assumption should remain explicit.
 
-## The reading
+## A scope-based workflow
 
-**Neutral is the centre.** Not "near the centre" — a grey pixel has no hue,
-so it lands exactly on the origin. Everything else follows from that.
+1. Select a representative area inside the reference, avoiding glare, deep
+   shadow, edges, and mixed illumination.
+2. Inspect the RGB waveform or parade. Equal captured RGB levels indicate a
+   neutral rendered sample under SideScopes' sRGB assumption.
+3. Check the vectorscope. A compact reference displaced from center shows the
+   direction of its chroma bias in the scope projection.
+4. Adjust in the source application, then remeasure the same area through the
+   same display path.
+5. Evaluate the image visually. A technically neutral reference does not
+   guarantee that the intended rendering of the scene is correct.
 
-Point the region at part of the image that ought to be neutral: a grey
-card if you shot one, but also concrete, asphalt, white paint in shade,
-paper, the whites of eyes, a cloud that is not lit by anything coloured.
-The cloud on the scope should sit on the centre. Where it sits instead
-names the cast, and the direction is the correction, reversed.
+An area sample in the [color picker](/learn/color-picker/) can make before-and-
+after comparison more repeatable. For shot matching, a pinned sample is useful
+only if the regions genuinely correspond and the capture/display conditions
+have not changed.
 
-## Working the correction
+## Mixed light and tonal separation
 
-1. **Pick a region that should be neutral**, not the whole picture. Whole
-   images are rarely neutral overall and are not supposed to be — a forest
-   is genuinely green. The measurement is only as good as the assumption
-   behind the area you chose.
-2. **Read which way the cloud has gone.** Towards blue means the image is
-   too cool; towards yellow, too warm. Towards magenta or green is the
-   tint axis rather than the temperature one.
-3. **Move the temperature and tint sliders** and watch the cloud walk back
-   towards the centre. This is the part that is genuinely nicer than an
-   eyedropper: it is a continuous reading rather than a single click, so
-   you can see it converge.
-4. **Check the whole frame afterwards.** Widen the region back out and make
-   sure you have not simply moved the cast somewhere else.
+A single global balance cannot neutralize different illuminants independently.
+If shadow, midtone, and highlight channel relationships disagree, consider
+whether the cause is mixed lighting, channel-dependent processing, lens or
+sensor behavior, a display transform, or a deliberate grade. The RGB waveform
+can show where a bias lies in the tonal range; restricting the region can show
+where it lies in the image.
 
-## When there is nothing neutral in the frame
+## What SideScopes cannot infer
 
-Sometimes there genuinely is not, and no instrument invents information.
-Two things still help.
+Because SideScopes analyzes the final captured display pixels, it cannot read
+camera metadata, identify the scene illuminant, estimate a definitive color
+temperature, or distinguish a source cast from a later transform. It provides
+evidence for a decision made in the application that owns the image.
 
-**Skin, if there is any.** Human skin sits along a known line whatever its
-colour, which makes it the most useful reference in a photograph that
-contains no grey — [its own page](/learn/skin-tones/).
-
-**A cast is usually uniform.** Even without a known-neutral subject, a cast
-tends to move *everything* together, whereas real colour in a scene points
-in several directions at once. A cloud that is compact and displaced looks
-different from a cloud that is spread and centred, and that difference is
-readable even when you cannot name the correct answer.
-
-## Matching one image to another
-
-This is where measurement beats eyes by the largest margin, because the
-error compounds.
-
-Editing twenty frames from one shoot by comparing each to the last is a
-random walk: every small drift is inherited by everything after it, and by
-the twentieth image you are a long way from the first with no single step
-having looked wrong. Comparing each to a *number* removes the drift
-entirely.
-
-The colour picker exists for exactly this. Pin a colour from the first
-image — a patch of skin, a wall, a shirt — then open the next and hover the
-tone that should match it. The difference comes back as ΔE, split into how
-much lighter or darker, how much more or less colourful, and how far the
-hue has drifted. Three numbers instead of an impression.
-
-<div class="note">
-<span class="note-title">Where dragging beats clicking</span>
-<p>Pin the <em>average of a small rectangle</em> rather than a single
-pixel. One pixel of skin, sky or fabric is almost never representative —
-photographs are textured, and the pixel you happened to land on can be a
-specular highlight or a pore. Dragging averages the area.</p>
-</div>
-
-Next: [skin tones](/learn/skin-tones/).
+See [What SideScopes measures](/learn/what-sidescopes-measures/) for the full
+measurement boundary.

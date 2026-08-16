@@ -2,17 +2,16 @@
 title: Documentation
 sidebarTitle: Overview
 lede: >-
-  The application's own reference: what every scope measures, how a region
-  is chosen, the complete keyboard and mouse map, and what to do when
-  something is not working.
+  The application reference: scope behavior, region selection, keyboard and
+  mouse controls, settings, and troubleshooting.
 description: >-
   Reference documentation for SideScopes: the scopes, choosing a region,
   keyboard and mouse shortcuts, and troubleshooting.
 ---
 
-These pages are generated from the application repository at the tag of the
-current release, so they describe the build you can download rather than
-whatever is on the development branch.
+These pages are generated from the current application source. They may
+describe changes made after the latest downloadable release; each release has
+its own changelog and source tag on GitHub.
 
-If you are new to scopes and want to know *why* they are useful rather than
-what each control does, start with [the guides](/learn/) instead.
+For instrument principles, interpretation, and color-science context, use the
+[learning guides](/learn/).

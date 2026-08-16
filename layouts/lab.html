@@ -1,0 +1,42 @@
+{{ define "main" }}
+{{- $lab := hugo.Data.lab -}}
+<div class="wrap wrap--prose page-header">
+  {{ partial "breadcrumb.html" . }}
+  <h1>{{ .Title }}</h1>
+  <p class="lede">{{ .Params.lede | markdownify }}</p>
+</div>
+
+<div class="wrap wrap--wide pad-t-md">
+{{- if $lab }}
+  <div id="lab-mount" data-src="{{ site.Params.mediaBaseURL }}/{{ $lab.prefix }}/">
+    <noscript>
+      <p class="note">SideScopes Lab requires JavaScript and WebAssembly.
+      Image analysis runs locally in your browser.</p>
+    </noscript>
+  </div>
+  <p class="btn-note gap-t-sm">
+    Opening the Lab downloads approximately
+    {{ math.Round (div (float $lab.wasmBytes) 1024) }}&nbsp;KB of WebAssembly.
+  </p>
+  {{- with resources.Get "js/lab.js" }}
+  {{- $js := . | minify | fingerprint "sha384" }}
+<script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>
+  {{- end }}
+{{- else }}
+  <p class="note note--caution">
+    <span class="note-title">Lab build unavailable</span>
+    Build and upload the Lab with
+    <code>scripts/lab-upload.sh</code> in the workbench and commit
+    <code>data/lab.json</code>.
+  </p>
+{{- end }}
+</div>
+
+<div class="wrap wrap--prose pad-t-lg">
+  <div class="prose">{{ .Content }}</div>
+  <p class="btn-row gap-t-lg">
+    <a class="btn" href="/download/">Download SideScopes</a>
+    <a class="btn btn--ghost" href="/learn/">Learn the scopes</a>
+  </p>
+</div>
+{{ end }}

@@ -1,13 +1,11 @@
 #!/bin/sh
 # Regenerates content/docs/ from the application repository.
 #
-# The reference documentation has exactly one source, and it lives beside
-# the code so that it cannot describe a build that was never released. This
-# copies it in at a PINNED TAG - not at whatever is on the development
-# branch - so the site documents the version a visitor can actually
-# download.
+# The reference documentation has exactly one source, beside the application
+# code. The website follows the configured ref (normally main), while each
+# released build retains its own tagged copy in the application repository.
 #
-#   scripts/sync-docs.sh              # sync at the pinned tag
+#   scripts/sync-docs.sh              # sync at the configured ref
 #   scripts/sync-docs.sh --check      # fail if the tree would change
 #   SIDESCOPES_DOCS_REF=v0.6.0 scripts/sync-docs.sh
 #
@@ -40,10 +38,10 @@ TARGET=$SITE/content/docs
 [ "$MODE" = "--check" ] && TARGET=$(mktemp -d)/docs && mkdir -p "$TARGET"
 
 # source file : output name : title : weight : one-line description
-SET="SCOPES.md:scopes:The scopes:10:What each scope measures, how to read it, and the controls that shape a trace.
-REGIONS.md:regions:Choosing a region:20:The region tools, the border on the desktop, and what attaching to a window does.
-SHORTCUTS.md:shortcuts:Keyboard and mouse:30:The complete reference for every key and every gesture.
-TROUBLESHOOTING.md:troubleshooting:Troubleshooting:40:Permissions, interrupted capture, and reading a diagnostic log."
+SET="SCOPES.md:scopes:The scopes:10:Measurements, interpretation, trace controls, layouts, and color assumptions.
+REGIONS.md:regions:Choosing a region:20:Drawing, window attachment, face selection, desktop-border editing, and multiple displays.
+SHORTCUTS.md:shortcuts:Keyboard and mouse:30:Complete keyboard, mouse, color-pin, preset, and rebinding reference.
+TROUBLESHOOTING.md:troubleshooting:Troubleshooting:40:Screen-capture permission, security warnings, capture recovery, preferences, and diagnostic logs."
 
 written=0
 echo "$SET" | while IFS=: read -r source name title weight description; do

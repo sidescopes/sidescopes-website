@@ -1,70 +1,68 @@
 ---
-title: The luma waveform
+title: Luma waveform
 weight: 40
+group: Instruments
 description: >-
-  Brightness alone, plotted across the frame. The scope to read for
-  exposure, and the fastest way to see an uneven one.
+  A single positional trace of encoded luma, with the distinction between
+  Y′, perceptual brightness, scene luminance, and exposure kept explicit.
 lede: >-
-  The same plot as the waveform with the colour taken out — which turns out
-  to be exactly what you want when the question is exposure.
+  The luma waveform preserves horizontal image position and plots a weighted
+  sum of the captured R′G′B′ values.
 ---
 
-## Why brightness alone
+## What the trace represents
 
-The RGB waveform draws three traces. That is right for judging balance and
-wrong for judging exposure, because three overlapping shapes are harder to
-read for slope and range than one.
+The horizontal axis follows the selected region from left to right. The
+vertical axis runs from 0 to 100 and represents full-range display-code level.
+Each sampled pixel contributes at the level calculated from its encoded red,
+green, and blue values.
 
-The luma waveform plots a single value per pixel: its brightness, weighted
-the way the eye weights it — green counts for most, red next, blue least.
-One trace, and every judgement about exposure gets easier.
+SideScopes uses a Rec.709-style Y′ calculation:
 
-{{< figure name="waveform-luma" caption="A landscape as a luma waveform. The sky is the bright band across the top, the foreground the darker one below, and the horizon is visible as the gap between them." >}}
+> Y′ ≈ 0.2126 R′ + 0.7152 G′ + 0.0722 B′
 
-## What to read
+The prime marks matter. The calculation is performed on nonlinear,
+display-encoded values; it is not a measurement of physical luminance. It is
+also not a direct exposure meter. Exposure belongs to the capture and image
+pipeline, while SideScopes receives the rendered output at the screen.
 
-**Range.** The top of the trace is the brightest pixel in each column and
-the bottom the darkest. Where those two sit tells you how much of the
-available scale the photograph is actually using.
+{{< figure name="waveform-luma" caption="The luma waveform condenses the three captured channels into one positional trace. Its vertical scale is normalized display-code level, not nits, stops, IRE, or scene luminance." >}}
 
-**Slope.** A trace that runs downhill left to right is a frame that is
-brighter on one side than the other. This is a lighting fall-off, a
-vignette, an unevenly lit backdrop, or a sky that is much brighter at one
-edge. It is genuinely hard to see in a photograph you have been looking at
-for ten minutes, and completely obvious in the trace.
+## What it is useful for
 
-**Bands and gaps.** A flat subject — a wall, a studio backdrop, a
-grey card — draws a band. The thickness of the band is the unevenness of
-that surface, which is how you check a backdrop is lit evenly before
-shooting against it.
+A luma waveform makes the distribution of rendered levels easy to locate in
+the image. It can show:
 
-**Where the mass is.** If most of the trace sits in the bottom quarter, the
-photograph depends on a display that can show shadow detail, and it will be
-a dark shape on paper. That is a compositional fact you can read before
-committing to it.
+- where a bright or dark feature lies horizontally;
+- whether rendered shadows or highlights approach an endpoint;
+- how the tonal distribution changes across a frame;
+- whether two outputs differ when measured through the same display path.
 
-## The coloured style
+These are measurements of the output, not automatic judgments about it. A
+high-key image can correctly concentrate near the top; a silhouette can
+correctly reach the bottom. Delivery limits and intended contrast must come
+from the relevant workflow, not from the trace alone.
 
-The luma waveform can tint each column with that column's own average
-colour. It is the same measurement — the height of the trace is still
-brightness alone — with a hint of the balance put back visually.
+## Endpoints and source latitude
 
-It is useful for orientation in a busy frame, because it lets you find
-which part of the trace corresponds to which part of the picture. It is
-not a substitute for the RGB waveform, which separates the channels
-properly. Plain white is the honest default when the question is purely
-exposure.
+Accumulation at 0 or 100 means captured pixels reached the corresponding
+display-code endpoint. It may be evidence of limiting in the rendered output,
+but it does not reveal which stage caused it or what the source still contains.
+A RAW processor, grading timeline, compositor, or source clip can retain data
+that is no longer distinguishable in the pixels presented to SideScopes.
 
-## Using it beside the RGB waveform
+Use the source application's own scopes or controls when you need to inspect a
+pre-display signal, scene-referred values, HDR levels, or recoverable latitude.
 
-These are two scopes rather than two settings of one scope, deliberately,
-so both can be on screen at the same time. That is the arrangement worth
-having open while you work: **exposure on one pane, balance on the other,
-both reading the same region**.
+## Plain and colored styles
 
-They are also the pair to check before an export. A luma waveform that
-touches neither the ceiling nor the floor, plus three RGB traces that sit
-on top of one another where the picture should be neutral, is a photograph
-that will survive being looked at on somebody else's screen.
+The **Plain** style draws a neutral trace. The **Colored** style uses the
+captured RGB contributions to tint the trace, providing spatial color context
+without turning it into three separate channel plots. The vertical coordinate
+remains the same luma calculation in both styles.
 
-Next: [the RGB parade](/learn/rgb-parade/).
+For channel relationships, use the [RGB waveform](/learn/waveform/) or
+[RGB parade](/learn/rgb-parade/).
+
+Reference: [ITU-R BT.709](https://www.itu.int/rec/R-REC-BT.709/) defines the
+Rec.709 system and its encoded luma coefficients.

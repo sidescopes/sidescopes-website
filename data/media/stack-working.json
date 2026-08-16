@@ -1,6 +1,6 @@
 {
   "name": "stack-working",
-  "alt": "Three scopes stacked in one window: a vectorscope, a luma waveform and an RGB parade, all measuring the same region.",
+  "alt": "Three scopes stacked in one window: a vectorscope, a luma waveform, and an RGB parade, all measuring the same region.",
   "caption": "Any combination of the scopes can share the window.",
   "base": "shots/stack-working.8b4b5cbd3f",
   "stable": "shots/stack-working.png",

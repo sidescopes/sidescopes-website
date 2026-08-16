@@ -1,7 +1,7 @@
 {
   "name": "SideScopes",
   "short_name": "SideScopes",
-  "description": "Real-time vectorscope and waveform of a region of your screen, beside your photo editor.",
+  "description": "Free, open-source color scopes for any selected region of your screen.",
   "start_url": "/",
   "display": "browser",
   "background_color": "#141312",

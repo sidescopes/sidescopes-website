@@ -1,20 +1,25 @@
 ---
-title: Learn
+title: Learn color scopes
+sidebarTitle: Overview
 description: >-
-  What a vectorscope, a waveform and a parade actually tell a photographer,
-  and how to read one — written for people whose editor only offers a
-  histogram.
+  A precise guide to vectorscopes, waveforms, RGB parade, histograms, color
+  comparison, and the limits of display-referred screen measurement.
 lede: >-
-  Scopes come from video, where they have been standard equipment for
-  decades. Most of the writing about them assumes a video workflow. These
-  pages assume a photographic one.
+  Read the instruments from first principles, then apply them without turning
+  contextual evidence into universal rules.
 ---
 
-You do not need to own SideScopes to read these. They are about the
-instruments, not the application: what each one measures, what a shape in
-the trace means, and which questions it can settle that looking at the
-picture cannot.
+These guides cover the underlying instruments rather than a single workflow.
+They are suitable as an introduction, but they retain the distinctions an
+experienced colorist expects: signal level is not scene luminance, a skin-tone
+indicator is not a target, and endpoint accumulation in a screen capture does
+not prove that source data is unrecoverably clipped.
 
-If you want the application's own reference instead — every control, every
-shortcut, what a particular menu does — that lives in
-[the documentation](/docs/).
+Start with [Scope fundamentals](/learn/scope-basics/) if the plots are new to
+you. The instrument pages define their axes, common readings, and limitations.
+The applied pages show how to reason from those readings when evaluating white
+balance and skin tone. [What SideScopes measures](/learn/what-sidescopes-measures/)
+defines the boundary around every result from the application.
+
+For controls, shortcuts, region behavior, and settings, use the
+[application documentation](/docs/).

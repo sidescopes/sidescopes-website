@@ -1,7 +1,7 @@
 {
   "name": "waveform-clipped",
   "alt": "The same frame brightened until the top of the trace lies flat against the top of the scale instead of coming to a peak.",
-  "caption": "The same frame, brightened. The top of the trace now lies flat along 100 rather than coming to a peak - that flatness is clipping, and the detail behind it is gone.",
+  "caption": "The derived frame contains many maximum-level samples, so the trace accumulates at 100. A screen scope alone cannot identify upstream latitude.",
   "base": "shots/waveform-clipped.43a256dcd1",
   "stable": "shots/waveform-clipped.png",
   "variants": [

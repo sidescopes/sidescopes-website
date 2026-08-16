@@ -1,10 +1,9 @@
 ---
-title: News
+title: Release notes
 lede: >-
-  Releases, and occasional writing about how the application works and why
-  it works that way.
+  A concise record of user-visible changes in each SideScopes release.
 description: >-
-  Release notes and articles about SideScopes — what changed in each
-  version, and the reasoning behind it.
+  SideScopes release notes, including new instruments, region tools, browser
+  support, interface changes, and important fixes.
 outputs: ['html', 'rss']
 ---

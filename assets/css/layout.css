@@ -93,8 +93,8 @@
   font-weight: 650;
 }
 
-/* `.site-nav a` is more specific than `.btn`, so the button's own colour
-   has to be restated here or the link colour wins and the label vanishes
+/* `.site-nav a` is more specific than `.btn`, so the button's own color
+   has to be restated here or the link color wins and the label vanishes
    into the fill. */
 .site-nav a.btn {
   font-size: 0.875rem;
@@ -107,6 +107,27 @@
 }
 
 @media (max-width: 34rem) {
+  .site-header .wrap {
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    padding-block: 0.65rem 0.55rem;
+  }
+
+  .site-nav {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+    gap: 0.5rem;
+  }
+
+  .site-nav a {
+    font-size: 0.875rem;
+  }
+
+  .site-nav a.btn {
+    padding-inline: 0.75rem;
+  }
+
   .site-nav .nav-hide-sm {
     display: none;
   }

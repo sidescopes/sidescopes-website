@@ -1,7 +1,7 @@
 {
   "name": "histogram",
-  "alt": "A histogram with red, green and blue drawn as three separate bands, one above another.",
-  "caption": "The Per Channel style: each channel complete, with nothing hiding behind anything else.",
+  "alt": "A histogram with red, green, and blue drawn as three separate bands, one above another.",
+  "caption": "The Per Channel style places each complete channel distribution in its own band.",
   "base": "shots/histogram.2444ea50d6",
   "stable": "shots/histogram.png",
   "variants": [

@@ -19,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
 
       # The documentation under content/docs/ is generated from the
-      # application repository at the tag hugo.toml pins. Checking it out
+      # application repository at the ref hugo.toml selects. Checking it out
       # here lets the drift check re-run the sync and compare.
       - name: Check out the application repository
         uses: actions/checkout@v4
@@ -75,7 +75,9 @@ jobs:
             --no-progress --include-fragments
             --root-dir "$GITHUB_WORKSPACE/public"
             --index-files index.html
+            --exclude '^https://sidescopes\.org'
             --exclude '^https://media\.sidescopes\.org'
+            --exclude '^https://helpx\.adobe\.com'
             --exclude '^https://github\.com/sidescopes/sidescopes/releases'
             public
           fail: true

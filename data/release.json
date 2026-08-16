@@ -3,5 +3,19 @@
   "version": "0.6.0",
   "tag": "v0.6.0",
   "published": "2026-08-14",
-  "url": "https://github.com/sidescopes/sidescopes/releases/tag/v0.6.0"
+  "url": "https://github.com/sidescopes/sidescopes/releases/tag/v0.6.0",
+  "assets": {
+    "macos": {
+      "name": "SideScopes-v0.6.0-macos.zip",
+      "url": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-macos.zip",
+      "sha256": "879b5d946bcd86ac5f314f792a4b6b1880ae229e55fd89e701de6fdf8f28de9d",
+      "sha256URL": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-macos.zip.sha256"
+    },
+    "windows": {
+      "name": "SideScopes-v0.6.0-windows.zip",
+      "url": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-windows.zip",
+      "sha256": "5a83e2c6380f6314cf0005f87a328372077be0eab23ad865135c1f895926b983",
+      "sha256URL": "https://github.com/sidescopes/sidescopes/releases/download/v0.6.0/SideScopes-v0.6.0-windows.zip.sha256"
+    }
+  }
 }

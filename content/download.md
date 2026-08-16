@@ -2,35 +2,31 @@
 title: Download
 layout: download
 description: >-
-  Download SideScopes for macOS or Windows. Free and open source, built by
-  GitHub Actions from a public tagged commit, with checksums to verify.
+  Download SideScopes for macOS or Windows from the project's GitHub release,
+  with SHA-256 values for verification.
 lede: >-
-  Free, open source, and served from GitHub rather than from here — so the
-  file you get is the one the build published.
+  SideScopes is free, open-source software. Current builds are portable zip
+  archives published with checksums on GitHub.
 ---
 
-## What it needs
+## Requirements
 
-**macOS 12 or later**, Apple silicon or Intel. On first run macOS asks for
-the **Screen Recording** permission. SideScopes cannot do anything at all
-without it — reading the screen is the entire job — and it asks for nothing
-else. The permission is granted in System Settings under Privacy &
-Security, and the application needs restarting afterwards.
+**macOS 12 or later**, on Apple silicon or Intel. Live analysis requires the
+Screen Recording permission in System Settings. SideScopes needs to be
+reopened after permission is granted.
 
-**Windows 10 or later**, 64-bit. A single executable in a zip, with nothing
-to install and no runtime to fetch first. Extract it anywhere and run it.
+**Windows 10 or later**, 64-bit. Extract the archive and run the executable;
+there is no installer or separate runtime.
 
-**Linux** is in progress and not released yet. The port runs the full
-application on X11 and Wayland desktops; it is waiting on packaging rather
-than on features. Watch [the news](/news/) or the repository.
+Linux is not currently released. Development status is tracked in the public
+[repository](https://github.com/sidescopes/sidescopes).
 
-## What it does on your machine
+## Local operation
 
-It reads the screen. That is all it does.
+The desktop application has no network access, account, telemetry, automatic
+update service, or background process. Captured pixels remain on the computer.
+SideScopes writes a preferences file and, only when requested, a local
+diagnostic log.
 
-There is no network access of any kind, no account, no telemetry, no
-auto-updater and no background process. It writes one preferences file and
-nothing else. When you quit it, nothing is left running.
-
-The pixels it measures never leave your machine, because there is no code
-in it that could send them anywhere.
+See the [privacy page](/privacy/) for the separate behavior of the website and
+SideScopes Lab.

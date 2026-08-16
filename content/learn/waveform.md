@@ -1,94 +1,80 @@
 ---
-title: The waveform
+title: RGB waveform
+sidebarTitle: RGB waveform
 weight: 30
+group: Instruments
 description: >-
-  A histogram with geometry. The waveform keeps the picture's horizontal
-  axis, so it can say where in the frame something is bright, dark or
-  clipped — and which channel is doing it.
+  How an RGB overlay waveform maps horizontal image position and channel
+  levels, including correct interpretation of channel separation and limits.
 lede: >-
-  If the vectorscope is the unfamiliar instrument, the waveform is the one
-  that changes how you work, because it is the first one that tells you
-  *where*.
+  The RGB waveform overlays the red, green, and blue channel levels while
+  preserving horizontal position in the selected region.
 ---
 
-## The plot
+## Axes and trace
 
-A waveform plots level against horizontal position.
+The horizontal axis corresponds to the selected region from left to right.
+The vertical axis is captured channel level, normalized from 0 at the bottom
+to 100 at the top. This is a full-range display-code scale, not a legal-range
+video scale or a direct measurement of scene luminance.
 
-- **Left to right is the frame, left to right.** Something on the right of
-  the picture is on the right of the trace. This is the whole difference
-  from a histogram.
-- **Bottom to top is level**, black at the bottom and white at the top.
-- **A column of the picture becomes a column of the trace**, spanning every
-  level present in it. A column containing both a bright sky and a dark
-  hedge draws two bands with a gap between them.
+Every sampled pixel contributes one point to each channel trace. A vertical
+slice of the waveform therefore shows the levels present in the corresponding
+image column. It does not fill every value between the darkest and brightest
+sample unless pixels at those intermediate values are present.
 
-That gap is worth dwelling on, because it is what makes a waveform legible.
-A landscape usually shows as two shapes: a bright band across the top for
-the sky, a darker one along the bottom for the ground, and empty space
-between them where the picture simply has no tones.
+The traces are drawn in red, green, and blue. Where they coincide, the display
+may appear gray or white; where they separate, the channel colors remain
+visible. Trace brightness represents density.
 
-{{< figure name="waveform-rgb" caption="The RGB waveform: all three channels overlaid in their own colours, so where they separate is a cast and how far they separate is how strong it is." >}}
+{{< figure name="waveform-rgb" caption="An RGB overlay waveform preserves horizontal image position and shows the three captured channel levels together. Interpret separation against the subject in the selected region." >}}
 
-## Three channels, overlaid
+## Channel relationships
 
-This scope draws red, green and blue on top of one another, each in its own
-colour. That is what makes a cast readable at a glance — and, crucially,
-readable **by tonal range**, which is the one thing the vectorscope cannot
-tell you because it threw brightness away.
+In an area expected to be neutral, aligned channel traces indicate equal RGB
+values. If blue is higher than red and green in that area’s highlights, the
+rendered highlights have a blue bias. If the separation occurs only in the
+shadows, the bias is confined to that tonal range.
 
-- **The three traces sitting on top of each other** means neutral. Grey has
-  equal amounts of all three, so they land in the same place.
-- **Blue riding above red at the top** is a cool highlight. The gap between
-  them is how cool.
-- **Blue sitting above the others only at the bottom** is a cool shadow
-  with neutral highlights — a completely different repair from a cast
-  across the whole image, and one you would never separate on a
-  vectorscope.
+The same separation over a colored subject is descriptive rather than
+diagnostic. A blue sky should produce a stronger blue channel. Narrowing the
+region to a known reference is often more useful than interpreting the whole
+frame.
 
-That last point is the reason to have this scope open rather than relying
-on the vectorscope alone. A cast confined to the shadows and a cast across
-the frame look identical on a vectorscope and obviously different here.
+The vertical distance between channels is a difference in captured code
+value. It is not a color-temperature scale and should not be described in
+kelvins, stops, or perceptual difference without an additional conversion.
 
-## What else to read it for
+## Endpoints and clipping
 
-**The black point and the white point.** Where the bottom of the trace sits
-tells you whether anything in the frame is actually black. A landscape
-whose trace bottoms out at 15% has no true black in it, which usually reads
-as flat and washed.
+A dense horizontal accumulation at 0 or 100 means many captured samples have
+reached that endpoint. This can indicate clipping or crushing in the rendered
+output, but the scope alone cannot identify why:
 
-**Clipping.** A trace that stops climbing and lies *flat* against the top
-of the scale is clipped: those pixels had more brightness than the file can
-hold, and the detail is gone rather than compressed. The flatness is the
-tell — a bright highlight that is not clipped comes to a peak.
+- the source may already be clipped;
+- an application transform or grade may have clipped it;
+- tone mapping may have placed values at the display endpoint;
+- the subject may contain legitimate flat black or white pixels.
 
-{{< figure name="waveform-clipped" caption="Two stops brighter. The top of the trace has flattened against the ceiling instead of coming to a peak — the detail that was there is no longer in the file, and no amount of pulling the highlight slider will bring it back." >}}
+SideScopes cannot determine whether a RAW file, source clip, timeline, or
+other pre-display stage retains recoverable detail. Inspect the source
+application’s own signal path when that distinction matters.
 
-The same applies at the bottom of the scale. A trace crushed against zero
-is shadow detail that has already been thrown away.
+{{< figure name="waveform-clipped" caption="A strong accumulation at the upper endpoint shows that the captured display output contains many maximum-level samples. Confirm the limiting stage in the source application before concluding that source detail is unrecoverable." >}}
 
-## Reading the trace's brightness
+## Useful comparisons
 
-A waveform is a density plot: where many pixels of the image share a level,
-the trace is bright there, and where few do it is faint. That is
-information, not decoration — a bright solid band is a large uniform area,
-and a faint wash is a scattering of pixels.
+The RGB waveform is well suited to comparing:
 
-Scrolling over the pane changes how much a single sample contributes before
-the plot saturates. Turn it down and only the dense parts survive, which is
-how you find the *body* of the image. Turn it up and the sparse edges
-appear, which is how you find the few pixels that are actually clipping.
-Double-clicking returns it to the default.
+- channel balance within a verified neutral;
+- shadow, midtone, and highlight biases separately;
+- the horizontal location of a bright or dark feature;
+- before-and-after rendered output through the same display path.
 
-## Where to go next
+For a single tonal trace, use the [luma waveform](/learn/luma-waveform/). To
+separate overlapping channels, use the [RGB parade](/learn/rgb-parade/).
 
-The waveform reads **balance**. Its two siblings answer the neighbouring
-questions:
-
-- [the luma waveform](/learn/luma-waveform/) reads **exposure**, by
-  plotting brightness alone;
-- [the RGB parade](/learn/rgb-parade/) reads **which channel**, by
-  separating the three instead of overlaying them.
-
-All three are the same measurement drawn differently, and any combination
-of them can be on screen at once.
+Reference: Adobe’s official [Lumetri scopes guide](https://helpx.adobe.com/premiere/desktop/correct-color/add-color-effects/available-lumetri-scopes.html)
+and Apple’s [Final Cut Pro scopes guide](https://support.apple.com/guide/final-cut-pro/view-video-scopes-ver761cad58/mac)
+describe the same positional waveform conventions in established grading
+tools.

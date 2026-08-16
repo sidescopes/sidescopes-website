@@ -6,14 +6,14 @@
       <h1>{{ .Params.tagline }}</h1>
       <p class="lede">{{ .Params.lede | markdownify }}</p>
       <p class="btn-row">
-        <a class="btn" href="/download/">Download for macOS or Windows</a>
-        <a class="btn btn--ghost" href="/learn/">Why scopes help</a>
+        <a class="btn" href="/lab/">Open SideScopes Lab</a>
+        <a class="btn btn--ghost" href="/download/">Download</a>
       </p>
       <p class="hero-meta">
-        <span>Free and open source, GPL&nbsp;v3</span>
-        <span>No account, no telemetry</span>
+        <span>GNU GPL v3 or later</span>
+        <span>No account or telemetry</span>
         {{- with hugo.Data.release }}{{ with .version }}
-        <span>Latest {{ . }}</span>
+        <span>Current release {{ . }}</span>
         {{- end }}{{ end }}
       </p>
     </div>
@@ -24,23 +24,25 @@
 <section class="section">
   <div class="wrap wrap--wide">
     <div class="section-head">
-      <span class="kicker">Background</span>
-      <h2>Why measure colour rather than look at it</h2>
+      <span class="kicker">Application-independent</span>
+      <h2>Measure the output you can see</h2>
+      <div class="prose">{{ .Content }}</div>
       <p>
-        Human vision discounts the light it is under: look at a warm
-        photograph for half a minute and the warmth stops registering as
-        warmth. The picture then goes to a phone, a friend's laptop or a
-        print, and the cast is still in the file.
-      </p>
-      <p>
-        A scope does not adapt. It reports where the colour is, in the
-        same terms today and tomorrow. This is why grading suites have had
-        scopes built in for decades; most photo editors stop at a
-        histogram.
+        Choose a region manually, attach one to a window, or select a detected
+        face. Every visible scope reads the same region, while markers identify
+        the color under the pointer across the instruments.
       </p>
     </div>
-    <p class="btn-row">
-      <a class="btn btn--ghost" href="/learn/why-scopes/">The longer version</a>
+    <div class="grid grid--3">
+      {{- range .Params.regions }}
+      <div class="card">
+        <h3>{{ .title }}</h3>
+        <p>{{ .body | markdownify }}</p>
+      </div>
+      {{- end }}
+    </div>
+    <p class="btn-row gap-t-md">
+      <a class="btn btn--ghost" href="/docs/regions/">Region tools</a>
     </p>
   </div>
 </section>
@@ -48,30 +50,12 @@
 <section class="section">
   <div class="wrap wrap--wide">
     <div class="section-head">
-      <span class="kicker">What it answers</span>
-      <h2>Questions a histogram does not answer</h2>
-    </div>
-    <ul class="qa">
-      {{- range .Params.questions }}
-      <li>
-        <q>{{ .q }}</q>
-        <span class="tag tag--{{ .class }}">{{ .scope }}</span>
-        <p>{{ .a | markdownify }}</p>
-      </li>
-      {{- end }}
-    </ul>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap wrap--wide">
-    <div class="section-head">
-      <span class="kicker">The instruments</span>
-      <h2>The six scopes</h2>
+      <span class="kicker">Instruments</span>
+      <h2>Five scopes and a color picker</h2>
       <p>
-        Each takes a pane of the window; turn on more and the window splits
-        further. A letter switches scope, and holding Shift adds one
-        alongside the others instead of replacing it.
+        Show one instrument or arrange several panes together. Shortcuts,
+        draggable scope order, pane layouts, and nine presets make different
+        working arrangements quick to recall.
       </p>
     </div>
     <div class="grid grid--3">
@@ -84,86 +68,78 @@
       {{- end }}
     </div>
     <p class="btn-row gap-t-md">
-      <a class="btn btn--ghost" href="/docs/scopes/">What each one measures</a>
+      <a class="btn btn--ghost" href="/learn/">Learn how to read the scopes</a>
+      <a class="btn btn--ghost" href="/docs/scopes/">Scope reference</a>
     </p>
   </div>
 </section>
 
 <section class="section">
-  <div class="wrap wrap--wide">
-    <div class="section-head">
-      <span class="kicker">How it works</span>
-      <h2>How it works</h2>
-      <div class="prose">{{ .Content }}</div>
+  <div class="wrap wrap--wide split split--wide-first">
+    <div>
+      <span class="kicker">SideScopes Lab</span>
+      <h2>Change an image and watch the scopes respond</h2>
+      <div class="prose">
+        <p>
+          The Interactive Lab runs the application’s scope engines in your
+          browser. Start with a supplied image or load your own, select a
+          region, and adjust color and tone while the traces update.
+        </p>
+        <p>
+          The adjustment controls are designed for observation and teaching;
+          they do not reproduce the processing of any particular editor.
+          Images you load remain in your browser.
+        </p>
+      </div>
+      <p class="btn-row gap-t-md">
+        <a class="btn" href="/lab/">Open SideScopes Lab</a>
+      </p>
     </div>
-    <ol class="steps grid grid--3 align-start">
-      {{- range .Params.steps }}
-      <li>
-        <div>
-          <strong>{{ .title }}</strong>
-          <p>{{ .body | markdownify }}</p>
-        </div>
-      </li>
-      {{- end }}
-    </ol>
+    <div class="card">
+      <h3>Desktop and Lab</h3>
+      <p>
+        The Lab analyzes still images inside its page. The desktop application
+        measures other applications, follows windows and faces, and keeps its
+        region visible on the desktop.
+      </p>
+    </div>
   </div>
 </section>
 
 <section class="section">
-  <div class="wrap wrap--wide">
-    <div class="split split--wide-first">
-      <div>
-        <span class="kicker">Before downloading</span>
-        <h2>What you would be running</h2>
-        <div class="prose">
-          <p>
-            Downloading an executable is a question of trust. These are the
-            things that can be checked.
-          </p>
-          <ul>
-            <li>
-              <strong>The source is public.</strong> Every line, every
-              release, and the full history —
-              <a href="{{ site.Params.repoURL }}">on GitHub</a> under the
-              GNU GPL v3 or later.
-            </li>
-            <li>
-              <strong>The builds come from that source.</strong> Releases are
-              built by GitHub Actions from a tagged commit, and the
-              downloads are served by GitHub, not by this site.
-            </li>
-            <li>
-              <strong>It asks for one permission and no more.</strong> macOS
-              needs Screen Recording, because reading the screen is the
-              entire job. There is no network access, no account, no
-              telemetry and no auto-updater.
-            </li>
-            <li>
-              <strong>Nothing leaves your machine.</strong> The pixels it
-              measures are never sent anywhere, because it has nowhere to
-              send them.
-            </li>
-          </ul>
-        </div>
-        <p class="btn-row gap-t-md">
-          <a class="btn" href="/download/">Download</a>
-          <a class="btn btn--ghost" href="/download/#verify">How to verify it</a>
-        </p>
-      </div>
-      <div class="card">
-        <h3>Project status</h3>
+  <div class="wrap wrap--wide split split--wide-first">
+    <div>
+      <span class="kicker">Measurement boundary</span>
+      <h2>Display-referred, SDR measurements</h2>
+      <div class="prose">
         <p>
-          SideScopes is before version 1.0, developed in the open by one
-          person who uses it daily. macOS and Windows have native builds;
-          the Linux port is in progress.
+          SideScopes measures pixels after the source application and operating
+          system have rendered them to the screen. It does not inspect source
+          media, timeline values, RAW data, or exported files, and it is not an
+          ICC soft-proofing or HDR signal-analysis tool.
         </p>
         <p>
-          Preferences may change shape between releases without a migration,
-          so an update can return settings to their defaults. Nothing else
-          is destructive — it only ever reads.
+          This boundary matters when interpreting clipping, gamut, white
+          balance, and color-difference readings. The learning pages state the
+          relevant conditions alongside each reading.
         </p>
-        <p><a class="card-more" href="/news/">What has been changing →</a></p>
       </div>
+      <p class="btn-row gap-t-md">
+        <a class="btn btn--ghost" href="/learn/what-sidescopes-measures/">What SideScopes measures</a>
+      </p>
+    </div>
+    <div class="card">
+      <h3>Open source and local</h3>
+      <p>
+        SideScopes has no account, telemetry, updater, or network access. Its
+        source and build history are public, and release downloads are served
+        by GitHub.
+      </p>
+      <p>
+        The project is under active development before version 1.0. macOS and
+        Windows builds are available; Linux is not currently released.
+      </p>
+      <p><a class="card-more" href="{{ site.Params.repoURL }}">View the source →</a></p>
     </div>
   </div>
 </section>

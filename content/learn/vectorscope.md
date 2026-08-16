@@ -1,86 +1,87 @@
 ---
-title: The vectorscope
+title: Vectorscope
 weight: 20
+group: Instruments
 description: >-
-  Angle is hue, distance is saturation, and the centre is neutral. Four
-  shapes cover almost everything you will need to recognise.
+  Hue, chroma, trace density, color-bar targets, neutral references, and the
+  limits of interpreting a display-referred vectorscope.
 lede: >-
-  The vectorscope is the least familiar of the scopes to photographers and
-  the one that earns its place fastest. It is also simpler than it looks.
+  The vectorscope plots chroma independently of level and image position.
+  Angle indicates hue; radial distance indicates chroma in the scope’s
+  encoding.
 ---
 
-## The plot
+## Axes and trace
 
-A vectorscope throws brightness away entirely and plots what is left: the
-colour of each pixel, as a position on a circle.
+Each captured RGB sample is converted to two chroma coordinates and plotted
+on a square field:
 
-- **Angle around the circle is hue.** Red, magenta, blue, cyan, green and
-  yellow each have a fixed station, marked on the graticule by a small box.
-- **Distance from the centre is saturation.** A dull colour sits near the
-  middle; a vivid one reaches out towards the edge.
-- **The centre is neutral.** Black, white and every grey in between all land
-  on exactly the same spot, because none of them has a hue.
+- the **angle** around the center corresponds to hue;
+- the **distance** from the center corresponds to chroma magnitude;
+- the **center** represents equal-channel neutrals, from black through gray
+  to white.
 
-Because brightness is discarded, a dark navy and a pale sky blue can land
-in the same place. That is a feature — it is what lets you ask about colour
-without exposure getting in the way. The waveform is where brightness
-lives.
+Level is discarded. A dark blue and a light blue can therefore occupy the
+same chroma position. Use a waveform when level or tonal range matters.
 
-{{< figure name="vectorscope-neutral" caption="A near-neutral frame: the trace is a compact cloud sitting on the centre, with short arms reaching towards the hues the picture actually contains." >}}
+Brightness within the vectorscope trace represents sample density. Dense
+populations draw more strongly than sparse ones. Increasing trace intensity
+or lowering trace gamma can reveal sparse populations, but neither changes
+their plotted chroma coordinates.
 
-## The four shapes worth recognising
+{{< figure name="vectorscope-neutral" caption="A low-chroma frame produces a compact trace near the center, with extensions toward colors present in the selected region. Whether the frame is neutral requires a reference or a justified expectation about its content." >}}
 
-**A centred cloud** means the image is neutral overall. Arms reaching out
-of it are the saturated colours in the picture, and that is normal — a
-photograph with a red door has an arm towards red. What matters is where
-the *body* of the cloud sits.
+## Reading the shape
 
-**A cloud pushed off centre** is a colour cast, and the direction it is
-pushed names the cast. Everything in the frame has been tinted the same
-way, which is precisely what a wrong white balance does. This is the single
-most useful reading on the instrument.
+Extensions toward a hue identify pixel populations in that direction. A red
+object can form an arm toward red; foliage can extend toward green; a blue sky
+can dominate the blue–cyan area. These shapes describe subject matter and
+rendering, not errors by themselves.
 
-{{< figure name="vectorscope-cast" caption="The same kind of scene with the white balance set too cool: the entire cloud has moved towards blue, rather than one part of it growing an arm." >}}
+A displacement near the center can be useful evidence of a color bias when
+the selected region contains a known neutral or is expected to balance around
+neutral. Over a whole image, an off-center trace may instead reflect the
+scene’s actual color distribution or an intentional look.
 
-**A cloud reaching the graticule** means saturation at or beyond the
-targets. That is not automatically wrong, but colour that far out is the
-first thing a smaller-gamut destination — a print especially — will fail to
-reproduce.
+{{< figure name="vectorscope-cast" caption="When the selected subject is expected to be neutral, displacement of its trace from the center indicates chroma bias. The direction identifies the bias in this projection; it is not a calibrated color-temperature reading." >}}
 
-**A tight dot in the centre** is an image with essentially no colour: a
-black-and-white conversion, or a frame of fog.
+## Targets and skin-tone indicator
 
-## Telling a cast from a colourful subject
+The labeled target boxes mark reference positions for standard Rec.709
+color-bar values. SideScopes also draws secondary boxes at full-value
+positions. They are **not gamut boundaries**, saturation limits, or print
+limits. Crossing a box does not establish that a color is illegal or
+unprintable.
 
-This is the distinction that makes the scope worth opening, and it comes
-down to one question: **did the whole cloud move, or did part of it grow?**
+The skin-tone indicator is a directional reference. Skin often forms a trace
+near it, but undertone, illumination, makeup, camera rendering, and creative
+grading can move the trace to either side. Use the indicator to notice and
+compare hue shifts, not to force every complexion onto one line. See
+[Skin tone on the vectorscope](/learn/skin-tones/) for a contextual workflow.
 
-A photograph of autumn leaves has an enormous amount of orange in it. On a
-vectorscope that appears as a large arm towards the orange region — but the
-core of the cloud, made of the sky, the bark, the shadows, the neutral
-subjects in the frame, stays where it was. Nothing has been tinted.
+## SideScopes projection
 
-A photograph shot under the wrong white balance moves *everything*,
-including the things that ought to be grey. The tell is the middle of the
-cloud, not its extremities.
+SideScopes applies a fixed full-range Rec.709-style RGB-to-Cb/Cr matrix to the
+captured values. sRGB and Rec.709 share primary chromaticities, but they are
+not interchangeable descriptions of an entire color pipeline: transfer
+functions, range conventions, display transforms, and viewing conditions also
+matter.
 
-## Zoom, when the interesting part is the centre
+The projection is most directly interpretable for SDR, sRGB/Rec.709-like
+output. SideScopes does not apply the document profile, timeline color space,
+display ICC profile, or destination gamut when drawing this scope. Its target
+boxes therefore remain reference positions rather than color-managed gamut
+tests.
 
-Most photographic work happens near the middle of the plot, where casts
-live, and at full scale that region is small. Magnifying two or four times
-around the centre spreads it out without changing the measurement — the
-graticule scales with it, so a target that was at 75% is still at 75%.
+For the implementation boundary, see
+[What SideScopes measures](/learn/what-sidescopes-measures/).
 
-## What the numbers behind it are
+## References
 
-The measurement is BT.709, and there is deliberately no second matrix to
-choose from. On a computer display there is no reasonable alternative:
-sRGB's colour primaries *are* BT.709's. The older BT.601 primaries are tied
-to television phosphors from 1953, and choosing them would put the targets
-where nothing on your screen actually is.
+- [ITU-R BT.709](https://www.itu.int/rec/R-REC-BT.709/) defines the Rec.709
+  system and its luma/chroma coefficients.
+- The [DaVinci Resolve Colorist Guide](https://documents.blackmagicdesign.com/UserManuals/DaVinci-Resolve-20-Colorist-Guide.pdf)
+  describes professional vectorscope interpretation and treats the skin-tone
+  indicator as a guide rather than a strict determinant.
 
-If you have used a video scope that offered the choice, this is why it is
-missing here.
-
-Next: [the waveform](/learn/waveform/), or [the skin-tone
-line](/learn/skin-tones/).
+Next: [the RGB waveform](/learn/waveform/).
