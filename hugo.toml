@@ -47,9 +47,11 @@ disableKinds = ['taxonomy', 'term']
     windows = false
 
 [[menus.main]]
-  name = 'Interactive Lab'
+  name = 'Lab'
   pageRef = '/lab'
   weight = 10
+  [menus.main.params]
+    class = 'nav-lab'
 
 [[menus.main]]
   name = 'Learn'

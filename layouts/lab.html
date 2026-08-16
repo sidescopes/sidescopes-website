@@ -8,7 +8,9 @@
 
 <div class="wrap wrap--wide pad-t-md">
 {{- if $lab }}
-  <div id="lab-mount" data-src="{{ site.Params.mediaBaseURL }}/{{ $lab.prefix }}/">
+  {{- $labSource := printf "%s/%s/" site.Params.mediaBaseURL $lab.prefix -}}
+  {{- if hugo.IsServer }}{{ $labSource = "http://127.0.0.1:8099/" }}{{ end -}}
+  <div id="lab-mount" data-src="{{ $labSource }}">
     <noscript>
       <p class="note">SideScopes Lab requires JavaScript and WebAssembly.
       Image analysis runs locally in your browser.</p>

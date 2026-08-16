@@ -1,0 +1,44 @@
+{
+  "name": "color-picker",
+  "alt": "The SideScopes color picker showing a live RGB sample, two pinned references, and color-difference measurements.",
+  "caption": "The live sample remains visible while a selected pin provides the comparison reference.",
+  "label": "",
+  "base": "shots/color-picker.692324e45e",
+  "stable": "shots/color-picker.png",
+  "variants": [
+    620,
+    930,
+    1040
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1040,
+  "height": 678,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.colorpicker"
+    ],
+    "reference_image": "skin-and-colour.jpg",
+    "derive": [],
+    "window_points": [
+      520,
+      432
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      113,
+      1040,
+      678
+    ],
+    "presentation": "panes",
+    "app_version": "0.6.0",
+    "app_commit": "9d2f9dc",
+    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

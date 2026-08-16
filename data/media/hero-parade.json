@@ -1,0 +1,44 @@
+{
+  "name": "hero-parade",
+  "alt": "The complete SideScopes window on macOS showing an RGB parade.",
+  "caption": "RGB parade: the three channel waveforms separated.",
+  "label": "RGB parade",
+  "base": "shots/hero-parade.80364462c7",
+  "stable": "shots/hero-parade.png",
+  "variants": [
+    620,
+    930,
+    1240
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1240,
+  "height": 984,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.parade"
+    ],
+    "reference_image": "wide-tonal-range.jpg",
+    "derive": [],
+    "window_points": [
+      620,
+      492
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      0,
+      1240,
+      984
+    ],
+    "presentation": "window",
+    "app_version": "0.6.0",
+    "app_commit": "9d2f9dc",
+    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

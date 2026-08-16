@@ -1,0 +1,44 @@
+{
+  "name": "hero-waveform",
+  "alt": "The complete SideScopes window on macOS showing an RGB waveform.",
+  "caption": "RGB waveform: channel levels with horizontal image position.",
+  "label": "RGB waveform",
+  "base": "shots/hero-waveform.d0e704961b",
+  "stable": "shots/hero-waveform.png",
+  "variants": [
+    620,
+    930,
+    1160
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1160,
+  "height": 984,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.waveform"
+    ],
+    "reference_image": "wide-tonal-range.jpg",
+    "derive": [],
+    "window_points": [
+      580,
+      492
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      0,
+      1160,
+      984
+    ],
+    "presentation": "window",
+    "app_version": "0.6.0",
+    "app_commit": "9d2f9dc",
+    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

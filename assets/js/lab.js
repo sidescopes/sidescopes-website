@@ -43,6 +43,25 @@
     // throws, and the walk-through forgets it was completed on every visit -
     // which is the one thing the lab is supposed to remember.
     frame.setAttribute('sandbox', 'allow-scripts allow-same-origin');
+
+    // On a phone the Lab becomes a normal, taller document so the picture
+    // and the application can stack at a useful size. Its origin differs from
+    // the website's, so it reports that height with postMessage. Accept only
+    // this frame, from the configured media origin, and only a bounded number.
+    var labOrigin = new URL(frame.src, window.location.href).origin;
+    window.addEventListener('message', function (event) {
+      var data = event.data;
+      if (event.source !== frame.contentWindow || event.origin !== labOrigin ||
+          !data || data.type !== 'sidescopes-lab-height') {
+        return;
+      }
+      var height = Number(data.height);
+      if (!Number.isFinite(height) || height < 320 || height > 2400) {
+        return;
+      }
+      frame.style.height = Math.ceil(height) + 'px';
+    });
+
     frame.addEventListener('load', function () {
       // Only now, so the button holds the space until there is something to
       // show. The frame is inserted ONCE and never moved: reparenting an

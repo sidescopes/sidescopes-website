@@ -1,0 +1,44 @@
+{
+  "name": "hero-luma",
+  "alt": "The complete SideScopes window on macOS showing a luma waveform.",
+  "caption": "Luma waveform: rendered level across the selected region.",
+  "label": "Luma waveform",
+  "base": "shots/hero-luma.40aea0959e",
+  "stable": "shots/hero-luma.png",
+  "variants": [
+    620,
+    930,
+    1160
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 1160,
+  "height": 984,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.waveform.luma"
+    ],
+    "reference_image": "neutral-detail.jpg",
+    "derive": [],
+    "window_points": [
+      580,
+      492
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      0,
+      1160,
+      984
+    ],
+    "presentation": "window",
+    "app_version": "0.6.0",
+    "app_commit": "9d2f9dc",
+    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

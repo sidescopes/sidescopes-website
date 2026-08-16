@@ -184,7 +184,11 @@ html[data-reading-theme="light"] .reading-surface {
   margin-bottom: 0.6rem;
 }
 
-.doc-side h2 + ul {
+.doc-side__group + .doc-side__group {
+  margin-bottom: 1.6rem;
+}
+
+.doc-side__group:first-child {
   margin-bottom: 1.6rem;
 }
 
@@ -217,27 +221,48 @@ html[data-reading-theme="light"] .reading-surface {
 }
 
 @media (max-width: 55.999rem) {
-  .doc-side h2 + ul {
-    margin-bottom: 0.8rem;
+  .doc-side {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: var(--surface);
   }
 
   .doc-side ul {
-    display: flex;
-    gap: 0.2rem;
-    width: 100%;
-    min-width: 0;
-    overflow-x: auto;
-    padding-bottom: 0.25rem;
-    scrollbar-width: thin;
-  }
-
-  .doc-side li {
-    flex: none;
+    display: grid;
+    gap: 0.15rem;
   }
 
   .doc-side a {
     margin-left: 0;
-    white-space: nowrap;
+    padding-block: 0.42rem;
+    white-space: normal;
+  }
+
+  .doc-side__group:first-child {
+    margin-bottom: 0;
+  }
+
+  .doc-side__group--related {
+    margin-bottom: 0;
+    padding-top: 1rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .doc-side a.doc-side__related {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0;
+    color: var(--accent);
+    font-weight: 650;
+  }
+
+  .doc-side a.doc-side__related:hover {
+    background: transparent;
+    text-decoration: underline;
   }
 }
 

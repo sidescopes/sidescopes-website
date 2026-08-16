@@ -1,0 +1,43 @@
+{
+  "name": "hero-vectorscope",
+  "alt": "The complete SideScopes window on macOS showing a vectorscope.",
+  "caption": "Vectorscope: hue and chroma distribution.",
+  "label": "Vectorscope",
+  "base": "shots/hero-vectorscope.54d162feec",
+  "stable": "shots/hero-vectorscope.png",
+  "variants": [
+    620,
+    920
+  ],
+  "formats": [
+    "avif",
+    "webp",
+    "png"
+  ],
+  "width": 920,
+  "height": 1144,
+  "generated": {
+    "scopes": [
+      "org.sidescopes.vectorscope"
+    ],
+    "reference_image": "skin-and-colour.jpg",
+    "derive": [],
+    "window_points": [
+      460,
+      572
+    ],
+    "backing_scale": 2.0,
+    "crop_box_px": [
+      0,
+      0,
+      920,
+      1144
+    ],
+    "presentation": "window",
+    "app_version": "0.6.0",
+    "app_commit": "9d2f9dc",
+    "app_describe": "v0.6.0-12-g9d2f9dc",
+    "app_tree_clean": true,
+    "os": "26.5.2"
+  }
+}

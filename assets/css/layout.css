@@ -37,8 +37,8 @@
 
 .site-header {
   border-bottom: 1px solid var(--line);
-  background: color-mix(in srgb, var(--bg) 88%, transparent);
-  backdrop-filter: blur(8px);
+  background: var(--bg);
+  box-shadow: 0 1px 0 rgb(255 255 255 / 3%), 0 7px 20px rgb(0 0 0 / 24%);
   position: sticky;
   top: 0;
   z-index: 10;
@@ -91,6 +91,21 @@
 
 .site-nav a[aria-current="true"] {
   font-weight: 650;
+}
+
+.site-nav a.nav-lab {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+  border-radius: 7px;
+  color: var(--accent-hover);
+  font-weight: 650;
+}
+
+.site-nav a.nav-lab:hover,
+.site-nav a.nav-lab[aria-current="true"] {
+  background: var(--accent-wash);
+  border-color: var(--accent);
+  color: var(--accent-hover);
 }
 
 /* `.site-nav a` is more specific than `.btn`, so the button's own color

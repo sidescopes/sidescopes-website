@@ -4,33 +4,35 @@
        Always rendered, never behind a disclosure. A <details> without the
        `open` attribute stays closed whatever the stylesheet says, so the
        collapsed-on-mobile version of this needed JavaScript to be correct.
-       On narrow screens the stylesheet turns each list into a compact,
-       horizontally scrollable row above the article. */ -}}
+       On narrow screens the stylesheet keeps this as a vertical index above
+       the article, with the cross-section link visually separate. */ -}}
 {{- $section := .FirstSection -}}
 <nav class="doc-side" aria-label="{{ $section.LinkTitle }}">
-  <h2>{{ $section.LinkTitle }}</h2>
-  <ul>
-    <li>
-      <a href="{{ $section.RelPermalink }}"{{ if eq $section .Page }} aria-current="page"{{ end }}>
-        {{- with $section.Params.sidebarTitle }}{{ . }}{{ else }}Overview{{ end -}}
-      </a>
-    </li>
-    {{- range $section.RegularPages.ByWeight }}
-    <li>
-      <a href="{{ .RelPermalink }}"{{ if eq . $.Page }} aria-current="page"{{ end }}>
-        {{- with .Params.sidebarTitle }}{{ . }}{{ else }}{{ .LinkTitle }}{{ end -}}
-      </a>
-    </li>
-    {{- end }}
-  </ul>
+  <div class="doc-side__group">
+    <h2>{{ $section.LinkTitle }}</h2>
+    <ul>
+      <li>
+        <a href="{{ $section.RelPermalink }}"{{ if eq $section .Page }} aria-current="page"{{ end }}>
+          {{- with $section.Params.sidebarTitle }}{{ . }}{{ else }}Overview{{ end -}}
+        </a>
+      </li>
+      {{- range $section.RegularPages.ByWeight }}
+      <li>
+        <a href="{{ .RelPermalink }}"{{ if eq . $.Page }} aria-current="page"{{ end }}>
+          {{- with .Params.sidebarTitle }}{{ . }}{{ else }}{{ .LinkTitle }}{{ end -}}
+        </a>
+      </li>
+      {{- end }}
+    </ul>
+  </div>
 
   {{- /* The other section is one click away rather than a trip via the
          header, because the two answer different questions. */ -}}
   {{- $other := cond (eq $section.Section "docs") (site.GetPage "/learn") (site.GetPage "/docs") }}
   {{- with $other }}
-  <h2>{{ .LinkTitle }}</h2>
-  <ul>
-    <li><a href="{{ .RelPermalink }}">{{ if eq .Section "docs" }}Application reference{{ else }}Learning guides{{ end }}</a></li>
-  </ul>
+  <div class="doc-side__group doc-side__group--related">
+    <h2>{{ .LinkTitle }}</h2>
+    <a class="doc-side__related" href="{{ .RelPermalink }}">{{ if eq .Section "docs" }}Application reference{{ else }}Learning guides{{ end }} <span aria-hidden="true">→</span></a>
+  </div>
   {{- end }}
 </nav>

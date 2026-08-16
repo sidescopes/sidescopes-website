@@ -38,7 +38,7 @@ TARGET=$SITE/content/docs
 [ "$MODE" = "--check" ] && TARGET=$(mktemp -d)/docs && mkdir -p "$TARGET"
 
 # source file : output name : title : weight : one-line description
-SET="SCOPES.md:scopes:The scopes:10:Measurements, interpretation, trace controls, layouts, and color assumptions.
+SET="SCOPES.md:scopes:Scopes:10:Measurements, interpretation, trace controls, layouts, and color assumptions.
 REGIONS.md:regions:Choosing a region:20:Drawing, window attachment, face selection, desktop-border editing, and multiple displays.
 SHORTCUTS.md:shortcuts:Keyboard and mouse:30:Complete keyboard, mouse, color-pin, preset, and rebinding reference.
 TROUBLESHOOTING.md:troubleshooting:Troubleshooting:40:Screen-capture permission, security warnings, capture recovery, preferences, and diagnostic logs."
