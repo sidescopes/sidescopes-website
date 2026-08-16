@@ -39,7 +39,7 @@ jobs:
           extended: true
 
       - name: Build
-        run: hugo --gc --minify --printPathWarnings
+        run: hugo --gc --minify --printPathWarnings --cleanDestinationDir
 
       # A page that references a screenshot nobody generated would ship a
       # hole. Outside development that is an error, so prove the switch that

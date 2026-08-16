@@ -17,10 +17,11 @@ shot and before anything is uploaded. See **Screenshots** below.
 ## Build
 
 ```console
-$ hugo --gc --minify
+$ hugo --gc --minify --cleanDestinationDir
 ```
 
-The site lands in `public/`.
+The site lands in `public/`. Cleaning the destination is required so a page
+removed from the source cannot survive in a restored deployment directory.
 
 ## How it is put together
 
