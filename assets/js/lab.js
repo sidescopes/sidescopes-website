@@ -117,7 +117,7 @@
   label.textContent = 'Load the Lab';
   var size = document.createElement('span');
   size.className = 'lab-start__meta';
-  size.textContent = '≈ ' + mount.dataset.wasmKb + ' KB WebAssembly';
+  size.textContent = mount.dataset.wasmKb + ' KB WebAssembly';
   start.appendChild(label);
   start.appendChild(size);
   start.addEventListener('click', function () {
