@@ -12,9 +12,12 @@ lede: >-
 
 ## Explore an image
 
-Choose one of the supplied images or load an image from your computer. Move or
-resize the selected region, choose the scopes you want to see, and use the
-color and tone controls while the traces update.
+Choose one of the supplied images or load an image from your computer. The
+striped rectangle is a global region on the Lab’s virtual display: it remains
+fixed when you change images and may extend beyond an image. Only the part
+overlapping the image supplies pixels to the scopes. Move or resize the
+region, choose the scopes you want to see, and use the color and tone controls
+while the traces update.
 
 The Lab uses the application’s C++ scope engines and pane renderer, compiled
 to WebAssembly. Its adjustment controls are purpose-built for exploration:
@@ -49,9 +52,11 @@ The Lab analyzes still images inside the browser page. A browser cannot read
 another application’s window, attach a region to a desktop window, or follow a
 face outside the page. Those functions require the desktop application.
 
-The scope engines, pane renderer, region editor, layout controls, and keyboard
-behavior are shared with the application. The Lab adds the sample strip and
-adjustment panel around them for observation and teaching.
+The scope engines, pane renderer, region geometry, layout controls, and
+keyboard behavior are shared with the application. The Lab represents the
+screen as a virtual display, keeps the SideScopes window above the global
+region when they overlap, and adds the sample strip and adjustment panel for
+observation and teaching.
 
 ## Local image processing
 
