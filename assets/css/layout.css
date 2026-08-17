@@ -115,6 +115,7 @@ main,
   border-radius: 7px;
   color: var(--accent-hover);
   font-weight: 650;
+  line-height: 1;
 }
 
 .site-nav a.nav-lab:hover,
@@ -297,6 +298,7 @@ main,
     text-decoration: none;
     font-size: 0.9375rem;
     font-weight: 650;
+    line-height: 1;
   }
 
   .mobile-nav__lab {

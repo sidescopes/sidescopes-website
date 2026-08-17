@@ -96,11 +96,16 @@ html[data-reading-theme="light"] .reading-surface {
 
 .reading-theme button {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 1.75rem;
   border: 0;
   border-radius: 5px;
   background: transparent;
   color: var(--ink-2);
   font: inherit;
+  line-height: 1;
   padding: 0.32rem 0.55rem;
   cursor: pointer;
 }
