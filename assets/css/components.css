@@ -981,6 +981,23 @@
   grid-area: 1 / 1;
 }
 
+.lab-start {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.1rem;
+  min-width: 9.75rem;
+  padding: 0.65rem 1rem 0.6rem;
+  line-height: 1.15;
+}
+
+.lab-start__meta {
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  opacity: 0.72;
+}
+
 .lab-frame {
   width: 100%;
   height: 100%;

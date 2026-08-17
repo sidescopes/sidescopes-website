@@ -21,15 +21,22 @@ titles and application names and should be reviewed before sharing.
 
 ## SideScopes Lab
 
-The Lab's code and sample images are downloaded from `media.sidescopes.org`
-when you choose **Open the Lab**. An image you select from your computer is
-decoded and analyzed inside the browser. The file and its pixels are not
-uploaded by SideScopes.
+On the first use of a Lab build, its code and sample images are downloaded
+from `media.sidescopes.org` when you choose **Load the Lab**. An image you
+select from your computer is decoded and analyzed inside the browser. The
+file and its pixels are not uploaded by SideScopes.
 
 The Lab uses browser `localStorage` on `media.sidescopes.org` to retain its
 interface preferences and whether the guided tour has been completed. It does
 not store the image you loaded. Clearing site data for that origin removes the
 saved preferences.
+
+After a Lab build loads successfully, the website stores the identifier of
+that exact build in `localStorage` on `sidescopes.org`. On a later visit it can
+open the same build from the browser cache without asking again. A new build
+has a new identifier and requires confirmation; clearing site data removes the
+identifier. Browsers may evict cached files, in which case the build is
+downloaded again when it opens.
 
 ## Website and analytics
 

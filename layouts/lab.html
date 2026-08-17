@@ -10,16 +10,13 @@
 {{- if $lab }}
   {{- $labSource := printf "%s/%s/" site.Params.mediaBaseURL $lab.prefix -}}
   {{- if hugo.IsServer }}{{ $labSource = "http://127.0.0.1:8099/" }}{{ end -}}
-  <div id="lab-mount" data-src="{{ $labSource }}">
+  <div id="lab-mount" data-src="{{ $labSource }}"
+       data-wasm-kb="{{ math.Round (div (float $lab.wasmBytes) 1024) }}">
     <noscript>
       <p class="note">SideScopes Lab requires JavaScript and WebAssembly.
       Image analysis runs locally in your browser.</p>
     </noscript>
   </div>
-  <p class="btn-note gap-t-sm">
-    Opening the Lab downloads approximately
-    {{ math.Round (div (float $lab.wasmBytes) 1024) }}&nbsp;KB of WebAssembly.
-  </p>
   {{- with resources.Get "js/lab.js" }}
   {{- $js := . | minify | fingerprint "sha384" }}
 <script src="{{ $js.RelPermalink }}" integrity="{{ $js.Data.Integrity }}" defer></script>

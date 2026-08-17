@@ -1,8 +1,11 @@
-// The browser lab, fetched when asked for and not before.
+// The browser Lab, fetched when asked for and not before - unless this exact,
+// immutable build has already completed loading in this browser.
 //
 // A megabyte of WebAssembly on every visit would be rude to anyone who came
 // to read what the lab IS, so nothing loads until the button is pressed.
-// That is also why the size is stated beside it: the visitor decides.
+// The size is part of that button, where the decision is made. Once a build
+// reaches its ready state, a version-scoped localStorage marker lets later
+// visits use the browser's cache without asking the same question again.
 //
 // The lab is FRAMED rather than rebuilt here. Its own page - the filmstrip,
 // the credit line, the walk-through, the file picker, the boot sequence -
@@ -20,19 +23,36 @@
 
   var box = document.createElement('div');
   box.className = 'lab-box';
-
-  var start = document.createElement('button');
-  start.type = 'button';
-  start.className = 'btn lab-start';
-  start.textContent = 'Open the Lab';
-
-  box.appendChild(start);
   mount.appendChild(box);
 
-  start.addEventListener('click', function () {
-    start.disabled = true;
-    start.textContent = 'Loading…';
+  // The source prefix includes the content digest. A new Lab build therefore
+  // gets a new key and asks again; an old marker can never opt a visitor into
+  // downloading a different binary.
+  var loadedKey = 'sidescopes.lab.loaded:' + mount.dataset.src;
 
+  function wasLoaded() {
+    try {
+      return window.localStorage.getItem(loadedKey) === '1';
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function rememberLoaded() {
+    try {
+      window.localStorage.setItem(loadedKey, '1');
+    } catch (_) {
+      // Storage may be disabled. The Lab still works; the visitor will simply
+      // be asked before it loads on the next visit.
+    }
+  }
+
+  function loadLab(start, label) {
+    if (start) {
+      start.disabled = true;
+      label.textContent = 'Loading…';
+    }
+    box.setAttribute('aria-busy', 'true');
     var frame = document.createElement('iframe');
     frame.className = 'lab-frame';
     frame.src = mount.dataset.src + 'index.html';
@@ -52,7 +72,14 @@
     window.addEventListener('message', function (event) {
       var data = event.data;
       if (event.source !== frame.contentWindow || event.origin !== labOrigin ||
-          !data || data.type !== 'sidescopes-lab-height') {
+          !data) {
+        return;
+      }
+      if (data.type === 'sidescopes-lab-ready') {
+        rememberLoaded();
+        return;
+      }
+      if (data.type !== 'sidescopes-lab-height') {
         return;
       }
       var height = Number(data.height);
@@ -67,10 +94,34 @@
       // show. The frame is inserted ONCE and never moved: reparenting an
       // iframe reloads its document, which here would mean fetching the
       // WebAssembly a second time.
-      start.remove();
+      if (start) {
+        start.remove();
+      }
+      box.removeAttribute('aria-busy');
       box.classList.add('lab-box--running');
     });
 
     box.appendChild(frame);
+  }
+
+  if (wasLoaded()) {
+    loadLab(null, null);
+    return;
+  }
+
+  var start = document.createElement('button');
+  start.type = 'button';
+  start.className = 'btn lab-start';
+  var label = document.createElement('span');
+  label.className = 'lab-start__label';
+  label.textContent = 'Load the Lab';
+  var size = document.createElement('span');
+  size.className = 'lab-start__meta';
+  size.textContent = '≈ ' + mount.dataset.wasmKb + ' KB WebAssembly';
+  start.appendChild(label);
+  start.appendChild(size);
+  start.addEventListener('click', function () {
+    loadLab(start, label);
   });
+  box.appendChild(start);
 })();
