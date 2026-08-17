@@ -1,6 +1,6 @@
 {
-  "_comment": "Written by scripts/lab-upload.sh in the workbench. The prefix is the digest of the .wasm it was built from, so a new build is a new immutable address.",
-  "prefix": "lab/a93e28027e",
-  "wasmBytes": 999232,
+  "_comment": "Written by scripts/lab-upload.sh in the workbench. The prefix digests the complete Lab bundle, so every published build has a new immutable address.",
+  "prefix": "lab/94c398dfeb",
+  "wasmBytes": 999268,
   "built": "2026-08-17"
 }

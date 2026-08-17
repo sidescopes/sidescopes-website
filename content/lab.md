@@ -14,10 +14,10 @@ lede: >-
 
 Choose one of the supplied images or load an image from your computer. The
 striped rectangle is a global region on the Lab’s virtual display: it remains
-fixed when you change images and may extend beyond an image. Only the part
-overlapping the image supplies pixels to the scopes. Move or resize the
-region, choose the scopes you want to see, and use the color and tone controls
-while the traces update.
+fixed when you change images and may extend beyond an image. Image pixels
+beneath the region and black pixels from the surrounding virtual display are
+both measured. Move or resize the region, choose the scopes you want to see,
+and use the color and tone controls while the traces update.
 
 The Lab uses the application’s C++ scope engines and pane renderer, compiled
 to WebAssembly. Its adjustment controls are purpose-built for exploration:

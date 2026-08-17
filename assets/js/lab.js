@@ -57,6 +57,11 @@
     frame.className = 'lab-frame';
     frame.src = mount.dataset.src + 'index.html';
     frame.title = 'SideScopes Lab: interactive color scopes';
+    // The frame is resized to its complete document height below, leaving the
+    // website as the one scroll surface. Some mobile browsers still paint an
+    // iframe scroll indicator for a fractional residual overflow unless the
+    // frame states that contract explicitly.
+    frame.setAttribute('scrolling', 'no');
     // allow-same-origin looks like it weakens this and does not: the frame is
     // already a different origin from this site, so all it grants is the
     // frame's own. Without it the document gets an OPAQUE origin, localStorage

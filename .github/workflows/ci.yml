@@ -42,6 +42,9 @@ jobs:
       - name: Build
         run: hugo --gc --minify --printPathWarnings --cleanDestinationDir
 
+      - name: Lab embed keeps one scroll surface
+        run: scripts/check-lab-embed.sh
+
       # A page that references a screenshot nobody generated would ship a
       # hole. Outside development that is an error, so prove the switch that
       # downgrades it is not left on.
