@@ -100,7 +100,7 @@ main,
 }
 
 .site-nav a.nav-lab {
-  padding: 0.3rem 0.65rem;
+  padding: 0.3rem 1rem;
   border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
   border-radius: 7px;
   color: var(--accent-hover);
@@ -147,6 +147,10 @@ main,
 
   .site-nav a.btn {
     padding-inline: 0.75rem;
+  }
+
+  .site-nav a.nav-lab {
+    padding-inline: 0.8rem;
   }
 
   .site-nav .nav-hide-sm {
