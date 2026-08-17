@@ -12,6 +12,18 @@
 
 {{- if $entries }}
 {{- $first := index $entries 0 -}}
+{{- $captureWidth := int $first.width -}}
+{{- $captureHeight := int $first.height -}}
+{{- with index hugo.Data.media "hero-vectorscope" -}}
+  {{- if ne $captureWidth (int .width) -}}
+    {{- errorf "home-page region captures must match the application carousel width: got %d px, expected %d px" $captureWidth (int .width) -}}
+  {{- end -}}
+{{- end -}}
+{{- range $entry := $entries -}}
+  {{- if or (ne (int $entry.width) $captureWidth) (ne (int $entry.height) $captureHeight) -}}
+    {{- errorf "home-page region captures must share one frame: %s is %dx%d px, expected %dx%d px" $entry.label (int $entry.width) (int $entry.height) $captureWidth $captureHeight -}}
+  {{- end -}}
+{{- end -}}
 <section class="region-showcase" data-carousel data-carousel-item="Region view"
          aria-label="SideScopes region selection modes">
   <header class="region-showcase__header">

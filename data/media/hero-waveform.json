@@ -27,6 +27,7 @@
       520,
       492
     ],
+    "layout_orientation": 0,
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
@@ -38,9 +39,9 @@
     "region_mode": "",
     "content_title": "SideScopes measurement content",
     "show_cursor_markers": false,
-    "app_version": "0.6.0",
-    "app_commit": "76a82a6",
-    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_version": "0.7.0",
+    "app_commit": "9f9abda",
+    "app_describe": "v0.7.0-8-g9f9abda",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"

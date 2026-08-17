@@ -3,7 +3,7 @@
   "alt": "The complete SideScopes window on macOS showing Vectorscope.",
   "caption": "Hue and chroma distribution.",
   "label": "Vectorscope",
-  "base": "shots/hero-vectorscope.fc80564c41",
+  "base": "shots/hero-vectorscope.6567800be7",
   "stable": "shots/hero-vectorscope.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1040,
-  "height": 1144,
+  "height": 984,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope"
@@ -25,22 +25,23 @@
     "derive": [],
     "window_points": [
       520,
-      572
+      492
     ],
+    "layout_orientation": 0,
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
       1040,
-      1144
+      984
     ],
     "presentation": "window",
     "region_mode": "",
     "content_title": "SideScopes measurement content",
     "show_cursor_markers": false,
-    "app_version": "0.6.0",
-    "app_commit": "76a82a6",
-    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_version": "0.7.0",
+    "app_commit": "9f9abda",
+    "app_describe": "v0.7.0-8-g9f9abda",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"

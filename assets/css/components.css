@@ -83,9 +83,9 @@
     grid-template-columns: minmax(0, 1.05fr) minmax(24rem, 0.95fr);
   }
 
-  /* Reserve the tallest window's height at the same scale used by every
-     capture. The invisible grid item keeps the hero and the following page
-     sections fixed while the visible window changes configuration. */
+  /* Reserve the common window frame at the scale used by every capture. The
+     invisible grid item keeps the hero and following sections fixed while the
+     visitor changes configurations. */
   .scope-showcase__header {
     height: 4.25rem;
   }
@@ -249,7 +249,8 @@
 /* Region demonstration: the copy explains the measurement model while the
    real desktop capture proves each selection mode. The screenshot carries its
    own native frame and editing band, so the carousel adds no second card
-   border around it. All three pipeline captures share one 47:35 frame. */
+   border around it. Its displayed width matches the application carousel;
+   changing section sides adds rhythm without changing the screenshot scale. */
 
 .region-feature {
   display: grid;
@@ -267,6 +268,8 @@
 }
 
 .region-showcase {
+  width: 100%;
+  max-width: 34rem;
   min-width: 0;
 }
 
@@ -314,7 +317,7 @@
 
 .region-showcase__stage {
   display: grid;
-  aspect-ratio: 47 / 35;
+  aspect-ratio: 520 / 387;
   min-width: 0;
 }
 
@@ -340,7 +343,17 @@
 
 @media (min-width: 64rem) {
   .region-feature {
-    grid-template-columns: minmax(18rem, 0.72fr) minmax(32rem, 1.28fr);
+    grid-template-columns: minmax(0, 34rem) minmax(18rem, 36rem);
+    justify-content: space-between;
+  }
+
+  .region-feature__copy {
+    grid-column: 2;
+  }
+
+  .region-showcase {
+    grid-column: 1;
+    grid-row: 1;
   }
 }
 

@@ -3,7 +3,7 @@
   "alt": "The complete SideScopes window on macOS showing Color Picker with two pinned references and color-difference measurements.",
   "caption": "Live and pinned samples with CIEDE2000 comparison.",
   "label": "Color Picker",
-  "base": "shots/hero-color-picker.d5d555b0b9",
+  "base": "shots/hero-color-picker.72d2b4e3ab",
   "stable": "shots/hero-color-picker.png",
   "variants": [
     620,
@@ -16,7 +16,7 @@
     "png"
   ],
   "width": 1040,
-  "height": 944,
+  "height": 984,
   "generated": {
     "scopes": [
       "org.sidescopes.colorpicker"
@@ -25,22 +25,23 @@
     "derive": [],
     "window_points": [
       520,
-      472
+      492
     ],
+    "layout_orientation": 0,
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
       1040,
-      944
+      984
     ],
     "presentation": "window",
     "region_mode": "",
     "content_title": "SideScopes measurement content",
     "show_cursor_markers": false,
-    "app_version": "0.6.0",
-    "app_commit": "76a82a6",
-    "app_describe": "v0.6.0-24-g76a82a6",
+    "app_version": "0.7.0",
+    "app_commit": "9f9abda",
+    "app_describe": "v0.7.0-8-g9f9abda",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"

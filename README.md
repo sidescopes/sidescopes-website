@@ -7,8 +7,13 @@ analytics beacon — which is itself behind four gates.
 ## Develop
 
 ```console
-$ hugo server
+$ hugo server --renderToMemory
 ```
+
+Rendering the preview in memory is required. A production `hugo` build writes
+to `public/`; without this flag it can overwrite the files a running
+development server is serving, replacing local `/_media` screenshot URLs with
+not-yet-published production URLs.
 
 The development server does not apply Cloudflare Pages' `static/_headers`.
 In particular, production rejects inline styles. CI runs

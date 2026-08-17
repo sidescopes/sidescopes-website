@@ -1,10 +1,10 @@
 {
-  "name": "hero-histogram",
-  "alt": "The complete SideScopes window on macOS showing a per-channel histogram.",
-  "caption": "Channel distributions independent of image position.",
-  "label": "Histogram",
-  "base": "shots/hero-histogram.bf5514c862",
-  "stable": "shots/hero-histogram.png",
+  "name": "hero-parade-luma",
+  "alt": "The SideScopes window showing RGB Parade and Luma Waveform side by side, both measuring the same region of the screen.",
+  "caption": "Scopes can be stacked in different arrangements to suit the window and the task.",
+  "label": "RGB Parade + Luma Waveform",
+  "base": "shots/hero-parade-luma.0a2ac2d03b",
+  "stable": "shots/hero-parade-luma.png",
   "variants": [
     620,
     930,
@@ -19,15 +19,16 @@
   "height": 984,
   "generated": {
     "scopes": [
-      "org.sidescopes.histogram"
+      "org.sidescopes.parade",
+      "org.sidescopes.waveform.luma"
     ],
-    "reference_image": "neutral-detail.jpg",
+    "reference_image": "wide-tonal-range.jpg",
     "derive": [],
     "window_points": [
       520,
       492
     ],
-    "layout_orientation": 0,
+    "layout_orientation": 2,
     "backing_scale": 2.0,
     "crop_box_px": [
       0,

@@ -3,57 +3,52 @@
   "alt": "A face in a sample photograph enclosed by SideScopes' striped editable region boundary.",
   "caption": "Uses a detected face as a geometric anchor and follows it within the window.",
   "label": "Face selection",
-  "base": "shots/region-face.b568b55c36",
+  "base": "shots/region-face.d73af21844",
   "stable": "shots/region-face.png",
   "variants": [
     620,
     930,
-    1240
+    1040
   ],
   "formats": [
     "avif",
     "webp",
     "png"
   ],
-  "width": 1240,
-  "height": 923,
+  "width": 1040,
+  "height": 774,
   "generated": {
     "scopes": [
       "org.sidescopes.vectorscope",
       "org.sidescopes.waveform"
     ],
-    "reference_image": "historic-face.jpg",
+    "reference_image": "skin-and-colour.jpg",
     "derive": [
       "-crop",
-      "700x650+70+25",
+      "2600x1742+3300+1700",
       "+repage",
       "-resize",
-      "1100x900",
-      "-background",
-      "#181512",
-      "-gravity",
-      "center",
-      "-extent",
-      "1800x1000"
+      "976x654"
     ],
     "window_points": [
-      752,
-      560
+      520,
+      387
     ],
+    "layout_orientation": 0,
     "backing_scale": 2.0,
     "crop_box_px": [
       0,
       0,
-      1504,
-      1120
+      1040,
+      774
     ],
     "presentation": "region",
     "region_mode": "face",
-    "content_title": "Portrait, 1860",
+    "content_title": "Worker portrait, 1942",
     "show_cursor_markers": false,
-    "app_version": "0.6.0",
-    "app_commit": "77a0871",
-    "app_describe": "v0.6.0-27-g77a0871",
+    "app_version": "0.7.0",
+    "app_commit": "9f9abda",
+    "app_describe": "v0.7.0-8-g9f9abda",
     "app_tree_clean": true,
     "os": "26.5.2",
     "system_appearance": "dark"

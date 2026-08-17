@@ -4,8 +4,8 @@
 
        With JavaScript unavailable the first view remains complete. The small
        controller only swaps `hidden` attributes: no carousel dependency or
-       autoplay. Every capture uses the same source-pixel scale, while taller
-       window layouts extend the stage instead of being cropped. */ -}}
+       autoplay. Every capture has the same source-pixel dimensions, keeping
+       the application chrome and the surrounding hero layout fixed. */ -}}
 {{- $names := slice
   "hero-vectorscope"
   "hero-waveform"
@@ -13,30 +13,24 @@
   "hero-parade"
   "hero-histogram"
   "hero-color-picker"
-  "hero-scopes" -}}
+  "hero-scopes"
+  "hero-parade-luma" -}}
 {{- $entries := slice -}}
 {{- range $names -}}
   {{- with index hugo.Data.media . -}}
     {{- $entries = $entries | append . -}}
   {{- end -}}
 {{- end -}}
-{{- $widest := 1 -}}
-{{- $tallest := 1 -}}
-{{- range $entries -}}
-  {{- if gt (int .width) $widest -}}
-    {{- $widest = int .width -}}
-  {{- end -}}
-  {{- if gt (int .height) $tallest -}}
-    {{- $tallest = int .height -}}
-  {{- end -}}
-{{- end -}}
-
 {{- if $entries }}
 {{- $first := index $entries 0 -}}
 {{- $captureWidth := int $first.width -}}
+{{- $captureHeight := int $first.height -}}
 {{- range $entry := $entries -}}
   {{- if ne (int $entry.width) $captureWidth -}}
     {{- errorf "home-page window captures must share one width: %s is %d px, expected %d px" $entry.label (int $entry.width) $captureWidth -}}
+  {{- end -}}
+  {{- if ne (int $entry.height) $captureHeight -}}
+    {{- errorf "home-page window captures must share one height: %s is %d px, expected %d px" $entry.label (int $entry.height) $captureHeight -}}
   {{- end -}}
 {{- end -}}
 <section class="scope-showcase" data-carousel data-carousel-item="Configuration"
@@ -66,13 +60,13 @@
     {{- end }}
   </header>
   <div class="scope-showcase__stage">
-    {{- /* The intrinsic SVG ratio reserves the tallest capture without an
+    {{- /* The intrinsic SVG ratio reserves the capture frame without an
            inline style. Cloudflare's production CSP deliberately rejects
            inline styles, while Hugo's development server does not apply the
            _headers file. Keep dynamic geometry in HTML dimensions so local
            and deployed layout cannot diverge. */}}
-    <svg class="scope-showcase__sizer" viewBox="0 0 {{ $widest }} {{ $tallest }}"
-         width="{{ $widest }}" height="{{ $tallest }}"
+    <svg class="scope-showcase__sizer" viewBox="0 0 {{ $captureWidth }} {{ $captureHeight }}"
+         width="{{ $captureWidth }}" height="{{ $captureHeight }}"
          aria-hidden="true" focusable="false"></svg>
     {{- range $index, $entry := $entries }}
       {{- $base := printf "%s/%s" (partial "media-base.html" $) $entry.base -}}
