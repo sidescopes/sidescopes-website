@@ -141,34 +141,183 @@ main,
   color: var(--accent-ink);
 }
 
+.mobile-nav {
+  display: none;
+}
+
 @media (max-width: 34rem) {
   .site-header .wrap {
-    flex-wrap: wrap;
-    gap: 0.45rem;
-    padding-block: 0.65rem 0.55rem;
+    position: relative;
+    min-height: 3.75rem;
   }
 
   .site-nav {
-    width: 100%;
-    margin-left: 0;
-    justify-content: space-between;
-    gap: 0.5rem;
-  }
-
-  .site-nav a {
-    font-size: 0.875rem;
-  }
-
-  .site-nav a.btn {
-    padding-inline: 0.75rem;
-  }
-
-  .site-nav a.nav-lab {
-    padding-inline: 0.75rem;
-  }
-
-  .site-nav .nav-hide-sm {
     display: none;
+  }
+
+  .mobile-nav {
+    display: block;
+    position: relative;
+    margin-left: auto;
+  }
+
+  .mobile-nav > summary {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.55rem 0.7rem;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    color: var(--ink-2);
+    cursor: pointer;
+    font-size: 0.875rem;
+    font-weight: 650;
+    line-height: 1;
+    list-style: none;
+  }
+
+  .mobile-nav > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .mobile-nav > summary:hover,
+  .mobile-nav[open] > summary {
+    border-color: var(--line-strong);
+    background: var(--surface);
+    color: var(--ink);
+  }
+
+  .mobile-nav > summary:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+
+  .mobile-nav__icon,
+  .mobile-nav__icon::before,
+  .mobile-nav__icon::after,
+  .mobile-nav__icon > span {
+    width: 1rem;
+  }
+
+  .mobile-nav__icon {
+    position: relative;
+    height: 0.75rem;
+  }
+
+  .mobile-nav__icon::before,
+  .mobile-nav__icon::after,
+  .mobile-nav__icon > span {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 1.5px;
+    border-radius: 1px;
+    background: currentColor;
+    transition: transform 140ms ease, opacity 100ms ease;
+  }
+
+  .mobile-nav__icon::before {
+    top: 0;
+  }
+
+  .mobile-nav__icon > span {
+    top: 0.3125rem;
+  }
+
+  .mobile-nav__icon::after {
+    bottom: 0;
+  }
+
+  .mobile-nav[open] .mobile-nav__icon::before {
+    transform: translateY(0.3125rem) rotate(45deg);
+  }
+
+  .mobile-nav[open] .mobile-nav__icon > span {
+    opacity: 0;
+  }
+
+  .mobile-nav[open] .mobile-nav__icon::after {
+    transform: translateY(-0.3125rem) rotate(-45deg);
+  }
+
+  .mobile-nav__panel {
+    position: absolute;
+    top: calc(100% + 0.5rem);
+    right: 0;
+    width: min(20rem, calc(100vw - 2 * var(--gutter)));
+    padding: 0.5rem;
+    border: 1px solid var(--line-strong);
+    border-radius: 12px;
+    background: var(--surface);
+    box-shadow: var(--shadow);
+  }
+
+  .mobile-nav__links {
+    display: grid;
+  }
+
+  .mobile-nav__links a {
+    min-height: 2.75rem;
+    display: flex;
+    align-items: center;
+    padding-inline: 0.75rem;
+    border-radius: 7px;
+    color: var(--ink-2);
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 550;
+  }
+
+  .mobile-nav__links a:hover,
+  .mobile-nav__links a[aria-current="true"] {
+    background: var(--surface-2);
+    color: var(--ink);
+  }
+
+  .mobile-nav__links a[aria-current="true"] {
+    font-weight: 650;
+  }
+
+  .mobile-nav__actions {
+    display: grid;
+    grid-template-columns: 1fr 1.35fr;
+    gap: 0.4rem;
+    margin-top: 0.45rem;
+    padding-top: 0.55rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .mobile-nav__actions a {
+    min-height: 2.75rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 0.9375rem;
+    font-weight: 650;
+  }
+
+  .mobile-nav__lab {
+    border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
+    color: var(--accent-hover);
+  }
+
+  .mobile-nav__lab:hover,
+  .mobile-nav__lab[aria-current="true"] {
+    border-color: var(--accent);
+    background: var(--accent-wash);
+  }
+
+  .mobile-nav__download {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  .mobile-nav__download:hover {
+    background: var(--accent-hover);
+    color: var(--accent-ink);
   }
 }
 

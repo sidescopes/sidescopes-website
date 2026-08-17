@@ -16,5 +16,24 @@
         <a class="btn" href="/download/">Download</a>
       </span>
     </nav>
+    <details class="mobile-nav">
+      <summary>
+        <span>Menu</span>
+        <span class="mobile-nav__icon" aria-hidden="true"><span></span></span>
+      </summary>
+      <nav class="mobile-nav__panel" aria-label="Site">
+        <div class="mobile-nav__links">
+          {{- range site.Menus.main }}
+          <a href="{{ .URL }}"
+             {{- if $.IsMenuCurrent "main" . }} aria-current="true"
+             {{- else if $.HasMenuCurrent "main" . }} aria-current="true"{{ end }}>{{ .Name }}</a>
+          {{- end }}
+        </div>
+        <div class="mobile-nav__actions" role="group" aria-label="Use SideScopes">
+          <a class="mobile-nav__lab" href="/lab/"{{ if eq .RelPermalink "/lab/" }} aria-current="true"{{ end }}>Lab</a>
+          <a class="mobile-nav__download" href="/download/">Download</a>
+        </div>
+      </nav>
+    </details>
   </div>
 </header>
