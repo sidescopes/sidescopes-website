@@ -48,6 +48,9 @@ jobs:
       - name: Lab embed keeps one scroll surface
         run: scripts/check-lab-embed.sh
 
+      - name: Lighthouse accessibility and quality checks
+        run: scripts/check-lighthouse.sh
+
       # A page that references a screenshot nobody generated would ship a
       # hole. Outside development that is an error, so prove the switch that
       # downgrades it is not left on.

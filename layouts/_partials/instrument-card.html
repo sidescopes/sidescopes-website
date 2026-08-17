@@ -8,8 +8,7 @@
 {{- $widths := apply $entry.variants "int" "." -}}
 {{- $largest := index $widths (sub (len $widths) 1) -}}
 {{- $sizes := "(min-width: 70rem) 24rem, (min-width: 42rem) 46vw, 92vw" -}}
-{{- $titleID := printf "instrument-%s" $instrument.shot -}}
-<a class="instrument-card" href="{{ $instrument.guide }}" aria-labelledby="{{ $titleID }}">
+<a class="instrument-card" href="{{ $instrument.guide }}">
   <div class="instrument-card__media" aria-hidden="true">
     <picture>
       {{- range $format := $entry.formats }}
@@ -27,7 +26,7 @@
     </picture>
   </div>
   <div class="instrument-card__body">
-    <h3 id="{{ $titleID }}">
+    <h3>
       <span>{{ $instrument.name }}</span>
       <span class="instrument-card__arrow" aria-hidden="true">→</span>
     </h3>

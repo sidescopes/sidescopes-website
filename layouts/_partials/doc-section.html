@@ -40,7 +40,7 @@
     <div class="grid grid--2 gap-t-lg">
       {{- range $pages }}
       <a class="card card--link" href="{{ .RelPermalink }}">
-        <h3>{{ .LinkTitle }}</h3>
+        <h2>{{ .LinkTitle }}</h2>
         <p>{{ with .Description }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}</p>
       </a>
       {{- end }}

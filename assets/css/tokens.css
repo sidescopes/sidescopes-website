@@ -30,6 +30,8 @@
   --ink: #f2eeec;
   --ink-2: #b0a9a5;
   --ink-3: #8a827e;
+  /* Muted text on --surface-2 needs a little more luminance than --ink-3. */
+  --ink-3-on-surface-2: #968e89;
 
   --accent: #8ea2ff;
   --accent-hover: #a8b8ff;

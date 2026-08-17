@@ -359,8 +359,15 @@
   padding: 1.35rem 1.4rem;
 }
 
-.card h3 {
+.card :is(h2, h3) {
   margin-bottom: 0.5rem;
+}
+
+.card h2 {
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.005em;
 }
 
 .card p {
@@ -385,7 +392,7 @@
   color: inherit;
 }
 
-.card--link h3 {
+.card--link :is(h2, h3) {
   color: var(--accent);
 }
 
@@ -757,13 +764,17 @@
   box-shadow: 0 0 0 3px var(--accent-wash);
 }
 
-.dl-card h3 {
+.dl-card h2 {
   display: flex;
   align-items: center;
   gap: 0.55rem;
+  font-family: var(--sans);
+  font-size: 1.2rem;
+  font-weight: 650;
+  letter-spacing: -0.005em;
 }
 
-.dl-card h3 svg {
+.dl-card h2 svg {
   width: 1.25rem;
   height: 1.25rem;
   color: var(--ink-2);
@@ -847,17 +858,20 @@
   padding-top: 0;
 }
 
-.post-list h3 {
+.post-list h2 {
+  font-family: var(--sans);
   font-size: 1.1875rem;
+  font-weight: 650;
+  letter-spacing: -0.005em;
   margin-bottom: 0.4rem;
 }
 
-.post-list h3 a {
+.post-list h2 a {
   text-decoration: none;
   color: var(--ink);
 }
 
-.post-list h3 a:hover {
+.post-list h2 a:hover {
   color: var(--accent);
 }
 
@@ -1010,7 +1024,7 @@
   font-size: 0.6875rem;
   font-weight: 500;
   letter-spacing: 0;
-  opacity: 0.72;
+  opacity: 0.8;
 }
 
 /* The iframe reaches its ordinary load event before its scope engines and

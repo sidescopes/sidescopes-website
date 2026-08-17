@@ -11,7 +11,7 @@
   <div class="grid grid--2 gap-t-lg">
     {{- range .RegularPages }}
     <a class="card card--link" href="{{ .RelPermalink }}">
-      <h3>{{ .LinkTitle }}</h3>
+      <h2>{{ .LinkTitle }}</h2>
       <p>{{ .Description | default .Summary }}</p>
     </a>
     {{- end }}

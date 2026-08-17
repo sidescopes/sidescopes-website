@@ -22,7 +22,7 @@
         <span class="badge badge--release">Release</span>
         {{- end }}
       </p>
-      <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      <h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
       <p>{{ with .Description }}{{ . | markdownify }}{{ else }}{{ .Summary }}{{ end }}</p>
     </li>
     {{- end }}

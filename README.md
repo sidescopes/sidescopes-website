@@ -25,6 +25,17 @@ shot and before anything is uploaded. See **Screenshots** below.
 $ hugo --gc --minify --cleanDestinationDir
 ```
 
+CI also runs Lighthouse against the built versions of each distinct page
+template. To run the same stable accessibility, best-practices, and SEO checks
+locally:
+
+```sh
+$ scripts/check-lighthouse.sh
+```
+
+Performance is measured separately rather than used as a CI threshold because
+the public media origin and runner scheduling make timing scores variable.
+
 The site lands in `public/`. Cleaning the destination is required so a page
 removed from the source cannot survive in a restored deployment directory.
 
