@@ -11,7 +11,10 @@
          {{- else if $.HasMenuCurrent "main" . }} aria-current="true"{{ end }}
          {{- with .Params.class }} class="{{ . }}"{{ end }}>{{ .Name }}</a>
       {{- end }}
-      <a class="btn" href="/download/">Download</a>
+      <span class="site-actions" role="group" aria-label="Use SideScopes">
+        <a class="nav-lab" href="/lab/"{{ if eq .RelPermalink "/lab/" }} aria-current="true"{{ end }}>Lab</a>
+        <a class="btn" href="/download/">Download</a>
+      </span>
     </nav>
   </div>
 </header>

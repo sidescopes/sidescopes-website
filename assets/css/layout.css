@@ -99,8 +99,18 @@ main,
   font-weight: 650;
 }
 
+.site-actions {
+  display: inline-flex;
+  align-items: stretch;
+  gap: 0.35rem;
+}
+
 .site-nav a.nav-lab {
-  padding: 0.3rem 1rem;
+  min-height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 0.95rem;
   border: 1px solid color-mix(in srgb, var(--accent) 55%, var(--line));
   border-radius: 7px;
   color: var(--accent-hover);
@@ -118,8 +128,12 @@ main,
    has to be restated here or the link color wins and the label vanishes
    into the fill. */
 .site-nav a.btn {
+  min-height: 2.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 0.875rem;
-  padding: 0.4rem 0.85rem;
+  padding: 0.4rem 0.95rem;
   color: var(--accent-ink);
 }
 
@@ -150,7 +164,7 @@ main,
   }
 
   .site-nav a.nav-lab {
-    padding-inline: 0.8rem;
+    padding-inline: 0.75rem;
   }
 
   .site-nav .nav-hide-sm {
