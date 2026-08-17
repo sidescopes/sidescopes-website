@@ -42,6 +42,9 @@ jobs:
       - name: Build
         run: hugo --gc --minify --printPathWarnings --cleanDestinationDir
 
+      - name: Generated styles match the production CSP
+        run: scripts/check-csp-styles.sh
+
       - name: Lab embed keeps one scroll surface
         run: scripts/check-lab-embed.sh
 

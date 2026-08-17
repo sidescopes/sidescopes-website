@@ -10,6 +10,11 @@ analytics beacon — which is itself behind four gates.
 $ hugo server
 ```
 
+The development server does not apply Cloudflare Pages' `static/_headers`.
+In particular, production rejects inline styles. CI runs
+`scripts/check-csp-styles.sh` against the generated site so a template cannot
+work locally by relying on a style that the deployed CSP will discard.
+
 Screenshots are served from R2 in production and from a local mount under
 `hugo server`, so a page can be reviewed the moment the pipeline writes a
 shot and before anything is uploaded. See **Screenshots** below.

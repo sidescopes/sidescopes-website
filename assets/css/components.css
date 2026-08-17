@@ -67,6 +67,10 @@
   align-items: center;
 }
 
+.scope-showcase__sizer {
+  display: none;
+}
+
 /* Two columns only when the screenshot pipeline has produced the application
    sequence. The larger second column makes the complete window legible rather
    than treating it as a decorative thumbnail. */
@@ -86,13 +90,14 @@
     display: grid;
   }
 
-  .scope-showcase__stage::before {
-    content: "";
+  .scope-showcase__sizer {
+    display: block;
     grid-area: 1 / 1;
     width: min(100%, 34rem);
-    aspect-ratio: var(--showcase-stage-ratio);
+    height: auto;
     margin-inline: auto;
     visibility: hidden;
+    pointer-events: none;
   }
 
   .scope-showcase__slide {
@@ -187,7 +192,7 @@
 
 .scope-showcase__slide picture {
   display: block;
-  width: min(var(--showcase-width), var(--showcase-max-width));
+  width: min(100%, 34rem);
   margin-inline: auto;
 }
 
